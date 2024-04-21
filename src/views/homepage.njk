@@ -1,0 +1,8 @@
+{% extends "wrapper.njk" %}
+
+{% block content %}
+{{ content }}
+{% for article in collections.articles %}
+  {{ article.title }}
+{% endfor %}
+{% endblock %}

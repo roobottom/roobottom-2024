@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-gb" data-scroll="0">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }} -  Jon’s website</title>
+        
+        <link rel="token_endpoint" href="https://indiekit.roobottom.com/auth/token">
+        <link rel="me" href="https://github.com/roobottom">
+
+        <link rel="webmention" href="https://webmention.io/roobottom.com/webmention" />
+        <link rel="pingback" href="https://webmention.io/roobottom.com/xmlrpc" />
+        
+        {# {% include './_stylesheets.njk' %} #}
+        
+        <link rel="alternate" type="application/atom+xml" title="RSS feed for Jon’s website" href="/feed.xml" />
+    </head>
+    <body class="no-js section-{{ section_id }}">
+        <nav class="accessibility-menu container">
+          <a href="#main">Skip to content</a>
+        </nav>
+        <header class="site-header">
+            <nav class="container navigation" aria-label="Main">
+            <a href="/" class="navigation__sitename" aria-labelledby="sitename">
+                Jon’s website <span class="visually-hidden">homepage</span>
+            </a>
+            <ul class="navigation__items">
+                {% for item in navigation.main %}
+                    <li><a href="{{ item.url }}"{% if item.id == section_id %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+            </nav>
+        </header>
+        <main class="container {{ container_type }}" id="main">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer class="container site-footer">
+            <div class="site-footer-content">
+                <p>&copy; Jon Roobottom</p>
+            </div>
+            <ul class="site-footer-items">
+            </ul>
+        </footer>
+        <script src="/assets/js/app.js"></script>
+        <script src="{{ global.cdn }}prismjs@v1.x/components/prism-core.min.js"></script>
+	      <script src="{{ global.cdn }}prismjs@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
+    </body>
+</html>

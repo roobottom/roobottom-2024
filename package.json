@@ -1,0 +1,35 @@
+{
+  "name": "roobottom-com",
+  "version": "2024.0.0",
+  "description": "Jon’s Website, built in 2024",
+  "main": "server.js",
+  "nodemonConfig": {
+    "watch": [
+      "lib",
+      "src",
+      "app.js"
+    ],
+    "ext": "js,njk,json"
+  },
+  "scripts": {
+    "build": "node build",
+    "server": "node server",
+    "watch:build": "nodemon --watch 'src/**/*' --exec 'npm run build'",
+    "watch:server": "nodemon --watch 'src/**/*' --watch 'server/**/*' --exec 'npm run server'",
+    "dev": "concurrently \"npm:watch:build\" \"npm:watch:server\""
+  },
+  "author": "Jon Roobottom",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-attrs": "^4.1.6",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
