@@ -2,16 +2,26 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 const path = require('path');
+const dataMiddleware = require('./lib/data');
+const filters = require('./lib/filters');
 
 // Configure Nunjucks
-nunjucks.configure(['src/views', 'src/layouts', 'src/components'], {
+const env = nunjucks.configure(['src/views', 'src/layouts', 'src/components'], {
   autoescape: true,
   express: app
 });
 app.set('view engine', 'njk');
 
+// Apply each filter from the imported filters module
+Object.keys(filters).forEach(filterName => {
+  env.addFilter(filterName, filters[filterName]);
+});
+
 // Serve static files
 app.use(express.static(path.join(__dirname, 'assets')));
+
+//load global data
+app.use(dataMiddleware);
 
 //load collections
 app.use((req, res, next) => {
