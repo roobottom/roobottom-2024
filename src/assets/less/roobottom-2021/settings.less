@@ -1,0 +1,72 @@
+@centered: true;
+
+@font-default: 'debut', sans-serif;
+@font-heading: 'bely', serif;
+@font-alt: 'DM Mono', monospace;
+
+.make-colours(@basecolour, @variablestub, @alpha) when (@alpha > 0) {
+  @{variablestub}-@{alpha}: fade(@basecolour, unit(@alpha, %));
+  .make-colours(@basecolour, @variablestub, @alpha - 10);
+}
+
+:root {
+
+  //theme colours
+  --c-yellow: #FFC432;
+  .make-colours(#FFC432, --c-yellow, 100);
+
+  --c-orange: #FF5D1A;
+  .make-colours(#FF5D1A, --c-orange, 100);
+
+  --c-blue: #30BCED;
+  .make-colours(#30BCED, --c-blue, 100);
+
+  --c-pink: #F00699;
+  .make-colours(#F00699, --c-pink, 100);
+
+  //core colours
+  --c-text: #333333;
+  --c-text-light: #666666;
+  --c-border: var(--c-blue);
+
+  --c-link: #333333;
+  --c-link-hover: var(--c-pink);
+  --c-link-focus: var(--c-pink);
+
+  //component common colours
+  --c-component-background: white;
+  --c-component-background-tint: #F1F1F1;
+
+  --box-shadow: 0 0 10px fade(black, 20%);
+  --border-radius: 5px;
+
+  //specific component settings
+
+  //typography colours ---
+  // --------------------
+
+  //callouts
+  --c-callout-background: var(--c-yellow-10);
+  --c-callout-border: var(--c-yellow);
+
+  //code
+  --c-code-background: #f5f5f5;
+  --c-code-border: #e0e0e0;
+ 
+  //hr
+  --c-hr: var(--c-pink);
+
+  //tables
+  --c-table-border: #e0e0e0;
+  --c-table-background: #f5f5f5;
+  --table-padding: var(--space-s);
+
+  //component settings ---
+  // --------------------
+  --breadcrumbs-link: var(--c-link);
+  --breadscrumbs-link-hover: var(--c-link-hover);
+  --breadcrumbs-link-focus: var(--c-link-focus);
+  --breadcrumbs-link-underline: underline;
+  --c-breadscrumbs-arrow: var(--c-pink);
+
+}

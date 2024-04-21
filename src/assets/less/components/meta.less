@@ -1,0 +1,19 @@
+.meta {
+  color: var(--c-grey-dark);
+  #type.family.alt;
+  font-size: var(--step--1);
+
+  dt {
+    font-weight: bold;
+  }
+
+  a {
+    #type.style.link(var(--c-grey-dark), @underline: underline);
+  }
+
+
+  &-item:not(:first-child):not(:only-of-type) {
+    margin-top: var(--space-xs);
+  }
+
+}

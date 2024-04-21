@@ -18,7 +18,7 @@ Object.keys(filters).forEach(filterName => {
 });
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static('./src/assets'));
 
 //load global data
 app.use(dataMiddleware);

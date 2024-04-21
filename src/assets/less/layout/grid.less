@@ -1,0 +1,16 @@
+.generate-grid-columns(@n, @max-columns) when (@n <=@max-columns) {
+  .grid-column--x@{n} {
+    grid-column: span @n;
+  }
+  .generate-grid-columns(@n + 1, @max-columns);
+}
+
+.generate-grid-columns(1, @grid-columns);
+
+@media @bp[max] {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(@grid-columns, 1fr); 
+    gap: @grid-gap;
+  }
+}

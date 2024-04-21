@@ -1,0 +1,128 @@
+#space {
+  .make(@modifier: 1, @name) {
+      @min: @type-min-size * @modifier;
+      @max: @type-max-size * @modifier;
+      :root {
+          --space-@{name}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
+      }
+      #space > .class(margin, top, @name);
+      #space > .class(margin, bottom, @name);
+      #space > .class(margin, left, @name);
+      #space > .class(margin, right, @name);
+      #space > .class(margin, all, @name);
+      #space > .class(padding, top, @name);
+      #space > .class(padding, bottom, @name);
+      #space > .class(padding, left, @name);
+      #space > .class(padding, right, @name);
+      #space > .class(padding, all, @name);
+  }
+  .range(@attr, @min-name, @max-name) {
+    @min: @type-min-size * @spacing[@@min-name];
+    @max: @type-max-size * @spacing[@@max-name];
+    @{attr}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
+  }
+  .class(@type, @direction, @size) when not (@direction = all) {
+    .space--@{type}-@{direction}-@{size} {
+      @{type}-@{direction}: ~"var(--space-@{size})";
+    }
+  }
+  .class(@type, @direction, @size) when (@direction = all) {
+    .space--@{type}-@{direction}-@{size} {
+      @{type}: ~"var(--space-@{size})";
+    }
+  }
+}
+
+#bleed {
+  .class(@name, @direction, @prefix: ~"") when not (@direction = both) {
+    .@{prefix}bleed-@{direction}-@{name} {
+      margin-@{direction}: ~"calc(-1 * var(--space-@{name}))";
+      width: ~"calc(100% + var(--space-@{name}))";
+    }
+  }
+  .class(@name, @direction, @prefix: ~"") when (@direction = both) {
+    .@{prefix}bleed-@{direction}-@{name} {
+      margin-left: ~"calc(-1 * var(--space-@{name}))";
+      margin-right: ~"calc(-1 * var(--space-@{name}))";
+      width: ~"calc(100% + (2 * var(--space-@{name})))";
+    }
+  }
+}
+
+#space > .make(@spacing[@xxs], xxs);
+#space > .make(@spacing[@xs], xs);
+#space > .make(@spacing[@s], s);
+#space > .make(@spacing[@m], m);
+#space > .make(@spacing[@l], l);
+#space > .make(@spacing[@xl], xl);
+#space > .make(@spacing[@xxl], xxl);
+
+#bleed > .class(xxs, left);
+#bleed > .class(xxs, right);
+#bleed > .class(xxs, both);
+#bleed > .class(xs, left);
+#bleed > .class(xs, right);
+#bleed > .class(xs, both);
+#bleed > .class(s, left);
+#bleed > .class(s, right);
+#bleed > .class(s, both);
+#bleed > .class(m, left);
+#bleed > .class(m, right);
+#bleed > .class(m, both);
+#bleed > .class(l, left);
+#bleed > .class(l, right);
+#bleed > .class(l, both);
+#bleed > .class(xl, left);
+#bleed > .class(xl, right);
+#bleed > .class(xl, both);
+#bleed > .class(xxl, left);
+#bleed > .class(xxl, right);
+#bleed > .class(xxl, both);
+
+@media @bp[mid] {
+  #bleed > .class(xxs, left, mid-);
+  #bleed > .class(xxs, right, mid-);
+  #bleed > .class(xxs, both, mid-);
+  #bleed > .class(xs, left, mid-);
+  #bleed > .class(xs, right, mid-);
+  #bleed > .class(xs, both, mid-);
+  #bleed > .class(s, left, mid-);
+  #bleed > .class(s, right, mid-);
+  #bleed > .class(s, both, mid-);
+  #bleed > .class(m, left, mid-);
+  #bleed > .class(m, right, mid-);
+  #bleed > .class(m, both, mid-);
+  #bleed > .class(l, left, mid-);
+  #bleed > .class(l, right, mid-);
+  #bleed > .class(l, both, mid-);
+  #bleed > .class(xl, left, mid-);
+  #bleed > .class(xl, right, mid-);
+  #bleed > .class(xl, both, mid-);
+  #bleed > .class(xxl, left, mid-);
+  #bleed > .class(xxl, right, mid-);
+  #bleed > .class(xxl, both, mid-);
+}
+
+@media @bp[max] {
+#bleed > .class(xxs, left, max-);
+#bleed > .class(xxs, right, max-);
+#bleed > .class(xxs, both, max-);
+#bleed > .class(xs, left, max-);
+#bleed > .class(xs, right, max-);
+#bleed > .class(xs, both, max-);
+#bleed > .class(s, left, max-);
+#bleed > .class(s, right, max-);
+#bleed > .class(s, both, max-);
+#bleed > .class(m, left, max-);
+#bleed > .class(m, right, max-);
+#bleed > .class(m, both, max-);
+#bleed > .class(l, left, max-);
+#bleed > .class(l, right, max-);
+#bleed > .class(l, both, max-);
+#bleed > .class(xl, left, max-);
+#bleed > .class(xl, right, max-);
+#bleed > .class(xl, both, max-);
+#bleed > .class(xxl, left, max-);
+#bleed > .class(xxl, right, max-);
+#bleed > .class(xxl, both, max-);
+}

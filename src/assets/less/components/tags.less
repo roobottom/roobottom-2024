@@ -1,0 +1,28 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-item {
+    margin-right: var(--space-s);
+    margin-bottom: var(--space-s);
+  }
+
+}
+
+
+
+.tag {
+  #type.style.link(@underline: none);
+
+  &-title {
+    font-size: var(--step-1);
+  }
+
+  &-count {
+    color: var(--c-text-light);
+    font-size: var(--step--1);
+    #type.family.alt;
+    text-decoration: none;
+  }
+
+}

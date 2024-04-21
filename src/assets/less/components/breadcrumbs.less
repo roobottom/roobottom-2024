@@ -1,0 +1,33 @@
+.breadcrumbs {
+  font-size: var(--step--1);
+  #type.family.alt;
+  a {
+    #type.style.link(@color: var(--breadcrumbs-link), @hover: var(--breadcrumbs-link-hover), @focus: var(--breadcrumbs-link-focus), @underline: var(--breadcrumbs-link-underline));
+  }
+  ol {
+    list-style: none;
+    display: flex;
+  }
+  li {
+    position: relative;
+    color: var(--c-grey-dark);
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 2px;
+      bottom: 0;
+      right: -10px;
+      width: 7px;
+      height: 7px;
+      margin: auto 0;
+      transform: rotate(45deg);
+      border: solid;
+      border-width: 1px 1px 0 0;
+      border-color: var(--c-breadscrumbs-arrow);
+    }
+  }
+}

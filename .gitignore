@@ -1,3 +1,4 @@
 /node_modules
 .DS_Store
 /collections
+/src/assets/css

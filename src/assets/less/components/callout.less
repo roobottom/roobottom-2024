@@ -1,0 +1,11 @@
+.callout {
+  background-color: var(--c-callout-background);
+  border: 1px solid var(--c-callout-border);
+  border-left-width: 5px;
+  #container.prose-flow;
+  padding: var(--space-xs) var(--space-s);
+  margin-left: calc(-1 * (var(--space-s) + 5px));
+  & >* {
+    color: var(--c-callout-text);
+  }
+}

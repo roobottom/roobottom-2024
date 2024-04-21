@@ -1,0 +1,30 @@
+.list {
+  list-style: none;
+  gap: var(--space-m);
+  #container.prose-flow;
+
+  li:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  li {
+    &:not(:only-child) {
+      margin-bottom: var(--space-m);
+      padding-bottom: var(--space-m);
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--c-border);
+    }
+  }
+}
+
+
+@media @bp[max] {
+  .grid {
+    display: grid;
+    grid-template-columns: 17rem var(--line-length);
+    gap: var(--space-xl);
+  }
+}

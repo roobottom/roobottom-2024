@@ -1,0 +1,41 @@
+img {
+  max-width: 100%;
+  display: block;
+}
+
+figure {
+  >img {
+    width: calc(100% + 2 * var(--space-m));
+    margin-left: calc(-1 * var(--space-m));
+    max-width: none;
+
+    @media @bp[mid] {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  a {
+    display: block;
+  }
+
+  &.shadow>img {
+    box-shadow: 0 0 20px fade(black, 10%);
+  }
+
+  &.right {
+    float: right;
+    margin-left: var(--space-s);
+    margin-bottom: var(--space-s);
+    max-width: 50%;
+  }
+
+}
+
+figcaption {
+  font-size: var(--step--2);
+  margin-top: var(--space-xs);
+  color: var(--c-grey-dark);
+  #type.family.alt;
+  #container.prose-flow;
+}

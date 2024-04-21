@@ -1,0 +1,31 @@
+.container {
+  max-width: unit((@width-max/@base),rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-m);
+  padding-right: var(--space-m);
+  display: block;
+  @media @bp[mid] {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+}
+
+#container {
+  // Mixin with guard condition for centering
+  .prose-flow() when (@centered = true) {
+    max-width: var(--line-length);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Mixin without centering
+  .prose-flow() when not (@centered = true) {
+    max-width: var(--line-length);
+  }
+}
+
+
+footer {
+  clear: both;
+}

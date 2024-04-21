@@ -1,0 +1,136 @@
+@import url(core/reset);
+
+//override @path-fonts for pdfs
+@path-fonts: "../../assets/fonts/";
+@import url(roobottom-2022/fonts);
+
+@spacing: 13pt;
+@height: 210;
+@width: 210;
+@spineWidth: 28; 
+@innerBleed: 3;
+@coverBleed: 20;
+@marginTop: 10;
+@marginBottom: 10;
+@marginLeft: 15;
+@marginRight: 10;
+
+@coverWidth: unit(@width + (2 * @coverBleed), mm);
+@coverHeight: unit(@height + (2 * @coverBleed), mm);
+
+@colour_cover: black;
+@colour_coverText: white;
+
+
+:root {
+  --heightMm: unit(@height, mm);
+  --widthMm: unit(@width, mm);
+  --spacing: unit(@spacing);
+  --marginTop: unit(@marginTop, mm);
+  --marginBottom: unit(@marginBottom, mm);
+  --marginLeft: unit(@marginLeft, mm);
+  --marginRight: unit(@marginRight, mm);
+}
+
+@page {
+  size: unit(@width + (2 * @innerBleed), mm) unit(@height + (2 * @innerBleed), mm);
+  margin: 0mm;
+}
+
+@page cover {
+  size: @coverWidth @coverHeight;
+}
+
+@page spine {
+  size: unit(@spineWidth, mm) unit(@height + (2 * @coverBleed), mm);
+}
+
+//type
+h1 {
+  font-size: 102pt;
+  font-family: "Tiempos Fine";
+}
+h2,
+.compendium-quote-content {
+  font-size: 29pt;
+  font-family: "Tiempos Fine";
+  font-weight: bold;
+}
+p {
+  font-size: @spacing;
+  line-height: 1.4;
+  margin-bottom: @spacing;
+}
+
+.cover {
+  page: cover;
+  height: @coverHeight;
+  width: @coverWidth;
+  background-color: @colour_cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > h1 {
+    color: @colour_coverText;
+  }
+}
+.spine {
+  page: spine;
+  width: unit(@spineWidth, mm);
+  height: unit(@height + (2 * @coverBleed), mm);
+  background-color: @colour_cover;
+}
+
+.compendium {
+  font-family: 'Tiempos';
+  &-page {
+    page-break-after: always;
+    @pageHeight: @height - (@marginTop + @marginBottom) + (2 * @innerBleed);
+    height: unit(@pageHeight, mm);
+    
+    &--content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: var(--marginTop) var(--marginRight) var(--marginBottom) var(--marginLeft);
+    }
+
+    &--quote,
+    &--title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: var(--marginTop) var(--marginRight) var(--marginBottom) var(--marginLeft);
+    }
+
+  } //end: page
+
+  &-captions {
+    margin-top: auto;
+  }
+
+  &-date,
+  &-captions {
+    font-size: 11pt;
+    font-family: "Space Grotesk", prince-no-fallback;
+  }
+
+  &-caption-position {
+    font-weight: bold;
+  }
+
+  &-date {
+    margin-bottom: @spacing;
+    display: block;
+  }
+
+  &-image {
+    width: unit(@width + (2 * @innerBleed), mm);
+    height: unit(@height + (2 * @innerBleed), mm);
+    display: block;
+  }
+
+  &-quote-footer {
+    margin-top: @spacing;
+  }
+}

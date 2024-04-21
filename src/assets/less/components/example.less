@@ -1,0 +1,52 @@
+.example {
+
+  box-shadow: var(--box-shadow);
+
+  &-wrapper {
+    padding: var(--space-m) var(--space-l);
+  }
+
+  >iframe {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  &-header {
+    padding: var(--space-xs);
+    font-size: var(--step--1);
+    border-bottom: 1px solid var(--c-border);
+  }
+
+  &-open-link {
+    #type.style.link(@underline: underline);
+  }
+
+  details {
+    border-top: 1px solid var(--c-border);
+  }
+
+  summary {
+    padding: var(--space-xs);
+    font-size: var(--step--1);
+  }
+
+  &-summary-link {
+    #type.style.link(@underline: underline);
+    cursor: pointer;
+  }
+
+  summary:hover &-summary-link {
+    text-decoration-thickness: 5px;
+  }
+
+  summary:focus &-summary-link {
+    outline: 2px solid var(--c-link);
+    text-decoration: none;
+  }
+
+  &-code {
+    padding: var(--space-s);
+  }
+
+}

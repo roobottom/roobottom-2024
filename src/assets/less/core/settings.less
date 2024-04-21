@@ -1,0 +1,62 @@
+@width-min: 320;
+@width-max: 1100;
+@line-length: 640;
+@base: 16;
+@grid-columns: 12;
+@grid-gap: var(--space-l);
+
+//breakpoints
+@bp: {
+  upto-min:~"only screen and (max-width: @{width-min}px)";
+  min:~"only screen and (min-width: @{width-min}px)";
+  mid: ~"only screen and (min-width: 520px)";
+  max: ~"only screen and (min-width: 980px)";
+  beyond-max:~"only screen and (min-width: @{width-max}px)";
+
+  min-only:~"only screen and (min-width: @{width-min}px) and (max-width: 520px)";
+  mid-only: ~"only screen and (min-width: 520px) and (max-width: 980px)";
+  max-only:~"only screen and (min-width: 900px) and (max-width: @{width-max}px)";
+}
+
+@type-min-scale: 1.2;
+@type-min-size: 17;
+@type-max-scale: 1.2;
+@type-max-size: 21;
+@typescale-up-steps: 10;
+@typescale-down-steps: 2;
+
+//paths
+@path-fonts: '/fonts/';
+@path-images: '/images/css/';
+
+//spacing
+@spacing: {
+  @none: 0;
+  @xxs: 0.25;
+  @xs: 0.5;
+  @s: 1;
+  @m: 2;
+  @l: 3;
+  @xl: 4;
+  @xxl: 5;
+}
+
+:root {
+  --fluid-min-width: @width-min;
+  --fluid-max-width: @width-max;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - var(--fluid-min-width) / @base * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)));
+
+  --line-length: unit((@line-length/@base), rem);
+  --line-height: 1.5;
+  --line-height--loose: 1.75;
+  --line-height--tight: 1.1;
+  --line-height--supertight: 0.9;
+}
+
+@media screen and (min-width: unit(@width-max, px)) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}

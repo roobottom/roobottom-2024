@@ -1,0 +1,38 @@
+.article {
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    order: 1;
+  }
+  &-content {
+    order: 2;
+  }
+  &-footer {
+    margin-top: var(--space-l);
+    order: 3;
+  }
+  &-prevNext {
+    margin-top: var(--space-s);
+    order: 4;
+  }
+  &-related {
+    margin-top: var(--space-xxl);
+    order: 5;
+  }
+
+  @media screen and (min-width: 1080px) {
+    display: block;
+
+    &-footer {
+      float: right;
+      width: 13.75rem;
+      margin-top: 0;
+    }
+
+     &-prevNext {
+      margin-top: var(--space-l);
+     }
+  }
+
+}

@@ -1,0 +1,32 @@
+@gallery-space: calc(var(--space-s) / 2);
+@gallery-break: 1215px;
+
+.gallery {
+  >figure { 
+    max-width: var(--line-length);
+  }
+
+  >figure+figure {
+    margin-top: var(--space-m);
+  }
+
+  @media screen and (min-width: @gallery-break) {
+    >figure+figure {
+      margin-top: 0;
+    }
+    display: grid;
+    grid-template-columns: var(--line-length) 1fr 1fr;
+    row-gap: var(--space-m);
+    column-gap: var(--space-xs);
+    align-items: baseline;
+    >figure:nth-child(3n-1):last-child {
+      grid-column: span 2;
+    }
+  }
+}
+
+.mini-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-s);
+}

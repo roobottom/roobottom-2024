@@ -1,0 +1,27 @@
+.pallet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--space-s);
+
+  li {
+    &:before {
+      display: block;
+      content: "";
+      width: var(--space-xl);
+      height: var(--space-xl);
+      background-color: var(--colour);
+    }
+  }
+
+  dl {
+    #type.family.alt;
+    font-size: var(--step--2);
+    color: var(--c-grey-x-dark);
+  }
+
+  dt {
+    margin-top: var(--space-xs);
+    font-weight: bold;
+  }
+
+}

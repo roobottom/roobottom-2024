@@ -1,0 +1,42 @@
+.article {
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    order: 1;
+  }
+
+  &-content {
+    order: 2;
+  }
+
+  &-footer {
+    margin-top: var(--space-l);
+    order: 3;
+  }
+
+  &-prevNext {
+    margin-top: var(--space-l);
+    order: 4;
+  }
+
+  &-related {
+    margin-top: var(--space-l);
+    order: 5;
+    #container.prose-flow;
+    background-color: var(--c-blue-20);
+    padding: var(--space-s);
+    >h2 {
+      padding-bottom: var(--space-s);
+      text-align: center;
+    }
+  }
+
+  @media @bp[max] {
+    &-footer {
+      order: 2;
+      margin-top: 0;
+      margin-bottom: var(--space-l);
+    }
+  }
+}

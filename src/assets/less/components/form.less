@@ -1,0 +1,176 @@
+.error-summary {
+  background-color: var(--c-error);
+  background: linear-gradient(-120deg,var(--c-error),var(--c-error-dark));
+  padding: var(--space-s);
+  margin-bottom: var(--space-m);
+}
+
+.form {
+  &-group {
+    margin-bottom: var(--space-m);
+    &--error {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(-1 * var(--space-s));
+        width: 6px;
+        background-color: var(--c-error-light);
+        background: linear-gradient(0deg,var(--c-error),var(--c-error-dark));
+      }
+    }
+  }
+  &-label,
+  &-hint,
+  &-input {
+    display: block;
+  }
+  &-hint {
+    font-size: var(--step--1);
+    color: var(--c-grey-dark);
+  }
+  &-error-message {
+    font-size: var(--step-0);
+    color: var(--c-error);
+  }
+  &-input {
+    #type.family.default;
+    font-size: var(--step-0);
+    border: 2px solid var(--c-border);
+    box-sizing: border-box;
+    padding: var(--space-xxs);
+    width: 100%;
+    max-width: var(--line-length);
+    margin-top: var(--space-xs);
+    &--error {
+      border-color: var(--c-error);
+    }
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 2px white, 0 0 0 6px var(--c-link), inset 0 0 0 5px white;
+    }
+    &--error:focus,
+    &--error:active {
+      box-shadow: 0 0 0 2px white, 0 0 0 6px var(--c-error), inset 0 0 0 5px white;
+    }
+  }
+
+  &-checkbox {
+    display: block;
+    position: relative;
+    clear: left;
+
+    &-input {
+      position: absolute;
+      z-index: 1;
+      top: -2px;
+      left: -2px;
+      width: 44px;
+      height: 44px;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    &-label {
+      line-height: 40px;
+      padding-left: 52px;
+      cursor: pointer;
+
+      &:before,
+      &:after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+      }
+      
+      //checkbox outline
+      &:before {
+        background: #0000;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        border: 2px solid;
+      }
+
+      //tick
+      &:after {
+        top: 11px;
+        left: 9px;
+        width: 23px;
+        height: 12px;
+        transform: rotate(-45deg);
+        border: solid;
+        border-width: 0 0 5px 5px;
+        border-top-color: #0000;
+        opacity: 0;
+      }
+
+    }
+
+    //checked state
+    &-input:checked+&-label:after {
+      opacity: 1;
+    }
+
+    //focus state
+    &-input:focus+&-label:before {
+      box-shadow: 0 0 0 2px white, 0 0 0 6px var(--c-link), inset 0 0 0 5px white;
+    }
+
+  }
+
+  &-button {
+    #type.family.default;
+    line-height: 1;
+    font-size: var(--step-0);
+    background-color: var(--c-link);
+    color: white;
+    padding: var(--space-xs) var(--space-s);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 0 var(--c-link-dark);
+
+    &:hover {
+      background-color: var(--c-link-dark);
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 3px var(--c-link), inset 0 0 0 3px white;
+    }
+
+  }
+
+
+  //reverse styles
+  //labels inherit from prose--reverse
+  &--reverse &-input {
+    border-color: white;
+
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 3px black, inset 0 0 0 3px white;
+    }
+  }
+
+  &--reverse &-button {
+    background-color: white;
+    color: black;
+    box-shadow: 0 3px 0 var(--c-purple-dark);
+
+    &:hover {
+      background-color: lighten(black,95%);
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: 0 0 0 3px black;
+    }
+  }
+
+
+} //end

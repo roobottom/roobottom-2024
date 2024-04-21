@@ -1,0 +1,20 @@
+.accessibility-menu {
+  >a {
+    #type.style.link;
+    display: inline-block;
+    margin-top: var(--space-s);
+    margin-bottom: var(--space-s);
+    &:not(:focus){
+      clip: rect(0 0 0 0);
+      border: 0;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      transform: translateY(-100%);
+      transition: transform .5s ease-out;
+      width: 1px;
+    }
+  }
+}

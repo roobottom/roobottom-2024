@@ -1,0 +1,34 @@
+.list {
+  list-style: none;
+  margin-bottom: var(--space-l);
+
+  li:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  li {
+    margin-bottom: var(--space-m);
+  }
+
+  &:not(&--grid) li {
+    padding-bottom: var(--space-m);
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--c-grey-x-light);
+    }
+  }
+
+}
+
+
+@media @bp[min] {
+
+  .list--grid {
+    .auto-grid-columns;
+    li {
+      margin-bottom: 0;
+    }
+  }
+
+}

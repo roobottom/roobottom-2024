@@ -1,0 +1,28 @@
+.prevNext {
+  color: var(--c-grey-dark);
+  clear: both;
+  #type.family.alt;
+  &-title {
+    font-size: var(--step-0);
+    #type.family.alt;
+  }
+  &-item {
+    list-style: none;
+  }
+  &-item+&-item {
+    margin-top: var(--space-s);
+  }
+  &-item--prev &-title:before {
+    content: "←";
+  }
+  &-item--next &-title:after {
+    content: "→";
+  }
+  &-link {
+    #type.style.link;
+  }
+  &-date {
+    color: var(--c-grey);
+    font-size: var(--step--1);
+  }
+}

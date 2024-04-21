@@ -12,15 +12,20 @@
     "ext": "js,njk,json"
   },
   "scripts": {
-    "build": "node build",
-    "server": "node server",
-    "watch:build": "nodemon --watch 'src/**/*' --exec 'npm run build'",
-    "watch:server": "nodemon --watch 'src/**/*' --watch 'server/**/*' --exec 'npm run server'",
-    "dev": "concurrently \"npm:watch:build\" \"npm:watch:server\""
+
+    "build": "node build.js && node compile-less.js",
+    "start": "node server.js",
+
+    "watch:build": "nodemon --watch 'src/' --exec 'npm run build'",
+    "watch:server": "nodemon --watch 'server/' --exec 'npm run start'",
+    "build-css": "node compile-less.js",
+    "watch-css": "node compile-less.js --watch",
+    "dev": "concurrently \"npm run watch:build\" \"npm run watch:server\" \"npm run watch-css\""
   },
   "author": "Jon Roobottom",
   "license": "ISC",
   "dependencies": {
+    "chokidar": "^3.6.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "gray-matter": "^4.0.3",
@@ -35,6 +40,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "less": "^4.2.0",
     "nodemon": "^3.1.0"
   }
 }
