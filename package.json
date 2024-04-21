@@ -7,20 +7,18 @@
     "watch": [
       "lib",
       "src",
-      "app.js"
+      "server.js"
     ],
     "ext": "js,njk,json"
   },
   "scripts": {
-
-    "build": "node build.js && node compile-less.js",
-    "start": "node server.js",
-
-    "watch:build": "nodemon --watch 'src/' --exec 'npm run build'",
-    "watch:server": "nodemon --watch 'server/' --exec 'npm run start'",
+    "build": "node build",
+    "start": "node server",
+    "watch:build": "nodemon build",
+    "watch:server": "nodemon server",
     "build-css": "node compile-less.js",
     "watch-css": "node compile-less.js --watch",
-    "dev": "concurrently \"npm run watch:build\" \"npm run watch:server\" \"npm run watch-css\""
+    "dev": "concurrently \"npm run watch-css\" \"npm run watch:build\" \"npm run watch:server\""
   },
   "author": "Jon Roobottom",
   "license": "ISC",

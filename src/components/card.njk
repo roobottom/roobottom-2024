@@ -1,0 +1,48 @@
+{% macro cover(url, isCollage) %}
+{% if isCollage %}
+  {% if url %}style="--cover: url('/collage/{{ url }}');"{% endif %}
+{% else %}
+  {% if url %}style="--cover: url('{{ url | transform('card') }}');"{% endif %}
+{% endif %}
+{% endmacro %}
+
+{% macro title(title, url, caption) %}
+<h2 class="card-title p-name">
+  {% if caption %}<span class="card-title-caption">{{ caption }}</span>{% endif %}
+  <a href="{{ url }}" class="card-link u-url">{{ title }}</a>
+</h2>
+{% endmacro %}
+
+{% macro date(date) %}
+{% if date %}<time class="card-date dt-published" datetime="{{ date.datetime }}">{{ date.title }}</time>{% endif %}
+{% endmacro %}
+
+{% macro badge(content) %}
+{% if content %}<div class="card-badge" aria-hidden="true">{{ content }}</div>{% endif %}
+{% endmacro %}
+
+{% macro summary(summary) %}
+{% if summary %}<p class="card-summary p-summary">{{ summary }}</p>{% endif %}
+{% endmacro %}
+
+{% macro meta(items) %}
+{% if items %}
+<div class="card-meta">
+{% for item in items %}
+<span class="card-meta-item">{{ item.key + ': ' if item.key }}{{ item.value | safe }}</span>
+{% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro card(params) %}
+<article class="card h-entry {{ params.classes }}" {{ cover(params.cover.url, params.cover.isCollage) }}>
+  <header class="{% if params.cover %}card-cover{% endif %}">
+    {{ title(params.title, params.url, params.caption) }}
+    {{ badge(params.badge) }}
+  </header>
+  {{ summary(params.summary) }}
+  {{ date(params.date) }}
+  {{ meta(params.meta) }}
+</article>
+{% endmacro %}

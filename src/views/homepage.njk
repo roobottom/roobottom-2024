@@ -1,8 +1,5 @@
 {% extends "wrapper.njk" %}
 
-{% block content %}
+{% block main %}
 {{ content }}
-{% for article in collections.articles %}
-  {{ article.title }}
-{% endfor %}
 {% endblock %}

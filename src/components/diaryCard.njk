@@ -1,0 +1,37 @@
+{% from './card.njk' import card as card %}
+
+{% macro diaryCard(post) %}
+{% set coverUrl = null %}
+{% set isCollage = false %}
+
+{% if post.data.photo %}
+  {# If there is the photo key in frontmatter, this post is in college.json #}
+  {% set coverUrl = post.inputPath | getFilename %}
+  {% set isCollage = true %}
+{% else %}
+  {# If not, try and use a cover, if the post has one #}
+  {% if post.data.cover %}
+    {% set coverUrl = post.data.cover %}
+  {% endif %}
+{% endif %}
+
+{# set the badge content, if there's more than one photo #}
+{% set badge = null %}
+{% if post.data.photo | length > 1 %}{% set badge = post.data.photo | length + ' photos' %}{% endif %}
+
+<li class="list-item">
+  {{ card({
+    url: post.url,
+    cover: {
+      url: coverUrl,
+      isCollage: isCollage
+    } if coverUrl,
+    title: post.data.title,
+    date: {
+      datetime: post.date | date(''),
+      title: post.date | date('dddd D MMMM YYYY [at] h:mm a')
+    },
+    badge: badge
+  }) }}
+</li>
+{% endmacro %}

@@ -1,0 +1,5 @@
+{% macro opengraph(params) %}
+{% for property, content in params %}
+<meta property="{{ property }}" content="{{ content }}">
+{% endfor %}
+{% endmacro %}

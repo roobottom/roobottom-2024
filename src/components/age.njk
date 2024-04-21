@@ -1,0 +1,17 @@
+{% macro age(params) %}
+  {% set days_old = params.date | dateDiff(params.dob) %}
+  {%- if days_old >= 0 -%}
+    {% set years_old = days_old | daysToPeriod('years') %}
+    {% set months_old = days_old | daysToPeriod('months') %}
+    {% if years_old < 1 and months_old < 1 %}
+    {{ params.name }} was just born {{ params.emoji }}
+    {% else %}
+    {{ params.name }} was {{ years_old + ' year' | plural(years_old) if years_old > 0 }}{{ ' and ' + months_old + ' month' | plural(months_old) if months_old > 0 }}
+    {% endif %}
+  {%- else -%}
+    {% set days_old = days_old * -1 %}
+    {% set years_old = days_old | daysToPeriod('years') %}
+    {% set months_old = days_old | daysToPeriod('months') %}
+    {{ params.name }} will be born in {{ years_old + ' year' | plural(years_old) if years_old > 0 }}{{ ' and ' + months_old + ' month' | plural(months_old) if months_old > 0 }}
+  {%- endif -%}
+{% endmacro %}

@@ -31,50 +31,66 @@
       
       <link rel="alternate" type="application/atom+xml" title="RSS feed for Jon’s website" href="/feed.xml" />
     </head>
-    <body class="no-js section-{{ section_id }}">
-        <nav class="accessibility-menu container">
-          <a href="#main">Skip to content</a>
-        </nav>
-        <header class="site-header">
-            <nav class="container navigation" aria-label="Main">
-            <a href="/" class="navigation__sitename" aria-labelledby="sitename">
-                Jon’s website <span class="visually-hidden">homepage</span>
-            </a>
-            <ul class="navigation__items">
-                {% for item in navigation.main %}
-                    <li><a href="{{ item.url }}"{% if item.id == section_id %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
-                {% endfor %}
-            </ul>
-            </nav>
-        </header>
-        <main class="container {{ container_type }}" id="main">
-            {% block content %}
-            {% endblock %}
-        </main>
-        <footer class="container site-footer">
-            <div class="site-footer-content">
-                <p>&copy; Jon Roobottom</p>
-            </div>
-            <ul class="site-footer-items">
-              <li>{{
-              footerNavigation({
-                title: 'Explore this site',
-                items: navigation.footer
-              }) }}</li>
-              <li>{{
-              footerNavigation({
-                title: 'Me, elsewhere on the web',
-                items: navigation.elsewhere
-              }) }}</li>
-              <li>{{
-              footerNavigation({
-                title: 'Consume my content',
-                items: navigation.consume
-              }) }}</li>
-            </ul>
-        </footer>
-        <script src="/assets/js/app.js"></script>
-        <script src="{{ global.cdn }}prismjs@v1.x/components/prism-core.min.js"></script>
-	      <script src="{{ global.cdn }}prismjs@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
+    <body class="no-js section-{{ section }}">
+      
+      {% block accessibilityMenu %}
+      <nav class="accessibility-menu container">
+        <a href="#main">Skip to content</a>
+      </nav>
+      {% endblock %}
+
+      {% block siteHeader %}
+      <header class="site-header">
+          <nav class="container navigation" aria-label="Main">
+          <a href="/" class="navigation__sitename" aria-labelledby="sitename">
+              Jon’s website <span class="visually-hidden">homepage</span>
+          </a>
+          <ul class="navigation__items">
+              {% for item in navigation.main %}
+                  <li><a href="{{ item.url }}"{% if item.id == section_id %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+              {% endfor %}
+          </ul>
+          </nav>
+      </header>
+      {% endblock %}
+
+      {% block main %}
+      <main class="container {{ container_type }}" id="main">
+          {% block content %}
+          {% endblock %}
+      </main>
+      {% endblock %}
+
+      {% block siteFooter %}
+      <footer class="container site-footer">
+          <div class="site-footer-content">
+              <p>&copy; Jon Roobottom</p>
+          </div>
+          <ul class="site-footer-items">
+            <li>{{
+            footerNavigation({
+              title: 'Explore this site',
+              items: navigation.footer
+            }) }}</li>
+            <li>{{
+            footerNavigation({
+              title: 'Me, elsewhere on the web',
+              items: navigation.elsewhere
+            }) }}</li>
+            <li>{{
+            footerNavigation({
+              title: 'Consume my content',
+              items: navigation.consume
+            }) }}</li>
+          </ul>
+      </footer>
+      {% endblock %}
+
+      {% block scripts %}
+      <script src="/assets/js/app.js"></script>
+      <script src="{{ global.cdn }}prismjs@v1.x/components/prism-core.min.js"></script>
+      <script src="{{ global.cdn }}prismjs@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
+      {% endblock %}
+
     </body>
 </html>

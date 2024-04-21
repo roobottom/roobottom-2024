@@ -1,0 +1,4 @@
+{% macro title(params) %}
+{% if params.caption %}<span class="title-caption">{{ params.caption }}</span>{% endif %}
+<h1 class="{{ params.classes }}">{{ params.text | safe }}</h1>
+{% endmacro %}

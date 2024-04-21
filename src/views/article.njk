@@ -1,0 +1,66 @@
+{% extends 'wrapper.njk' %}
+{% from 'meta.njk' import meta as meta %}
+{% from 'subjects.njk' import subjects as subjects %}
+{% from 'title.njk' import title as pagetitle %}
+{% from 'breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
+{% from 'articleCard.njk' import articleCard as articleCard %}
+
+{% block content %}
+<header class="article-header">
+{{ breadcrumbsList({
+  classes: 'space--margin-bottom-s',
+  items: breadcrumbs
+}) }}
+{{ pagetitle({
+  classes: 'space--margin-bottom-l',
+  text: title
+}) }}
+<div class="prose prose--flow space--margin-bottom-l">
+<p class="type-scale-1">{{ summary or introduction }}</p>
+</div>
+</header>
+<footer class="article-footer">
+{{ meta({
+  items: [
+    {
+      key: 'Originally published',
+      value: date | date('dddd D MMMM YYYY') 
+    } if not created, {
+      key: 'Originally published',
+      value: created | date('dddd D MMMM YYYY') 
+    } if created, {
+      key: 'Last updated',
+      value: date | date('dddd D MMMM YYYY')
+    } if created, {
+      key: 'Article status',
+      value: statusNames[status].title + '. <a href="/about/#article-status">What’s this?</a>'
+    } if status, {
+      key: 'Revision',
+      value: revision
+    } if revision, {
+      key: 'Subjects',
+      value: subjects(tags)
+    } if tags
+  ]
+}) }}
+</footer>
+<div class="article-content prose prose--flow">
+  {{ content | safe }}
+</div>
+
+{# similar posts #}
+{# {%- set similarPosts = collections.articles | similarPosts(page.inputPath, tags) -%}
+{% if similarPosts | length > 0 %}
+<nav class="article-related" aria-labelledby="similar-posts">
+  <h2 id="similar-posts" class="space--margin-bottom-s">You might also like</h2>
+  <ul class="list list--grid">
+  {% for post in similarPosts %}
+  <li>
+    {{ articleCard(post) }}
+  </li>
+  {% endfor %}
+  </ul>
+</nav>
+{% endif %}#}
+</footer>
+{% endblock %} 

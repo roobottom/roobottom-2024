@@ -1,0 +1,17 @@
+{% macro subNavigation(params) %}
+<nav class="sub-navigation" id="{{ params.id }}">
+  <a href="#{{ params.id }}" class="sub-navigation-showHide">View {{ params.title }}</a>
+  <ul class="sub-navigation-sections">
+    {% for item in params.items %}
+    <li>
+      <h2 class="sub-navigation-section-title">{{ item.title | title }}</h2>
+      <ul class="sub-navigation-section">
+      {% for item in item.items %}
+        <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endmacro %}

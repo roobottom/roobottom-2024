@@ -1,0 +1,36 @@
+{% macro item(params) %}
+<li class="prevNext-item prevNext-item--{{ params.type }}">
+  {% if params.title %}<h3 class="prevNext-title">{{ params.title }}</h3>{% endif %}
+  <a href="{{ params.url.link }}" class="prevNext-link">{{ params.url.text }}</a>
+  {% if params.date %}<div class="prevNext-date">{{ params.date }}</div>{% endif %}
+</li>
+{% endmacro %}
+
+{% macro prevNext(params) %}
+<nav class="prevNext {{ params.classes }}" aria-label="{{ params.label }}">
+  <ol class="prevNext-items">
+    {% if params.prev %}
+      {{ item({
+        type: 'prev',
+        title: params.prev.title if params.prev.title,
+        url: {
+          link: params.prev.url.link,
+          text: params.prev.url.text | safe
+        },
+        date: params.prev.date
+      }) }}
+    {% endif %}
+    {% if params.next %}
+      {{ item({
+        type: 'next',
+        title: params.next.title if params.next.title,
+        url: {
+          link: params.next.url.link,
+          text: params.next.url.text | safe
+        },
+        date: params.next.date
+      }) }}
+    {% endif %}
+  </ol>
+</nav>
+{% endmacro %}
