@@ -26,15 +26,17 @@ async function processMarkdownFiles(sourceDirectory, outputFilename) {
     const files = await readdir(directoryPath);
     let collection = [];
     for (let file of files.filter(f => f.endsWith('.md'))) {
-        const filePath = path.join(directoryPath, file);
-        const content = await readFile(filePath, 'utf8');
-        const parsed = extractFrontmatter(content);
-        const html = markdownToHtml(parsed.content);
-        collection.push({
-            slug: file.slice(0, -3),
-            html,
-            ...parsed.data
-        });
+        
+      const filePath = path.join(directoryPath, file);
+      const content = await readFile(filePath, 'utf8');
+      const parsed = extractFrontmatter(content);
+      const html = markdownToHtml(parsed.content);
+
+      collection.push({
+          slug: file.slice(0, -3),
+          html,
+          ...parsed.data
+      });
     }
     // Sort posts by date if present
     collection.sort((a, b) => new Date(b.date) - new Date(a.date));
