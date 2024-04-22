@@ -1,15 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
-const markdownIt = require('markdown-it');
-const matter = require('gray-matter');
+const { extractFrontmatter, markdownToHtml } = require('./lib/utils/markdown')
 
 const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 const mkdir = util.promisify(fs.mkdir);
-
-const md = new markdownIt();
 
 async function ensureDirectoryExists(dirPath) {
   try {
@@ -31,8 +28,8 @@ async function processMarkdownFiles(sourceDirectory, outputFilename) {
     for (let file of files.filter(f => f.endsWith('.md'))) {
         const filePath = path.join(directoryPath, file);
         const content = await readFile(filePath, 'utf8');
-        const parsed = matter(content);
-        const html = md.render(parsed.content);
+        const parsed = extractFrontmatter(content);
+        const html = markdownToHtml(parsed.content);
         collection.push({
             slug: file.slice(0, -3),
             html,
