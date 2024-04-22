@@ -1,18 +1,18 @@
-{% from './card.njk' import card as card %}
+{% from 'card.njk' import card as card %}
 
 {% macro articleCard(article) %}
 
   {% set datePrefix %}
-    {% if article.data.created %}Last updated {% else %}First published {% endif %}
+    {% if article.created %}Last updated {% else %}First published {% endif %}
   {% endset %}
 
   {{ card({
-    title: article.data.title | safe,
-    summary: article.data.introduction or article.data.summary,
+    title: article.title | safe,
+    summary: article.introduction or article.summary,
     url: article.url,
     cover: {
-      url: article.data.cover
-    } if article.data.cover,
+      url: article.cover
+    } if article.cover,
     date: {
       datetime: article.date | date(''),
       title: datePrefix + article.date | date('DD MMMM YYYY')

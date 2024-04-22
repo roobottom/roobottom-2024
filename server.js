@@ -38,12 +38,16 @@ app.use((req, res, next) => {
   next();
 });
 
-//serve pages
-app.get('/:page', require('./lib/routes/page'));
-
 app.get('/', (req, res) => {
-  res.render('homepage', { title: 'Home Page', content: 'Welcome to Express with Nunjucks!' });
+  res.render('default', { title: 'Home Page', content: 'Welcome to Express with Nunjucks!' });
 });
+
+app.get('/articles', (req,res) => {
+  res.render('articles');
+});
+
+//serve top level pages
+app.get('/:page', require('./lib/routes/page'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

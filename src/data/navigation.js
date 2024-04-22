@@ -16,10 +16,6 @@ module.exports = {
       title: 'Articles',
       id: 'articles'
     }, {
-      url: '/diary/',
-      title: 'Diary',
-      id: 'diary'
-    }, {
       url: '/about/',
       title: 'About',
       id: 'about'

@@ -3,7 +3,6 @@ title: About
 section_id: about
 created: 2022-04-22
 layout: article
-eleventyExcludeFromCollections: true
 introduction: Everything you never wanted to know about me.
 ---
 Hello, I'm Jon Roobottom, a human man with a penchant for building websites. Born and bred in [Brownhills](/articles/2022-05-16-walking-around-brownhills/), in the industrial midlands, I now live on the south coast (near Brighton) with my wife and two children.

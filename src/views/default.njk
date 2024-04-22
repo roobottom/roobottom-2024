@@ -1,0 +1,20 @@
+{% extends "wrapper.njk" %}
+{% from 'title.njk' import title as pagetitle %}
+{% from 'breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
+
+{% block content %}
+{{ breadcrumbsList({
+  classes: 'space--margin-bottom-s',
+  items: breadcrumbs
+}) }}
+{{ pagetitle({
+  classes: 'space--margin-bottom-l',
+  text: title
+}) if title }}
+{% if introduction %}
+<div class="prose prose--flow space--margin-bottom-l">
+<p class="type-scale-1">{{ introduction }}</p>
+</div>
+{% endif %}
+{{ content | safe }}
+{% endblock %}
