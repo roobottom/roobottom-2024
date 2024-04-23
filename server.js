@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   try {
       res.locals.collections = {
           articles: require('./collections/articles.json'),
+          tags: require('./collections/tags.json')
       };
   } catch (error) {
       console.error("Failed to load collections:", error);
@@ -38,12 +39,23 @@ app.use((req, res, next) => {
   next();
 });
 
+/*
+--- routes ---
+*/
+
 app.get('/', (req, res) => {
   res.render('default', { title: 'Home Page', content: 'Welcome to Express with Nunjucks!' });
 });
 
 app.get('/articles', (req,res) => {
-  res.render('articles');
+  res.render('articles', {
+    title: 'Articles',
+    section_id: 'articles'
+  });
+});
+
+app.get('/subjects', (req,res) => {
+  res.render('subjects');
 });
 
 //serve top level pages
