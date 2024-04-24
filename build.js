@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const { extractFrontmatter, markdownToHtml } = require('./lib/utils/markdown');
+const slugify = require('slugify');
 
 const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
@@ -17,7 +18,11 @@ function toTitleCase(str) {
 
 // Converts a string to a URL-friendly slug
 function toUrlSlug(str) {
-    return str.toLowerCase().replace(/[\s\W-]+/g, '-');
+    return slugify(str.toLowerCase(), {
+        replace: "-----",
+        strict: true,
+        remove: /^[\d]{4}-[\d]{2}-[\d]{2}-/g
+    })
 }
 
 async function ensureDirectoryExists(dirPath) {
@@ -41,13 +46,15 @@ async function processMarkdownFiles(sourceDirectory, outputFilename) {
 
     for (let file of files.filter(f => f.endsWith('.md'))) {
         const filePath = path.join(directoryPath, file);
+        console.log('Processing file:', filePath);
         const content = await readFile(filePath, 'utf8');
         const parsed = extractFrontmatter(content);
         const html = markdownToHtml(parsed.content);
+        const postSlug = toUrlSlug(parsed.data.title)
 
         collection.push({
-            slug: file.slice(0, -3),
-            html,
+            slug: postSlug,
+            content: html,
             ...parsed.data
         });
 

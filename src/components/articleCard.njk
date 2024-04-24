@@ -9,7 +9,7 @@
   {{ card({
     title: article.title | safe,
     summary: article.introduction or article.summary,
-    url: article.url,
+    url: '/articles/' + article.slug,
     cover: {
       url: article.cover
     } if article.cover,

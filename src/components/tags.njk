@@ -1,4 +1,4 @@
-{% macro subjects(items) %}
+{% macro tags(items) %}
 {%- for item in items -%}
 <a href="/subjects/{{ item | slugify }}">{{ item | title }}</a>{% if not loop.last %}, {% endif %}
 {%- endfor -%}

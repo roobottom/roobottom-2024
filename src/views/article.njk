@@ -1,11 +1,11 @@
 {% extends 'wrapper.njk' %}
 {% from 'meta.njk' import meta as meta %}
-{% from 'subjects.njk' import subjects as subjects %}
+{% from 'tags.njk' import tags as tags %}
 {% from 'title.njk' import title as pagetitle %}
 {% from 'breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
 {% from 'articleCard.njk' import articleCard as articleCard %}
 
-{% block content %}
+{% block beforeContent %}
 <header class="article-header">
 {{ breadcrumbsList({
   classes: 'space--margin-bottom-s',
@@ -19,6 +19,9 @@
 <p class="type-scale-1">{{ summary or introduction }}</p>
 </div>
 </header>
+{% endblock %}
+
+{% block content %}
 <footer class="article-footer">
 {{ meta({
   items: [
@@ -39,7 +42,7 @@
       value: revision
     } if revision, {
       key: 'Subjects',
-      value: subjects(tags)
+      value: tags(tags)
     } if tags
   ]
 }) }}

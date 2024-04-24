@@ -9,6 +9,9 @@
 </nav>
 {% endmacro %}
 
+{% from 'title.njk' import title as pagetitle %}
+{% from 'breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
+
 <!doctype html>
 <html lang="en-gb" data-scroll="0">
     <head>
@@ -56,8 +59,27 @@
 
       {% block main %}
       <main class="container {{ container_type }}" id="main">
-          {% block content %}
+          
+          {% block beforeContent %}
+          {{ breadcrumbsList({
+            classes: 'space--margin-bottom-s',
+            items: breadcrumbs
+          }) }}
+          {{ pagetitle({
+            classes: 'space--margin-bottom-l',
+            text: title
+          }) if title }}
+          {% if introduction %}
+          <div class="prose prose--flow space--margin-bottom-l">
+          <p class="type-scale-1">{{ introduction }}</p>
+          </div>
+          {% endif %}
           {% endblock %}
+
+          {% block content %}
+          {{ content | safe }}
+          {% endblock %}
+
       </main>
       {% endblock %}
 

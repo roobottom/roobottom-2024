@@ -54,6 +54,27 @@ app.get('/articles', (req,res) => {
   });
 });
 
+function getItemBySlug(items, slug) {
+  return items.find(item => item.slug === slug);
+}
+
+app.get('/articles/:slug', (req,res) => {
+  const slug = req.params.slug;
+  const article = res.locals.collections.articles.find(item => item.slug === slug);
+  
+  if (!article) {
+    return res.status(404).render('article', {
+      title: 'Article not found',
+      introduction: 'Sorry, that article couldn’t be found.'
+    });
+  }
+
+  res.render('article', {
+    section_id: 'articles',
+    ...article
+  });
+});
+
 app.get('/subjects', (req,res) => {
   res.render('subjects');
 });
