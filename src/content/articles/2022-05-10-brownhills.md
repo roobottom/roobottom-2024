@@ -23,15 +23,9 @@ Middleton Bridge carries Chase Road over the Anglesey Branch of the Wyrley and E
 This was my route to school; walking this way meant I could avoid the noise and fumes of the cars on the A5. When I was a kid, the canal would freeze in winter, and those brave or stupid enough could walk from one side to the other. This was as long as you didn't get too near the bridge, where the canal narrows and the ice becomes thin. 
 
 ::: .gallery 
-{% figure {
-url: '/assets/images/articles/brownhills/middleton-bridge.jpeg',
-caption: 'A plaque reads “Middleton Bridge”.'
-} %}
+<figure url="/assets/images/articles/brownhills/middleton-bridge.jpeg" caption="A plaque reads “Middleton Bridge”.">
 
-{% figure {
-url: '/assets/images/articles/brownhills/middleton-bridge-grooves.jpeg',
-caption: 'The strange grooves cut into the bridge’s supports were made by countless ropes wearing away at the metal when horses pulled barges along the towpath.'
-} %}
+<figure url="/assets/images/articles/brownhills/middleton-bridge-grooves.jpeg" caption="The strange grooves cut into the bridge’s supports were made by countless ropes wearing away at the metal when horses pulled barges along the towpath.">
 :::  
 
 If you head north from the bridge, you'll come to Chasewater. This massive reservoir was completed in 1797 and designed to refill the canal system. When a boat exits a lock, around 100,000 litres of water is displaced down-canal. The constant too-and-fro of badges in the late 18th and early 19th centuries meant that the waterway often needed to be refreshed. 
@@ -50,15 +44,9 @@ But now, thanks to the fine folks at [Back The Track](http://backthetrack.org.uk
 On the McClean Way gates, near the Smithy's Forge pub, there's an incredible photo of a train, smoke billowing from its chimney, departing the station in the direction of Lichfield. It's a heartbreakingly romantic image of a Brownhills I never knew. It's a shame the railway disappeared; I wonder what the town's fate would have been _with_ a decent transport link to Walsall and Birmingham. It could have found a new lease of life as a commuter town. Alas, it was never to be.
 
 ::: .gallery
-{% figure {
-url: '/assets/images/articles/brownhills/mcclean-way-gate.jpeg',
-caption: 'The gate at the entrance of The McClean Way near the Smithy’s Forge. Above the photo of the old railway, a sign reads: “If you looked from the bridge on your left towards Pelsall, circa 1950, you may have seen the view pictured below. Note, some houses on the right in Pelsall Road are still there today.”'
-} %}
+<figure url="/assets/images/articles/brownhills/mcclean-way-gate.jpeg" caption="The gate at the entrance of The McClean Way near the Smithy’s Forge. Above the photo of the old railway, a sign reads: “If you looked from the bridge on your left towards Pelsall, circa 1950, you may have seen the view pictured below. Note, some houses on the right in Pelsall Road are still there today.”">
 
-{% figure {
-url: '/assets/images/articles/brownhills/old-railway.jpeg',
-caption: 'The old Walsall to Lichfield railway line at Brownhills is now a tranquil walking and cycling path.'
-} %}
+<figure url="/assets/images/articles/brownhills/old-railway.jpeg" caption="The old Walsall to Lichfield railway line at Brownhills is now a tranquil walking and cycling path.">
 :::
 
 ## The High Street
@@ -69,15 +57,9 @@ There's a strong sense of my Mom here. A shop sold wool and other various knitti
 I can feel the pride someone once had when erecting the cast-iron arch with its "Ravens Court" lettering. This cornerstone of my youth is now shuttered and abandoned. 
 
 ::: .gallery 
-{% figure {
-url: '/assets/images/articles/brownhills/ravens-court.jpeg',
-caption: 'The sad state of Ravens Court, its courtyard surrounded by shuttered shops. You can see the black and white patterned tiles in the foreground on the right that gave me a strong sense of nostalgia.'
-} %}
+<figure url="/assets/images/articles/brownhills/ravens-court.jpeg" caption="The sad state of Ravens Court, its courtyard surrounded by shuttered shops. You can see the black and white patterned tiles in the foreground on the right that gave me a strong sense of nostalgia.">
 
-{% figure {
-url: '/assets/images/articles/brownhills/ravens-court-gates.jpeg',
-caption: 'The once proud entrance to Ravens Court is now boarded up and graffitied.'
-} %}
+<figure url="/assets/images/articles/brownhills/ravens-court-gates.jpeg" caption="The once proud entrance to Ravens Court is now boarded up and graffitied.">
 :::  
 
 ## Addendum

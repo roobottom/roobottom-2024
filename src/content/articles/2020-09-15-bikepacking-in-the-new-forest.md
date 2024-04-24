@@ -40,10 +40,7 @@ The plan for today was to head north to Firtham before turning back southward to
 
 Eventually arriving at Fritham, we found a great pub called the Royal Oak, where we stopped for a drink. Our mistake was to have already had lunch en route from a less-than-glamorous petrol station. We should have waited as the food a the Royal Oak looked delicious. 
 
-{% figure {
-url: '/assets/images/articles/76/in-the-pub.jpeg',
-caption: 'Me and Paul sitting outside at a bench enjoying a drink at the Royal Oak, Fritham'
-} %}
+<figure url="/assets/images/articles/76/in-the-pub.jpeg" caption="Me and Paul sitting outside at a bench enjoying a drink at the Royal Oak, Fritham">
 
 Now heading south, the riding was epic, with long, flowing descents through the deserted forest. Now _this_ is what we came here for. What a way to end two fantastic days of cycling! 
 

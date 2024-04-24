@@ -29,10 +29,7 @@ Every morning, throughout the summer a passenger ferry departs from the quay in 
 
 This is the *RMV Scillonian III*, and she's been transporting excited — and occasionally green — tourists from the mainland to the Isles of Scilly since 1977.
 
-{% figure {
-url: '/assets/images/articles/68/scillonian.jpg',
-caption: 'Looking back at the mainland from the stern of the RMV Scillonian III, somewhere in the Atlantic Ocean'
-} %}
+<figure url="/assets/images/articles/68/scillonian.jpg" caption="Looking back at the mainland from the stern of the RMV Scillonian III, somewhere in the Atlantic Ocean">
 
 There are more comfortable ways to get to the Scillies: A small seven-seater plane dubbed *Skybus* that flies from Lands End, Newquay or Exeter. And, in times past, there was a helicopter that flew from Penzance that was always our favorite way to get to the islands. Alas, this ceased operation at the end of 2012. We were booked on a mid-morning flight, but due to there being a large hole in the side of the helicopter, we were forced to overnight in a nearby hotel to catch the ferry the following day.
 
@@ -81,17 +78,11 @@ I joined my family in the Kitchen. It really was a gorgeous day. A quick check o
 
 After breakfast we executed our plan: Heading for St Martins. Five of us; intrepid seafarers standing on the quay, tickets in hand watching the _Sea King_ draw alongside the waiting passengers. 
 
-{% figure {
-url: '/assets/images/articles/68/sea-king.jpg',
-caption: 'Skipper Fraser Hicks pilots the Sea King into St.Mary’s harbour'
-} %}
+<figure url="/assets/images/articles/68/sea-king.jpg" caption="Skipper Fraser Hicks pilots the Sea King into St.Mary’s harbour">
 
 Landing at Higher Town, our first port of call was [The Island Bakery](//www.theislandbakery-stmartins.com/) for the day’s supplies. Fully stocked with Cornish pasties and cola cake, we trundled up the single track road and over the brow of the hill before taking the path cut through a field overgrown with Scilly’s ubiquitous Bracken. The vast swathe of white sand of Great Bay was almost deserted. Besides a few families lounging here and there we’re the only people, so finding a sheltered spot was simple. 
 
-{% figure {
-url: '/assets/images/articles/68/digging.jpg',
-caption: 'My little excavation expert'
-} %}
+<figure url="/assets/images/articles/68/digging.jpg" caption="My little excavation expert">
 
 Seaside days used to be a relaxed affair but with _Roo_ in tow, it's now more like mobilising a beach assault. Once the shelter was up, beach mats laid out and sun cream applied, we unpacked the various excavating tools. Thankfully she’s still a bit too small to want to bury daddy, so digging giant holes was the order of the day. _Roo_ took up her position as site foreman then Dave, and I set about our task of digging several large holes and interconnecting trenches. Eventually, the tide will come up and fill this carefully engineered system, much to _Roo’s_ delight, after which Dave and I will have to frantically shore-up walls and rebuild various dams. 
 
@@ -110,15 +101,9 @@ Below the water barrier, I’m in another world entirely. From the beach, I must
 Further out the water was clear all the way to the bottom some five meters below, where Kelp forests sheltered shoals of fish. A sudden shot of panic as my lizard brain picked up movement in my peripheral vision: A large striped fish darted out of the Kelp. I followed at a distance. He came to rest in a clearing, and I was able to float above him and just watch for what seemed like an eternity.
 
 ::: .gallery
-{% figure {
-url: '/assets/images/articles/68/fish.jpg',
-caption: 'A "massive" fish'
-} %}
+<figure url="/assets/images/articles/68/fish.jpg" caption="A "massive" fish">
 
-{% figure {
-url: '/assets/images/articles/68/jelly.jpg',
-caption: 'A jelly fish'
-} %}
+<figure url="/assets/images/articles/68/jelly.jpg" caption="A jelly fish">
 :::
 
 “I saw a _massive_ fish out there”, I announced to Katie, extending my arms to demonstrate its size, adding a few centimetres in the tradition of men everywhere when talking about the size of things.
@@ -132,15 +117,9 @@ _Roo_ was asleep as soon as her head hit the pillow. Perfect, especially as Dave
 A great tradition on our visits to Scilly — perhaps _the_ tradition — is partaking in a scone or two at [Juliet’s Garden](//www.julietsgardenrestaurant.co.uk/). Perched on top of a hill, the garden offers spectacular views over Tresco. On a warm day, there’s nothing quite like sitting in Juliet’s Garden cramming copious amounts of scone and tea into ones face. 
 
 ::: .gallery
-{% figure {
-url: '/assets/images/articles/68/juliets.jpg',
-caption: 'The stunning views from Juliet’s Garden'
-} %}
+<figure url="/assets/images/articles/68/juliets.jpg" caption="The stunning views from Juliet’s Garden">
 
-{% figure {
-url: '/assets/images/articles/68/at-juliets.jpg',
-caption: 'Katie and me enjoying a drink in the last of the evening sunshine at Juliet’s Garden'
-} %}
+<figure url="/assets/images/articles/68/at-juliets.jpg" caption="Katie and me enjoying a drink in the last of the evening sunshine at Juliet’s Garden">
 :::
 
 Juliet isn’t just famed for her cream teas, she also runs a fantastic restaurant. On arrival this evening, Katie and I were served drinks in the garden while watching the gorgeous sunset. Then, taking our seats inside, we were treated to an incredible three-course meal. 
@@ -153,10 +132,7 @@ _In 2014, on our last holiday, before Roo was born, we visited Scilly with our f
 
 The [Scilly Cart Co ](//www.scillycart.co/) used to have a Facebook page on which it posted pictures, usually taken by disgruntled locals, of the imperfect parking decisions taken by tourists when hiring a cart for the day. When you arrive at the Cart Co's depot, you’re greeted with a display board of these photos followed by a pep-talk by the owner on the evils of annoying the locals with where you choose to park. 
 
-{% figure {
-url: '/assets/images/articles/68/carting.jpg',
-caption: 'Dave driving our formula-z cart'
-} %}
+<figure url="/assets/images/articles/68/carting.jpg" caption="Dave driving our formula-z cart">
 
 With these words of warning rising in our ears Dave and I pulled out onto the main road, each of us determined to follow the rules to the letter. How we ended up attempting to break the land-speed record is anyone’s guess. One moment we were driving along sensibly, the next we were bouncing up and down in our seats trying to squeeze every ounce of speed we could from our formula-z cart. Needless to say, we weren’t very successful, and no traffic laws were violated.
 
@@ -166,10 +142,7 @@ This was the birth of another great tradition: Lunch at [Kaffeehaus Salbei](//ww
 
 Locals on the islands often supplement their income by making things, which are offered for sale by the side of the road. An honesty box is provided for you to remunerate the artist for their handiwork. There is such a place on Porth Loo Lane. With time on our hands, we parked the cart and went for a look.
 
-{% figure {
-url: '/assets/images/articles/68/fox-carpet.jpg',
-caption: 'The fox carpet of your dreams'
-} %}
+<figure url="/assets/images/articles/68/fox-carpet.jpg" caption="The fox carpet of your dreams">
 
 This particular treasure-trove was in the craftsperson’s garden shed. Inside, we found all manner of items. Some cobbled together from flotsam and jetsam. Some reclaimed from household bits and bobs. One thing, in particular, caught Dave’s eye: A fox, made from an old piece of brown carpet. One mad button eye was sewn onto its face, another for its nose. It was beautiful. It was perfect. He had to have it. I think it is a source of great regret that he didn’t buy it there and then. We should have known really, but when we returned later it was already gone. I like to think of it in an ornamental frame, in pride of place above someone’s fireplace. Lucky buggers.
 
@@ -207,10 +180,7 @@ All around us, people are screaming at the top of their lungs, as if the object 
 
 The shouting reached fever pitch as the first of the boats rounded the quay, finish line in sight. Given how long they’ve been racing the gap between them was astonishingly close. I’m not sure how they tell, but the first Gig to cross the finish line immediately started to celebrate. They must have been knackered, but somehow they found the strength to row the final few meters to Town Beach. Here, there’s a whole army of people to help them drag the Gig up onto the beach. 
 
-{% figure {
-url: '/assets/images/articles/68/gigs.jpg',
-caption: 'Organised chaos on Town Beach as Gigs are landed after a race'
-} %}
+<figure url="/assets/images/articles/68/gigs.jpg" caption="Organised chaos on Town Beach as Gigs are landed after a race">
 
 Wanting to drink-in more of the atmosphere and a couple of the local ales, Katie and I headed to the Mermaid. This place is incredibly claustrophobic at the best of times, with memorabilia covering every inch of every available surface. Saturday evenings are particularly busy, but this was something else. We could see punters spilling out onto the pavement as we approached. The only way to get in was to forcibly push through the sweaty throng. I imagine as we introduced ourselves into the crush, two other people were ejected from another door somewhere. This place was full.
 
@@ -234,10 +204,7 @@ When the time came, we were called into a small side room with the other passeng
 
 One of British International’s two [Sikorsky S-61](https://en.wikipedia.org/wiki/Sikorsky_S-61) helicopters landed with the slightest bounce. The side door flung open, and the passengers disembarked, ducking instinctively under the rotor blades.
 
-{% figure {
-url: '/assets/images/articles/68/scilly-helicopter.jpg',
-caption: 'British International Helicopters Sikorsky S-61 after landing on Tresco in 2008'
-} %}
+<figure url="/assets/images/articles/68/scilly-helicopter.jpg" caption="British International Helicopters Sikorsky S-61 after landing on Tresco in 2008">
 
 Then it was our turn. Our air steward lead the way out onto the runway. We ducked under the rotors too, clinging desperately to lose items of clothing. Of course, we felt like rock stars. 
 

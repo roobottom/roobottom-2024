@@ -9,7 +9,7 @@
       "src",
       "server.js"
     ],
-    "ext": "js,njk,json"
+    "ext": "js,njk,json,md"
   },
   "scripts": {
     "build": "node build",

@@ -17,17 +17,11 @@ The Lego Bugatti is in a different league entirely to that old Test Car kit. But
 
 The packaging is incredible. Open the box, and you're greeted with 6 smaller boxes. Printed either side, you can flip 'em and see the front or back of the car. Flipping through the two beefy instruction manuals gave me some idea of what a mammoth build this was going to be.
 
-{% figure {
-url: '/assets/images/articles/73/the-box.jpeg',
-caption: 'The box that the Lego Bugatti Chiron is a work of art in itself.'
-} %}
+<figure url="/assets/images/articles/73/the-box.jpeg" caption="The box that the Lego Bugatti Chiron is a work of art in itself.">
 
 First up is building the rear differential and suspension. Then the difficulty is ramped up sharply with the gearbox and engine. This was by far the most fun bit of the whole car. Once the power plant is finished, you move on to the front of the vehicle. With its paddle-shift gears and complex steering column, this is also an enjoyable bit of the build. 
 
-{% figure {
-url: '/assets/images/articles/73/the-engine.jpeg',
-caption: 'An almost complete engine'
-} %}
+<figure url="/assets/images/articles/73/the-engine.jpeg" caption="An almost complete engine">
 
 
 Just like the real Chiron, the Lego model undergoes a process known as "the marriage". This means connecting the rear to the front. To do so, you have to make sure that all rods and connectors are aligned correctly. Then, pushing one half into the other. This was a lovely touch and made me feel (kind of) like a real engineer. 
@@ -47,10 +41,7 @@ Another reason was Lego's surprising decision to provide stickers, rather than p
 
 Finally, there's an overall flimsiness to the model—especially the doors, which are quite heavy but only held on by a single joint. I felt *slightly* disappointed. But not too much. After 2 weeks of work (around 15 hours), I finished the Bugatti. I have to admit that—despite the problems I've mentioned—I absolutely loved building this model. 
 
-{% figure {
-url: '/assets/images/articles/73/the-car.jpeg',
-caption: 'The finished Lego Bugatti Chiron'
-} %}
+<figure url="/assets/images/articles/73/the-car.jpeg" caption="The finished Lego Bugatti Chiron">
 
 ## In summary
 The Lego Bugatti Chiron was crazy fun to build. Especially the sophisticated powerplant, gearbox and drivetrain. It's let down a bit by the flimsy body panels and cheap looking stickers. Overall though, I'd recommend this for any Lego Technic fans. Especially those overgrown kids (like me) who want to recapture a bit of their childhood.
