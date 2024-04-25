@@ -7,7 +7,7 @@
       <h2 class="sub-navigation-section-title">{{ item.title | title }}</h2>
       <ul class="sub-navigation-section">
       {% for item in item.items %}
-        <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+        <li><a href="{{ params.root }}{{ item.slug }}">{{ item.title }}</a></li>
       {% endfor %}
       </ul>
     </li>

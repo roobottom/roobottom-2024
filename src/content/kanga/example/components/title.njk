@@ -1,0 +1,10 @@
+---
+title: Title
+---
+{% from 'includes/title.njk' import title as title %}
+
+{{ title({
+  classes: 'custom-class custom-class-two',
+  caption: 'Wonderful, wonderful,',
+  text: 'Copenhagen!'
+})}}

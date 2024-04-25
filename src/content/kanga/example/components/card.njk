@@ -1,0 +1,30 @@
+---
+title: Card
+---
+{% from 'includes/card.njk' import card as card %}
+
+{{ card({
+  classes: 'boats',
+  title: 'A lovely day for boating',
+  cover: {
+    url: '/assets/images/articles/68/view.jpg'
+  },
+  caption: 'An exciting article',
+  summary: 'A life on the open seas, a life on the ocean wave.',
+  url: '#',
+  date: {
+    datetime: '2023-08-20T00:00:00Z',
+    title: '20 August 2023'
+  },
+  badge: '3 photos',
+  meta: [
+    {
+      key: 'Boats',
+      value: '2'
+    },
+    {
+      key: 'Waves',
+      value: '657,897'
+    }
+  ]
+})}}

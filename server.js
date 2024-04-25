@@ -27,13 +27,16 @@ app.use((req, res, next) => {
   try {
       res.locals.collections = {
           articles: require('./collections/articles.json'),
-          tags: require('./collections/tags.json')
+          tags: require('./collections/tags.json'),
+          kanga: require('./collections/kanga.json')
       };
   } catch (error) {
       console.error("Failed to load collections:", error);
       // Handle errors or set default empty objects
       res.locals.collections = {
           articles: [],
+          tags: [],
+          kanga: []
       };
   }
   next();
@@ -54,10 +57,6 @@ app.get('/articles', (req,res) => {
   });
 });
 
-function getItemBySlug(items, slug) {
-  return items.find(item => item.slug === slug);
-}
-
 app.get('/articles/:slug', (req,res) => {
   const slug = req.params.slug;
   const article = res.locals.collections.articles.find(item => item.slug === slug);
@@ -74,6 +73,45 @@ app.get('/articles/:slug', (req,res) => {
     ...article
   });
 });
+
+
+//serach through multi nested objects, like kanga.json
+function findEntryBySlug(slug, data) {
+  for (const section of data) {
+      const foundItem = section.items.find(item => item.slug === slug);
+      if (foundItem) {
+          return {
+              section: section.title,
+              ...foundItem
+          };
+      }
+  }
+  return null; // Return null if no matching entry is found
+}
+
+app.get('/kanga/:slug', (req,res) => {
+  const slug = req.params.slug;
+  const entry = findEntryBySlug(slug, res.locals.collections.kanga)
+  
+  if (!entry) {
+    return res.status(404).render('kanga', {
+      title: 'Entry not found',
+      introduction: 'Sorry, that entry couldn’t be found.'
+    });
+  }
+
+  res.render('kanga', {
+    section_id: 'kanga',
+    ...entry
+  });
+});
+
+app.get('/kanga/example/:section/:page', (req,res) => {
+  const section = req.params.section;
+  const page = req.params.page;
+
+  res.render('kanga-example')
+})
 
 app.get('/subjects', (req,res) => {
   res.render('subjects');

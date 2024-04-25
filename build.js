@@ -1,8 +1,15 @@
+/*
+Build Roobottom.com
+
+Builds all collections, tags and Kanga (Design system) collection data
+*/
+
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const { extractFrontmatter, markdownToHtml } = require('./lib/utils/markdown');
 const slugify = require('slugify');
+const fg = require('fast-glob');  // Include fast-glob
 
 const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
@@ -19,7 +26,6 @@ function toTitleCase(str) {
 // Converts a string to a URL-friendly slug
 function toUrlSlug(str) {
     return slugify(str.toLowerCase(), {
-        replace: "-----",
         strict: true,
         remove: /^[\d]{4}-[\d]{2}-[\d]{2}-/g
     })
@@ -29,56 +35,120 @@ async function ensureDirectoryExists(dirPath) {
     try {
         await mkdir(dirPath, { recursive: true });
     } catch (err) {
-        if (err.code !== 'EEXIST') throw err; // Ignore the error if the directory already exists
+        if (err.code !== 'EEXIST') throw err;
     }
 }
 
-async function processMarkdownFiles(sourceDirectory, outputFilename) {
-    const directoryPath = path.join(__dirname, sourceDirectory);
-    const outputFilePath = path.join(__dirname, outputFilename);
-    const outputDir = path.dirname(outputFilePath);
+async function createCollections(collections) {
 
-    await ensureDirectoryExists(outputDir); // Ensure the directory exists
+    let tagsMap = new Map();
 
-    const files = await readdir(directoryPath);
-    let collection = [];
-    let tagsMap = new Map(); // To hold tag counts
+    for(let collectionObj of collections) {
+        const outputFilePath = path.join(__dirname, collectionObj.output);
+        const outputDir = path.dirname(outputFilePath);
 
-    for (let file of files.filter(f => f.endsWith('.md'))) {
-        const filePath = path.join(directoryPath, file);
-        console.log('Processing file:', filePath);
-        const content = await readFile(filePath, 'utf8');
-        const parsed = extractFrontmatter(content);
-        const html = markdownToHtml(parsed.content);
-        const postSlug = toUrlSlug(parsed.data.title)
+        await ensureDirectoryExists(outputDir);
 
-        collection.push({
-            slug: postSlug,
-            content: html,
-            ...parsed.data
-        });
+        const files = await fg(collectionObj.input, { cwd: __dirname });
+        let collection = [];
 
-        // Extract tags and update the tagsMap with counts
-        if (parsed.data.tags && Array.isArray(parsed.data.tags)) {
-            parsed.data.tags.forEach(tag => {
-                const titleCaseTag = toTitleCase(tag);
-                tagsMap.set(titleCaseTag, (tagsMap.get(titleCaseTag) || 0) + 1);
+        for (let filePath of files) {
+            console.log('Processing file:', filePath);
+            const content = await readFile(filePath, 'utf8');
+            const parsed = extractFrontmatter(content);
+            const html = markdownToHtml(parsed.content);
+            const postSlug = parsed.data.title ? toUrlSlug(parsed.data.title) : undefined;
+    
+            collection.push({
+                slug: postSlug,
+                content: html,
+                ...parsed.data
             });
+    
+            if (parsed.data.tags && Array.isArray(parsed.data.tags)) {
+                parsed.data.tags.forEach(tag => {
+                    const titleCaseTag = toTitleCase(tag);
+                    tagsMap.set(titleCaseTag, (tagsMap.get(titleCaseTag) || 0) + 1);
+                });
+            }
         }
+    
+        collection.sort((a, b) => new Date(b.date) - new Date(a.date));
+        await writeFile(outputFilePath, JSON.stringify(collection, null, 2));
     }
 
-    // Sort posts by date if present
-    collection.sort((a, b) => new Date(b.date) - new Date(a.date));
-    await writeFile(outputFilePath, JSON.stringify(collection, null, 2));
-
-    // Prepare tags data array
+    //write tags file
     const tagsData = Array.from(tagsMap, ([title, count]) => ({ title, count, slug: toUrlSlug(title) }));
     await writeFile(path.join(__dirname, 'collections/tags.json'), JSON.stringify(tagsData, null, 2));
 }
 
-async function buildAllCollections() {
-    await processMarkdownFiles('src/content/articles', 'collections/articles.json');
-    // Add more collections as needed
+async function createKanga() {
+
+    let structuredData = [];
+    //get files from kanga, just one level deep mind
+    const files = await fg('src/content/kanga/*/*.md', { cwd: __dirname });
+
+    for(let file of files) {
+        // Extract folder name from the post's file path
+        const pathParts = file.split('/');
+        const folderName = pathParts[pathParts.length - 2];
+
+        // Check if the folder already exists in the structuredData
+        let folderObj = structuredData.find(f => f.title === folderName);
+        if (!folderObj) {
+            folderObj = { title: folderName, items: [] };
+            structuredData.push(folderObj);
+        }
+
+        const content = await readFile(file, 'utf8');
+        const parsed = extractFrontmatter(content);
+        const html = markdownToHtml(parsed.content);
+        const postSlug = parsed.data.title ? toUrlSlug(parsed.data.title) : undefined;
+
+        folderObj.items.push({
+            slug: postSlug,
+            content: html,
+            ...parsed.data
+        });
+    }
+
+    structuredData.sort((a, b) => a.title.localeCompare(b.title));
+    await writeFile('collections/kanga.json', JSON.stringify(structuredData, null, 2));
+
 }
 
-buildAllCollections().catch(console.error);
+async function createKangaExamples() {
+    let structuredData = [];
+
+    const files = await fg('src/content/kanga/example/*/*.njk', { cwd: __dirname });
+
+    for(let file of files) {
+        // Extract folder name from the post's file path
+        const pathParts = file.split('/');
+        const folderName = pathParts[pathParts.length - 2];
+        const fileName = pathParts[pathParts.length -1];
+
+        console.log(folderName, fileName);
+
+        // Check if the folder already exists in the structuredData
+        let folderObj = structuredData.find(f => f.title === folderName);
+        if (!folderObj) {
+            folderObj = { title: folderName, items: [] };
+            structuredData.push(folderObj);
+        }
+
+        const content = await readFile(file, 'utf8');
+
+    }
+
+}
+
+
+createCollections([
+    {
+        input: 'src/content/articles/*.md', 
+        output: 'collections/articles.json'
+    }
+]);
+createKanga();
+createKangaExamples();

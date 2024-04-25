@@ -1,0 +1,18 @@
+---
+title: Breadcrumbs
+---
+{% from 'includes/breadcrumbs.njk' import breadcrumbs as breadcrumbs %}
+
+{{ breadcrumbs({
+  classes: 'space--margin-bottom-s',
+  items: [{
+    title: 'Diary',
+    url: '#'
+  }, {
+    title: '1980',
+    url: '#'
+  }, {
+    title: 'April',
+    url: '#'
+  }]
+}) }}

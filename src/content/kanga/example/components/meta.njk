@@ -1,0 +1,18 @@
+---
+title: Meta
+---
+{% from 'includes/meta.njk' import meta as meta %}
+{% from 'includes/subjects.njk' import subjects as subjects %}
+
+{{ meta({
+  items: [
+    {
+      key: 'Date',
+      value: '19 April 2023'
+    },
+    {
+      key: 'Subjects',
+      value: subjects(['cheese','crackers'])
+    }
+  ]
+}) }}

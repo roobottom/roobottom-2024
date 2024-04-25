@@ -1,0 +1,25 @@
+---
+title: Previous, Next
+---
+{% from 'includes/prevNext.njk' import prevNext as prevNext %}
+
+{{ prevNext({
+  classes: 'custom-class another-custom-class',
+  label: 'Example previous and next navigation',
+  prev: {
+    title: 'Go back in time',
+    url: {
+      link: '#',
+      text: 'Previous post'
+    },
+    date: '19 April 2023'
+  },
+  next: {
+    title: 'Go forwards in time',
+    url: {
+      link: '#',
+      text: 'Next post'
+    },
+    date: '22 April 2023'
+  }
+})}}

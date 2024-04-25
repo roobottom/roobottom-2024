@@ -1,0 +1,16 @@
+---
+pagination:
+  data: collections.kanga
+  size: 1
+  alias: folder
+permalink: "/kanga/{{ folder.title }}/"
+---
+<h1>{{ folder.title | title }}</h1>
+<div class="prose prose--flow">
+<p>{{ folder.title | title }} in this design system:</p>
+<ul>
+  {% for item in folder.items %}
+    <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+  {% endfor %}
+</ul>
+</div>

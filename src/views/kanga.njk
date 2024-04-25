@@ -1,0 +1,45 @@
+{% extends 'wrapper.njk' %}
+{% from 'title.njk' import title as pagetitle %}
+{% from 'breadcrumbs.njk' import breadcrumbs as breadcrumbs %}
+{% from 'subNavigation.njk' import subNavigation as subNavigation %}
+
+{% block beforeContent %}{% endblock %}
+
+{% block content %}
+<div class="grid">
+  <div class="grid-column--x4">
+    {{ subNavigation({
+      items: collections.kanga,
+      id: 'KangaMenu',
+      title: 'Kanga menu',
+      root: '/kanga/'
+    }) }}
+  </div>
+  <div class="grid-column--x8">
+    {% if not hideBreadcrumb %}
+    {{ breadcrumbs({
+      classes: 'space--margin-bottom-s',
+      items: [{
+        title: 'Kanga',
+        url: '/kanga'
+      }, {
+        title: kangaSection | title
+      }]
+    }) }}
+    {% endif %}
+    {{ pagetitle({
+      classes: 'space--margin-bottom-l',
+      text: title,
+      caption: caption if caption
+    }) if title }}
+    {% if isShortcode %}
+    <div class="callout prose space--margin-bottom-m">
+      <p>{{ title }} is an <a href="https://www.11ty.dev/docs/shortcodes/">Eleventy shortcode</a>. It does not require a Nunjucks <code>import</code> statement.</p>
+    </div>
+    {% endif %}
+    <div class="prose prose--flow">
+      {{ content | safe }}
+    </div>
+  </div>
+</div>
+{% endblock %}
