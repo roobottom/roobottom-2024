@@ -3,7 +3,7 @@ title: Meta
 ---
 Display a list of meta-like data. Useful in article and diary posts.
 
-{% example '/kanga/example/components/meta', '200' %}
+<example url='/kanga/example/components/meta' height='200'>
 
 **Note**: You should use the `subjects` component (as show in the example) to render a list of subjects.
 

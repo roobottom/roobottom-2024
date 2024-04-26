@@ -3,7 +3,7 @@ title: Previous, Next
 ---
 The Previous, Next component shows previous and next posts in a series. Useful for stepping through the diary.
 
-{% example '/kanga/example/components/prevNext', '220' %}
+<example url='/kanga/example/components/prevNext' height='220'>
 
 ## Nunjucks Macro parameters
 

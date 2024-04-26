@@ -1,5 +1,7 @@
 {% extends "wrapper.njk" %}
 
+{% block bodyClasses %}example-wrapper{% endblock %}
+
 {% block body %}
-{{ content }}
+{{ content | safe }}
 {% endblock %}

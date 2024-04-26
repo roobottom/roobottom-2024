@@ -34,7 +34,7 @@
       
       <link rel="alternate" type="application/atom+xml" title="RSS feed for Jon’s website" href="/feed.xml" />
     </head>
-    <body class="no-js section-{{ section }}">
+    <body class="no-js section-{{ section }} {% block bodyClasses %}{% endblock %}">
       {% block body %}
       
       {% block accessibilityMenu %}

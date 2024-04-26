@@ -3,7 +3,7 @@ title: Sub Navigation
 ---
 The SubNavigation component displays a list of categories and navigation items. It will also neatly wrap itself up on smaller screens.
 
-{% example '/kanga/example/components/subNavigation' %}
+<example url='/kanga/example/components/subNavigation'>
 
 ## Nunjucks Macro parameters
 

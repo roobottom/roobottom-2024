@@ -118,28 +118,35 @@ async function createKanga() {
 }
 
 async function createKangaExamples() {
-    let structuredData = [];
-
-    const files = await fg('src/content/kanga/example/*/*.njk', { cwd: __dirname });
+    let structuredData = {};
+    const files = await fg('src/content/kanga/example/*/*.{njk,md}', { cwd: __dirname });
 
     for(let file of files) {
         // Extract folder name from the post's file path
-        const pathParts = file.split('/');
+        const pathParts = file.split(path.sep);
         const folderName = pathParts[pathParts.length - 2];
-        const fileName = pathParts[pathParts.length -1];
+        const fileName = path.basename(file, path.extname(file));
+        const type = path.extname(file).slice(1)
 
-        console.log(folderName, fileName);
+        console.log('Kanga example:', folderName, fileName);
 
         // Check if the folder already exists in the structuredData
-        let folderObj = structuredData.find(f => f.title === folderName);
-        if (!folderObj) {
-            folderObj = { title: folderName, items: [] };
-            structuredData.push(folderObj);
+        if (!structuredData[folderName]) {
+            structuredData[folderName] = [];
         }
 
         const content = await readFile(file, 'utf8');
+        const parsed = extractFrontmatter(content);
+
+        structuredData[folderName].push({
+            slug: fileName,
+            type: type,
+            title: parsed.data.title,
+            content: parsed.content
+        });
 
     }
+    await writeFile('collections/kanga-examples.json', JSON.stringify(structuredData, null, 2));
 
 }
 

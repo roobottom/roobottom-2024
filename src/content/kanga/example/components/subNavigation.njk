@@ -1,18 +1,21 @@
 ---
 title: Sub Navigation
 ---
-{% from 'includes/subNavigation.njk' import subNavigation as subNavigation %}
+{% from 'subNavigation.njk' import subNavigation as subNavigation %}
 
 {{ subNavigation({
   id: 'example-subNavigation',
   title: 'Example Sub Navigation',
+  root: '/',
   items: [
     {
       title: 'Recent articles',
-      items: collections['articles'].slice(0,5)
-    }, {
-      title: 'Older articles',
-      items: collections['articles'].slice(5,10)
+      items: [
+        {
+        title: 'hi',
+        slug: 'test'
+        }
+      ]
     }
   ]
 }) }}

@@ -4,21 +4,14 @@ isShortcode: true
 ---
 Images with captions should be called with the Figure component. This component is designed for use within articles and diary posts. If you want to render a standalone image or need more fine-grain control, use the [Img component](/kanga/components/img/).
 
-{% example '/kanga/example/components/figure', '500' %}
+<example url='/kanga/example/components/figure' height='500'>
 
 ## Shortcode arguments
 
 Call the shortcode like so:
 
 ```
-{% raw %}{% figure { 
-  url: '/path/to/image.jpg', 
-  caption: 'The image caption', 
-  classes: 'classname', 
-  link: 'https://roobottom.com',
-  transform: 'wide',
-  isLocal: false
-} %}{% endraw %}
+<figure url="path/to/img.jpg" caption="The image caption" classes="classname classname" link="https://roobottom.com" transform="wide" isLocal="false">
 ```
 
 | Argument | Type | Description |

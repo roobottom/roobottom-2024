@@ -3,7 +3,7 @@ title: Title
 ---
 The main page title; the first level heading.
 
-{% example '/kanga/example/components/title', '200' %}
+<example url='/kanga/example/components/title' height='200'>
 
 ## Nunjucks Macro parameters
 

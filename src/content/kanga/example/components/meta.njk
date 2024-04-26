@@ -1,8 +1,8 @@
 ---
 title: Meta
 ---
-{% from 'includes/meta.njk' import meta as meta %}
-{% from 'includes/subjects.njk' import subjects as subjects %}
+{% from 'meta.njk' import meta as meta %}
+{% from 'tags.njk' import tags as tags %}
 
 {{ meta({
   items: [
@@ -12,7 +12,7 @@ title: Meta
     },
     {
       key: 'Subjects',
-      value: subjects(['cheese','crackers'])
+      value: tags(['cheese','crackers'])
     }
   ]
 }) }}

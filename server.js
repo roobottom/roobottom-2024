@@ -3,6 +3,7 @@ const app = express();
 const dataMiddleware = require('./lib/middleware/data');
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
+const { markdownToHtml } = require('./lib/utils/markdown');
 
 
 // Configure Nunjucks
@@ -28,7 +29,8 @@ app.use((req, res, next) => {
       res.locals.collections = {
           articles: require('./collections/articles.json'),
           tags: require('./collections/tags.json'),
-          kanga: require('./collections/kanga.json')
+          kanga: require('./collections/kanga.json'),
+          kangaExamples: require('./collections/kanga-examples.json')
       };
   } catch (error) {
       console.error("Failed to load collections:", error);
@@ -36,7 +38,8 @@ app.use((req, res, next) => {
       res.locals.collections = {
           articles: [],
           tags: [],
-          kanga: []
+          kanga: [],
+          kangaExamples: {}
       };
   }
   next();
@@ -106,11 +109,27 @@ app.get('/kanga/:slug', (req,res) => {
   });
 });
 
-app.get('/kanga/example/:section/:page', (req,res) => {
+app.get('/kanga/example/:section/:slug', (req,res) => {
   const section = req.params.section;
-  const page = req.params.page;
+  const slug = req.params.slug;
+  const entry = res.locals.collections.kangaExamples[section].find(item => item.slug === slug)
 
-  res.render('kanga-example')
+  let renderedContent = ''
+
+  if(entry.type === "njk") {
+    renderedContent = env.renderString(entry.content);
+  }
+
+  if(entry.type === "md") {
+    console.log('content start', entry.content, 'content end')
+    renderedContent = markdownToHtml(entry.content);
+  }
+
+  res.render('kanga-example', {
+    section_id: 'kanga',
+    ...entry,
+    content: renderedContent
+  })
 })
 
 app.get('/subjects', (req,res) => {
