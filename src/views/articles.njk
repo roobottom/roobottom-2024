@@ -1,5 +1,5 @@
-{% extends 'wrapper.njk' %}
-{% from 'articleCard.njk' import articleCard as articleCard %}
+{% extends 'layouts/wrapper.njk' %}
+{% from 'components/articleCard.njk' import articleCard as articleCard %}
 
 {% macro callCard(article, featured) %}
   {% if article.featured == featured %}

@@ -1,9 +1,9 @@
-{% extends 'wrapper.njk' %}
-{% from 'meta.njk' import meta as meta %}
-{% from 'tags.njk' import tags as tags %}
-{% from 'title.njk' import title as pagetitle %}
-{% from 'breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
-{% from 'articleCard.njk' import articleCard as articleCard %}
+{% extends 'layouts/wrapper.njk' %}
+{% from 'components/meta.njk' import meta as meta %}
+{% from 'components/tags.njk' import tags as displayTags %}
+{% from 'components/title.njk' import title as pagetitle %}
+{% from 'components/breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
+{% from 'components/articleCard.njk' import articleCard as articleCard %}
 
 {% block beforeContent %}
 <header class="article-header">
@@ -42,7 +42,7 @@
       value: revision
     } if revision, {
       key: 'Subjects',
-      value: tags(tags)
+      value: displayTags(tags)
     } if tags
   ]
 }) }}

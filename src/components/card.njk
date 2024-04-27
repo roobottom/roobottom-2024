@@ -29,7 +29,7 @@
 {% if items %}
 <div class="card-meta">
 {% for item in items %}
-<span class="card-meta-item">{{ item.key + ': ' if item.key }}{{ item.value | safe }}</span>
+<span class="card-meta-item">{{ item.key + ': ' if item.key }}{{ item.value | safe }}{% if not loop.last %}, {% endif %}</span>
 {% endfor %}
 </div>
 {% endif %}

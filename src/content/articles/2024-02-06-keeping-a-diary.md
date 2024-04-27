@@ -34,11 +34,7 @@ A login screen now hides Diary posts from the wider world. This was a significan
 * I want to make it as simple as possible for my parents by only asking for a password.
 * I wanted to be able to design my own login screen.
 
-{% figure {
-url: '/assets/images/articles/diary/diary-login.png',
-caption: 'A screenshot showing my diary login page: The diary can be accessed with a password, making it easy for people in the know to access without also having to remember a username.',
-classes: 'shadow'
-} %}
+<figure url='/images/articles/diary/diary-login.png' caption='A screenshot showing my diary login page: The diary can be accessed with a password, making it easy for people in the know to access without also having to remember a username' classes='shadow'>
 
 I wrapped my Eleventy-generated content in a simple Express-js server to achieve independence. This way, I can serve mainly static content while maintaining server-side control over routes when needed.
 
@@ -52,10 +48,5 @@ Signed URLs also have the advantage that the hi-res versions of images cached by
 
 Another feature ImageKit unlocks is *image manipulation*. I use this feature to build a collage for each diary post with up to four images, which I can then show on the diary listing page using my `card` component.
 
-{% figure {
-url: '/assets/images/articles/diary/collages.png',
-caption: 'Four card components showing how I use generative image collages to tease post content.',
-classes: 'wide',
-transform: 'wide'
-} %}
+<figure url='/images/articles/diary/collages.png' caption='Four card components showing how I use generative image collages to tease post content.' classes='wide' transform='wide'>
 

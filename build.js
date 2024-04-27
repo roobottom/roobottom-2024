@@ -58,17 +58,22 @@ async function createCollections(collections) {
             const parsed = extractFrontmatter(content);
             const html = markdownToHtml(parsed.content);
             const postSlug = parsed.data.title ? toUrlSlug(parsed.data.title) : undefined;
-    
-            collection.push({
+
+            const postData = {
                 slug: postSlug,
                 content: html,
                 ...parsed.data
-            });
+            }
+    
+            collection.push(postData);
     
             if (parsed.data.tags && Array.isArray(parsed.data.tags)) {
                 parsed.data.tags.forEach(tag => {
                     const titleCaseTag = toTitleCase(tag);
-                    tagsMap.set(titleCaseTag, (tagsMap.get(titleCaseTag) || 0) + 1);
+                    if (!tagsMap.has(titleCaseTag)) {
+                        tagsMap.set(titleCaseTag, []);  // Initialize with an empty array
+                    }
+                    tagsMap.get(titleCaseTag).push(postData);
                 });
             }
         }
@@ -78,7 +83,12 @@ async function createCollections(collections) {
     }
 
     //write tags file
-    const tagsData = Array.from(tagsMap, ([title, count]) => ({ title, count, slug: toUrlSlug(title) }));
+    const tagsData = Array.from(tagsMap, ([title, posts]) => ({
+        title,
+        count: posts.length,
+        slug: toUrlSlug(title),
+        posts
+    }));
     await writeFile(path.join(__dirname, 'collections/tags.json'), JSON.stringify(tagsData, null, 2));
 }
 

@@ -9,7 +9,7 @@ const { markdownToHtml } = require('./lib/utils/markdown');
 
 
 // Configure Nunjucks
-const env = nunjucks.configure(['src/views', 'src/layouts', 'src/components'], {
+const env = nunjucks.configure('src', {
   autoescape: true,
   express: app
 });
@@ -55,11 +55,11 @@ app.use((req, res, next) => {
 */
 
 app.get('/', (req, res) => {
-  res.render('default', { title: 'Home Page', content: 'Welcome to Express with Nunjucks!' });
+  res.render('views/default', { title: 'Home Page', content: 'Welcome to Express with Nunjucks!' });
 });
 
 app.get('/articles', (req,res) => {
-  res.render('articles', {
+  res.render('views/articles', {
     title: 'Articles',
     section_id: 'articles'
   });
@@ -76,7 +76,7 @@ app.get('/articles/:slug', (req,res) => {
     });
   }
 
-  res.render('article', {
+  res.render('views/article', {
     section_id: 'articles',
     ...article
   });
@@ -108,7 +108,7 @@ app.get('/kanga/:slug', (req,res) => {
     });
   }
 
-  res.render('kanga', {
+  res.render('views/kanga', {
     section_id: 'kanga',
     ...entry
   });
@@ -130,7 +130,7 @@ app.get('/kanga/example/:section/:slug', (req,res) => {
     renderedContent = markdownToHtml(entry.content);
   }
 
-  res.render('kanga-example', {
+  res.render('views/kanga-example', {
     section_id: 'kanga',
     ...entry,
     content: renderedContent
@@ -138,7 +138,21 @@ app.get('/kanga/example/:section/:slug', (req,res) => {
 })
 
 app.get('/subjects', (req,res) => {
-  res.render('subjects');
+  res.render('views/tags', {
+    title: 'Subjects',
+    section_id: 'subjects'
+  });
+});
+
+app.get('/subjects/:slug', (req,res) => {
+  const slug = req.params.slug;
+  const entry = res.locals.collections.tags.find(item => item.slug === slug)
+
+  res.render('views/tag', {
+    title: entry.title,
+    section_id: 'subjects',
+    posts: entry.posts
+  });
 });
 
 //serve top level pages
