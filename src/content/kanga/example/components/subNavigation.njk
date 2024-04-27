@@ -6,16 +6,26 @@ title: Sub Navigation
 {{ subNavigation({
   id: 'example-subNavigation',
   title: 'Example Sub Navigation',
-  root: '/',
+  root: '',
   items: [
     {
-      title: 'Recent articles',
-      items: [
-        {
-        title: 'hi',
-        slug: 'test'
-        }
-      ]
+      title: 'Menu section one',
+      items: [{
+        title: 'Item one',
+        slug: '#'
+      }, {
+        title: 'Item two',
+        slug: '#'
+      }]
+    }, {
+      title: 'Menu section two',
+      items: [{
+        title: 'Item one',
+        slug: '#'
+      }, {
+        title: 'Item two',
+        slug: '#'
+      }]
     }
   ]
 }) }}

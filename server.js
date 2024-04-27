@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const dataMiddleware = require('./lib/middleware/data');
+const imagesMiddleware = require('./lib/middleware/images')
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
 const { markdownToHtml } = require('./lib/utils/markdown');
+
 
 
 // Configure Nunjucks
@@ -18,10 +20,13 @@ Object.keys(filters).forEach(filterName => {
 });
 
 // Serve static files
-app.use(express.static('./src/assets'));
+app.use(express.static('./src/assets/static'));
 
 //load global data
 app.use(dataMiddleware);
+
+//handle image requests
+app.use('/images', imagesMiddleware);
 
 //load collections
 app.use((req, res, next) => {

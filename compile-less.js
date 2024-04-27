@@ -2,7 +2,7 @@ const less = require('less');
 const fs = require('fs');
 const path = require('path');
 const chokidar = require('chokidar');
-const cssDir = 'src/assets/css/';
+const cssDir = 'src/assets/static/css/';
 const lessGlob = 'src/assets/less/**/*.less'
 
 if (!fs.existsSync(cssDir)) {
