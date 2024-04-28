@@ -5,7 +5,8 @@
 {% from 'components/breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
 {% from 'components/articleCard.njk' import articleCard as articleCard %}
 
-{% block beforeContent %}
+{% block main %}
+<main class="container article" id="main">
 <header class="article-header">
 {{ breadcrumbsList({
   classes: 'space--margin-bottom-s',
@@ -19,9 +20,6 @@
 <p class="type-scale-1">{{ summary or introduction }}</p>
 </div>
 </header>
-{% endblock %}
-
-{% block content %}
 <footer class="article-footer">
 {{ meta({
   items: [
@@ -66,4 +64,5 @@
 </nav>
 {% endif %}#}
 </footer>
+</main>
 {% endblock %} 

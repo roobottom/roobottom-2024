@@ -1388,6 +1388,7 @@ figcaption {
     display: grid;
     grid-template-columns: var(--line-length) 1fr 1fr;
     row-gap: var(--space-m);
+    width: 100%;
     column-gap: var(--space-xs);
     align-items: baseline;
   }
@@ -2079,28 +2080,28 @@ a.sub-navigation-showHide {
   margin-right: var(--space-s);
   margin-bottom: var(--space-s);
 }
-.tag {
+.tag:not(.token) {
   color: var(--c-link);
   text-decoration: none;
   padding: var(--space-xxs);
   margin: calc(-1 * var(--space-xxs));
   -webkit-text-decoration: none;
 }
-.tag:hover {
+.tag:not(.token):hover {
   text-decoration: underline;
   text-decoration-thickness: 5px;
   color: var(--c-link-hover);
   -webkit-text-decoration: underline var(--c-link-hover);
 }
-.tag:focus {
+.tag:not(.token):focus {
   outline: 2px solid var(--c-link-focus);
   text-decoration: none;
   color: var(--c-link-focus);
 }
-.tag-title {
+.tag:not(.token)-title {
   font-size: var(--step-1);
 }
-.tag-count {
+.tag:not(.token)-count {
   color: var(--c-text-light);
   font-size: var(--step--1);
   font-family: 'Space Grotesk', sans-serif;

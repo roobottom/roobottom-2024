@@ -28,14 +28,6 @@ module.exports = {
       title: 'Subjects',
       id: 'subjects'
     }, {
-      url: '/statistics/',
-      title: 'Statistics',
-      id: 'statistics'
-    }, {
-      url: '/compendia/',
-      title: 'Compendia',
-      id: 'compendia'
-    }, {
       url: 'https://github.com/roobottom/roobottom-com/issues',
       title: 'To-do list',
       id: 'todo'

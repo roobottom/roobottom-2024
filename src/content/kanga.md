@@ -5,7 +5,7 @@ introduction: The design system for this website
 section_id: 'kanga'
 eleventyExcludeFromCollections: true
 ---
-<figure url="/assets/images/kanga.jpg" caption="An illustration of Kanga, my design system mascot." classes="right">
+<figure url="/images/kanga.jpg" caption="An illustration of Kanga, my design system mascot." classes="right">
 
 "Kanga" is my design system; The various building blocks I use to create this site.
 

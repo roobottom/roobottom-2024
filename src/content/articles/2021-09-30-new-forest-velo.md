@@ -11,9 +11,7 @@ coverAlt: My bike leaning against a sign which reads “The New Forest”
 summary: My pal Paul and I spent three days cycling in the beautiful New Forest
 status: 3
 ---
-My pal [Paul](https://paulrobertlloyd.com) and I spent three days cycling in the beautiful New Forest. 
-
-## Day 1: Onward to the sea! 
+## Day 1: Onward, to the sea! 
 
 The train unloaded us in Brockenhurst around lunchtime. After a stressful change at Southampton, it was a welcome relief to head out into the Forest. We cycled south, stopping briefly to admire the church of Saint Nicholas just outside of town. 
 

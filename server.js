@@ -148,6 +148,13 @@ app.get('/subjects/:slug', (req,res) => {
   const slug = req.params.slug;
   const entry = res.locals.collections.tags.find(item => item.slug === slug)
 
+  if (!entry) {
+    return res.status(404).render('views/tag', {
+      title: 'Subject not found',
+      introduction: `Sorry, no tagged “${slug}” could be found.`
+    });
+  }
+
   res.render('views/tag', {
     title: entry.title,
     section_id: 'subjects',
