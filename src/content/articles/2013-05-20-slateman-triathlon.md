@@ -7,7 +7,7 @@ tags:
   - cycling
   - running
   - triathlon
-cover: /assets/images/articles/38/slateman_2.jpg
+cover: /images/articles/slateman/slateman_2.jpg
 summary: Swimming in a freezing lake and running up the side of a mountain
 status: 3
 ---
@@ -17,7 +17,7 @@ When [Raz](//twitter.com/imrazkhan) and [Matt](//twitter.com/cleggmatt) suggeste
 
 In the end neither Raz or Matt could make the race due to reasons undisclosed. Luckily my friend Christian was entered for the full distance, so we packed up the van, banged on the tunes and made the 6 hour trek up to Wales.
 
-<figure url="/assets/images/articles/38/slateman_3.jpg" caption="The beautiful Llyn Padarn">
+<figure url="/images/articles/slateman/slateman_3.jpg" caption="The beautiful Llyn Padarn">
 
 Race day dawned and we made our weary way from our campsite to the lake ready for the briefing. The sun was just starting to clear away the early-morning clouds as we wheeled our bikes into Transition. I laid out my kit the best I could then, remebering a tip I'd read on a website, walked around mentally tracing my steps from the swim exit to the bike.
 
@@ -29,11 +29,11 @@ It was such a relief to get the swim and T1 out of the way that I _may_ have gon
 
 T2 was an altogether more relaxed affair and I was feeling pretty good knowing the end was in sight. I exited transition onto the run corse feeling pretty please with myself.
 
-<figure url="/assets/images/articles/38/slateman_1.jpg" caption="The very well organised transition area at the 2013 Slateman triathlon">
+<figure url="/images/articles/slateman/slateman_1.jpg" caption="The very well organised transition area at the 2013 Slateman triathlon">
 
 That was until I hit the first climb. I was pleased to see I wasn't the only one walking and as we went higher the views more than made up for the burning calves. With some really fun, fast downhill sections the run finally led me back past transition to the finish line. I felt elated that I'd manage to finish my first triathlon in 1h54m47s.
 
-<figure url="/assets/images/articles/38/slateman_2.jpg" caption="Me and Christian after we’d finished the 2013 Slateman triatholon">
+<figure url="/images/articles/slateman/slateman_2.jpg" caption="Me and Christian after we’d finished the 2013 Slateman triatholon">
 
 There was a unique atmosphere I've not felt in any run or cycle event I've taken part in. I'm not sure if all Tri events are like this, or whether it was just the Slateman. Kudos to the organisers, it was a fantastic day. I always felt I knew where I should be, what I should be doing and (most importantly) that my kit was safe. 
 

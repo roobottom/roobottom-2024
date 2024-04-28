@@ -462,12 +462,14 @@ pre {
 }
 hr {
   border: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 hr:before {
   content: "";
   display: block;
   width: 100%;
-  height: 6px;
+  height: 2px;
   background: var(--c-hr);
 }
 table {
@@ -586,6 +588,7 @@ table tr:last-child td {
 .prose--flow > p,
 .prose--flow > ul:not(.list),
 .prose--flow > ol,
+.prose--flow > hr,
 .prose--flow > table,
 .prose--flow > h2,
 .prose--flow > h3,

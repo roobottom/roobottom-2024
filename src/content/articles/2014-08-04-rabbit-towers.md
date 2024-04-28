@@ -3,9 +3,9 @@ date: 2014-08-04
 title: Rabbit Towers
 tags:
   - building things
-cover: /assets/images/articles/44/rabs2.jpg
+cover: /images/articles/rabbit-towers/rabs2.jpg
 section: articles
-summary: Getting carried away building a home for our pet rabbits
+summary: I got somewhat carried away building an elaborate home for our pet rabbits.
 status: 3
 ---
 It must be something many newly married couples do; Put off the children in favor of a pet. As it was with us, 3 years ago, when we arrived home with a cardboard box containing two small, very frightened rabbits.
@@ -13,9 +13,9 @@ It must be something many newly married couples do; Put off the children in favo
 They soon settled in and set about crapping in every corner and chewing all the wires, including clean though the power cable for my brand new Apple laptop. I think they lasted a whole week as house rabbits before we moved them outside to more suitable accommodation.
 
 ::: .gallery
-<figure url="/assets/images/articles/44/rabs.jpg" caption="Our two pet rabbits in a box on the day we brought then home">
+<figure url="/images/articles/rabbit-towers/rabs.jpg" caption="Our two pet rabbits in a box on the day we brought then home">
 
-<figure url="/assets/images/articles/44/rabs2.jpg" caption="Our two rabbits in their hutch">
+<figure url="/images/articles/rabbit-towers/rabs2.jpg" caption="Our two rabbits in their hutch">
 :::
 
 As they got older, they grew to hate each other. This was funny at first, watching them hump each-other in a bid for dominance, but pretty soon this turned into some really nasty fights. The lack of rabbit psychologists in the local area meant there was nothing else for it but separate hutches and a time-share of the family run.
@@ -25,11 +25,11 @@ It's now evident that they've been the perfect focus for my hobby of "building s
 Today, they've upscaled to a bunny des-rez in the shed.  These are large hutches, one stacked on the other. They each have connecting tunnels to the outside, the bottom one leading, via a section of tube, to a run in the garden. The top to a ramp-box which allows a rab to descend into another run.
 
 ::: .gallery
-<figure url="/assets/images/articles/44/building_the_runs_1.jpg" caption="The ground marked out ready to lay the foundation for the run">
+<figure url="/images/articles/rabbit-towers/building_the_runs_1.jpg" caption="The ground marked out ready to lay the foundation for the run">
 
-<figure url="/assets/images/articles/44/building_the_runs_4.jpg" caption="A half-built wooden box with two ramps inside">
+<figure url="/images/articles/rabbit-towers/building_the_runs_4.jpg" caption="A half-built wooden box with two ramps inside.">
 
-<figure url="/assets/images/articles/44/building_the_runs_6.jpg" caption="The finished run">
+<figure url="/images/articles/rabbit-towers/building_the_runs_6.jpg" caption="The finished run">
 :::
 
 Of course they still get a bounce around the garden when we're around to watch them, but it's nice knowing they have access to some outside space and a few toys while we're out at work.

@@ -2,7 +2,7 @@
 
 {% block content %}
 <ul class="tags">
-  {% for tag in collections.tags %}
+  {% for tag in collections.tags | reverse %}
     <li class="tags-item">
       <a href="{{ tag.title | slugify }}" class="tag">
         <span class="tag-title">{{ tag.title | title }}</span>

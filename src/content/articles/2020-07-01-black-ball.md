@@ -4,7 +4,7 @@ date: 2020-07-01
 tags:
   - the future
   - existential risk
-cover: /assets/images/articles/74/black-ball.jpg
+cover: /images/articles/black-ball/black-ball.jpg
 summary: Do we live in a vulnerable world? Just how could we ultimately destroy ourselves?
 coverAlt: An illustration of a hand holding a black ball
 featured: true
@@ -12,7 +12,7 @@ status: 1
 ---
 Recently, I've been fascinated with Nick Bostrom's idea of the "vulnerable world". In his paper "The Vulnerable World Hypothesis", he invites us to consider future inventions and their ability to destroy the world.
 
-<figure url="/assets/images/articles/74/black-ball.jpg" caption="An illustration of a hand holding a black ball. Imagine if we pulled a black ball out of the "urn of invention", could it destroy the world?">
+<figure url="/images/articles/black-ball/black-ball.jpg" caption="An illustration of a hand holding a black ball. Imagine if we pulled a black ball out of the “urn of invention”, could it destroy the world?">
 
 Nick Bostrom imagines an "urn of possible inventions". In the urn are many balls, each one represents a discovery or invention.  Pure-white balls are the entirely beneficial technologies—vaccines, for example, might be a white ball invention. But most balls pulled out of the urn are various shades of grey. For instance, harnessing the nuclear fission reaction has both good and bad applications. 
 

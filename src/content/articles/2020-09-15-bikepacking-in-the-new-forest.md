@@ -6,18 +6,18 @@ tags:
   - bikepacking
   - friends
   - the new forest
-cover: /assets/images/articles/76/cover.jpeg
+cover: /images/articles/bikepacking-in-the-new-forest/cover.jpeg
 coverAlt: A bike leaning against a sign for Pondhead Campsite in the New Forest, England.
 featured: true
 summary: Freezing nighttime temperatures and mad cows didn't put a dent in our enjoyment of the New Forest.
 status: 3
 ---
-Freezing nighttime temperatures and mad cows didn't put a dent in our enjoyment of the New Forest. My good friend [Paul](https://paulrobertlloyd.com/) and I spent two days riding its roads, gravel trails and single track. 
+My good friend [Paul](https://paulrobertlloyd.com/) and I spent two days riding its roads, gravel trails and single track. 
 
 ## Day one: Brockenhurst to Pondhead
 We arrived at Brockenhurst station, mid-morning. A ten-minute journey from Southampton but a whole world away. From here we headed south-west along Burley Road, then turned East towards Beaulieu. With our bikes fully laden with gear the going was gentle, so we soon found an excuse to stop: The beautiful old church of St John the Baptist in Boldre.
 
-<figure url="/assets/images/articles/76/st-john-the-baptist.jpeg" caption="A panoramic shot of St John the Baptist church in Boldre, Hampshire, England." classes="wide" transform="wide">
+<figure url="/images/articles/bikepacking-in-the-new-forest/st-john-the-baptist.jpeg" caption="A panoramic shot of St John the Baptist church in Boldre, Hampshire, England." classes="wide" transform="wide">
 
 Day one was all about little exploring villages, drinking tea and generally taking it easy. We found a great coffee shop in Beaulieu that sold terrific cakes. There's also a fresh-water refill station nearby, favoured by cyclists and wild donkeys alike. 
 
@@ -26,11 +26,11 @@ We made good time to our overnight stop; Pondhead Farm campsite. Pondhead is a s
 One of the more unusual aspects of Pondhead is the cows that wander the campsite. The little ones were cute enough, but the larger ones were quite alarming, seeming not to care too much about walking directly through our camp area. I did feel a little exposed in my tiny tent at the thought of half a ton of cow trampling me in the night. They also made their presence known by scream-mooing into the small hours. Earplugs were a blessing.
 
 ::: .gallery
-<figure url="/assets/images/articles/76/paul-lloyd-with-cup-of-tea.jpeg" caption="Paul poses with a cup of tea outside The Old Bakehouse Cafe in Beaulieu">
+<figure url="/images/articles/bikepacking-in-the-new-forest/paul-lloyd-with-cup-of-tea.jpeg" caption="Paul poses with a cup of tea outside The Old Bakehouse Cafe in Beaulieu">
 
-<figure url="/assets/images/articles/76/pondhead-campsite.jpeg" caption="Me sitting outside my tent on the Pondhead Campsite, near Lyndhurst">
+<figure url="/images/articles/bikepacking-in-the-new-forest/pondhead-campsite.jpeg" caption="Me sitting outside my tent on the Pondhead Campsite, near Lyndhurst">
 
-<figure url="/assets/images/articles/76/alarming-cow.jpeg" caption="A cow, stepping daintily between our tents">
+<figure url="/images/articles/bikepacking-in-the-new-forest/alarming-cow.jpeg" caption="A cow, stepping daintily between our tents">
 :::
 
 ## Day two: Pondhead to Brockenhurst
@@ -40,7 +40,7 @@ The plan for today was to head north to Firtham before turning back southward to
 
 Eventually arriving at Fritham, we found a great pub called the Royal Oak, where we stopped for a drink. Our mistake was to have already had lunch en route from a less-than-glamorous petrol station. We should have waited as the food a the Royal Oak looked delicious. 
 
-<figure url="/assets/images/articles/76/in-the-pub.jpeg" caption="Me and Paul sitting outside at a bench enjoying a drink at the Royal Oak, Fritham">
+<figure url="/images/articles/bikepacking-in-the-new-forest/in-the-pub.jpeg" caption="Me and Paul sitting outside at a bench enjoying a drink at the Royal Oak, Fritham">
 
 Now heading south, the riding was epic, with long, flowing descents through the deserted forest. Now _this_ is what we came here for. What a way to end two fantastic days of cycling! 
 
