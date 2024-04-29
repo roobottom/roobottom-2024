@@ -1,5 +1,14 @@
 {% extends "layouts/wrapper.njk" %}
 
+{% block stylesheets %}
+{{ super() }}
+{% if css %}
+<style>
+{{ css }}
+</style>
+{% endif %}
+{% endblock %}
+
 {% block bodyClasses %}example-wrapper{% endblock %}
 
 {% block body %}

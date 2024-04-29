@@ -115,6 +115,7 @@ app.get('/kanga/:slug', (req,res) => {
 });
 
 app.get('/kanga/example/:section/:slug', (req,res) => {
+  console.log()
   const section = req.params.section;
   const slug = req.params.slug;
   const entry = res.locals.collections.kangaExamples[section].find(item => item.slug === slug)
@@ -126,14 +127,15 @@ app.get('/kanga/example/:section/:slug', (req,res) => {
   }
 
   if(entry.type === "md") {
-    console.log('content start', entry.content, 'content end')
     renderedContent = markdownToHtml(entry.content);
   }
 
   res.render('views/kanga-example', {
     section_id: 'kanga',
     ...entry,
-    content: renderedContent
+    title: `${entry.title} - Example `,
+    content: renderedContent,
+    locals: res.locals
   })
 })
 

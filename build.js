@@ -148,9 +148,14 @@ async function createKangaExamples() {
         const content = await readFile(file, 'utf8');
         const parsed = extractFrontmatter(content);
 
+        if(parsed.data.css) {
+            console.log('parsed css', parsed.data.css)
+        }
+
         structuredData[folderName].push({
             slug: fileName,
             type: type,
+            ...parsed.data,
             title: parsed.data.title,
             content: parsed.content
         });

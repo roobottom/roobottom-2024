@@ -7,4 +7,4 @@ You don't need to fill all the available column slots.
 
 Span multiple columns with the class `grid-column--xN` where `N` is a number from 1 to 12.
 
-{% example '/kanga/example/structure/grid', '400' %}
+<example url='/kanga/example/structure/grid' height='400'>

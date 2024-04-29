@@ -35,7 +35,7 @@ There's also a special `all` direction, which adds margin or padding to the whol
 
 The following example gives a visual representation of the scale, using padding. 
 
-{% example '/kanga/example/structure/spacing', '300' %}
+<example url='/kanga/example/structure/spacing' height='300'>
 
 ## Spacing variables
 

@@ -3,15 +3,14 @@ title: Article
 ---
 The article layout is used on article pages and diary posts. 
 
-{% example '/kanga/example/layouts/article', '600' %}
+<example url='/kanga/example/layouts/article' height='600'>
 
 ## Simplified layout
 
 Shown below is a simplied version of the example above.
 
 ``` {.language-html}
-{% raw %}
-<article class="article"> <!-- can be applied to the main tag, too -->
+<article class="article"> <!-- use <article> or <main> -->
   
   <header class="article-header">
     Header items, like title, breadcrumbs, or summary text.
@@ -30,5 +29,4 @@ Shown below is a simplied version of the example above.
   </nav>
 
 </article>
-{% endraw %}
 ```
