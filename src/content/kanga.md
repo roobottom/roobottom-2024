@@ -1,9 +1,8 @@
 ---
 title: Kanga
-layout: 'kanga.njk'
+layout: 'views/kanga.njk'
 introduction: The design system for this website
 section_id: 'kanga'
-eleventyExcludeFromCollections: true
 ---
 <figure url="/images/kanga.jpg" caption="An illustration of Kanga, my design system mascot." classes="right">
 

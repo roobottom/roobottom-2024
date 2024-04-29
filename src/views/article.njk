@@ -26,7 +26,7 @@
     {
       key: 'Originally published',
       value: date | date('dddd D MMMM YYYY') 
-    } if not created, {
+    } if not created and date, {
       key: 'Originally published',
       value: created | date('dddd D MMMM YYYY') 
     } if created, {

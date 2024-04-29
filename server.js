@@ -5,6 +5,7 @@ const imagesMiddleware = require('./lib/middleware/images')
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
 const { markdownToHtml } = require('./lib/utils/markdown');
+const notFoundRoute = require('./lib/routes/404');
 
 
 
@@ -70,10 +71,7 @@ app.get('/articles/:slug', (req,res) => {
   const article = res.locals.collections.articles.find(item => item.slug === slug);
   
   if (!article) {
-    return res.status(404).render('article', {
-      title: 'Article not found',
-      introduction: 'Sorry, that article couldn’t be found.'
-    });
+    return notFoundRoute(res,req);
   }
 
   res.render('views/article', {
@@ -102,10 +100,7 @@ app.get('/kanga/:slug', (req,res) => {
   const entry = findEntryBySlug(slug, res.locals.collections.kanga)
   
   if (!entry) {
-    return res.status(404).render('kanga', {
-      title: 'Entry not found',
-      introduction: 'Sorry, that entry couldn’t be found.'
-    });
+    return notFoundRoute(res,req);
   }
 
   res.render('views/kanga', {
@@ -151,10 +146,7 @@ app.get('/subjects/:slug', (req,res) => {
   const entry = res.locals.collections.tags.find(item => item.slug === slug)
 
   if (!entry) {
-    return res.status(404).render('views/tag', {
-      title: 'Subject not found',
-      introduction: `Sorry, no tagged “${slug}” could be found.`
-    });
+    
   }
 
   res.render('views/tag', {
