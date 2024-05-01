@@ -115,6 +115,7 @@ app.get('/kanga/:slug', (req,res) => {
 
   res.render('views/kanga', {
     section_id: 'kanga',
+    showBreadcrumbs: true,
     ...entry
   });
 });

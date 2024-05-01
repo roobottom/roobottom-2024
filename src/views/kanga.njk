@@ -16,14 +16,14 @@
     }) }}
   </div>
   <div class="grid-column--x8">
-    {% if not hideBreadcrumb %}
+    {% if showBreadcrumbs %}
     {{ breadcrumbs({
       classes: 'space--margin-bottom-s',
       items: [{
         title: 'Kanga',
         url: '/kanga'
       }, {
-        title: kangaSection | title
+        title: section | title
       }]
     }) }}
     {% endif %}
