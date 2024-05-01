@@ -2,6 +2,9 @@ const less = require('less');
 const fs = require('fs');
 const path = require('path');
 const chokidar = require('chokidar');
+const styles = require('./src/data/styles');
+
+//paths
 const cssDir = 'src/assets/static/css/';
 const lessGlob = 'src/assets/less/**/*.less'
 
@@ -10,10 +13,11 @@ if (!fs.existsSync(cssDir)) {
   console.log(`Created CSS directory: ${cssDir}`);
 }
 
-const files = [
-  'src/assets/less/roobottom.less',
-  'src/assets/less/roobottom-2021.less'
-];
+//get file name slugs from styles data
+let files = [];
+for (let style of styles) {
+  files.push(`src/assets/less/${style.slug}.less`);
+}
 
 const shouldWatch = process.argv.includes('--watch');
 

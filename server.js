@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
 const dataMiddleware = require('./lib/middleware/data');
-const imagesMiddleware = require('./lib/middleware/images')
+const imagesMiddleware = require('./lib/middleware/images');
+const styleMiddleware = require('./lib/middleware/style');
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
 const { markdownToHtml } = require('./lib/utils/markdown');
 const notFoundRoute = require('./lib/routes/404');
+const cookieParser = require('cookie-parser');
+const renderMarkdownPageFromRoute = require('./lib/routes/page')
 
-
+//load cookie parser
+app.use(cookieParser());
 
 // Configure Nunjucks
 const env = nunjucks.configure('src', {
@@ -20,11 +24,17 @@ Object.keys(filters).forEach(filterName => {
   env.addFilter(filterName, filters[filterName]);
 });
 
+// Parse URL encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
 // Serve static files
 app.use(express.static('./src/assets/static'));
 
 //load global data
 app.use(dataMiddleware);
+
+//load userStyles
+app.use(styleMiddleware);
 
 //handle image requests
 app.use('/images', imagesMiddleware);
@@ -56,7 +66,7 @@ app.use((req, res, next) => {
 */
 
 app.get('/', (req, res) => {
-  res.render('views/default', { title: 'Home Page', content: 'Welcome to Express with Nunjucks!' });
+  renderMarkdownPageFromRoute(req, res, 'home');
 });
 
 app.get('/articles', (req,res) => {
@@ -156,8 +166,27 @@ app.get('/subjects/:slug', (req,res) => {
   });
 });
 
+
+app.get('/time-travel', (req,res) => {
+  const updated = req.query.updated;
+  res.render('views/time-travel', {
+    title: 'Time travel',
+    introduction: 'Step back through time and experience this site as it was in ages past. More themes are coming soon.',
+    section_id: 'time-travel',
+    updated: updated === 'true'
+  });
+});
+
+app.post('/time-travel', (req,res) => {
+  const { style } = req.body;
+  res.cookie('userStyle', style, { maxAge: 2592000000, httpOnly: true });
+  res.redirect('/time-travel?updated=true');
+});
+
 //serve top level pages
-app.get('/:page', require('./lib/routes/page'));
+app.get('/:page', (req, res) => {
+  renderMarkdownPageFromRoute(req, res);
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

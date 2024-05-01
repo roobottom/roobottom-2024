@@ -27,13 +27,15 @@
       <link rel="pingback" href="https://webmention.io/roobottom.com/xmlrpc" />
       
       {% block stylesheets %}
-      <link rel=" stylesheet" href="/css/roobottom.css" title="Roobottom 2022">
-      <link rel="alternate stylesheet" href="/css/roobottom-2021.css" title="Roobottom 2021">
+      <link rel="stylesheet" href="/css/{{ userStyle }}.css">
+      {% for style in styles %}
+      <link rel="alternate stylesheet" href="/css/{{ style.slug }}.css" title="{{ style.description }}">
+      {% endfor %}
       {% endblock %}
       
       <link rel="alternate" type="application/atom+xml" title="RSS feed for Jon’s website" href="/feed.xml" />
     </head>
-    <body class="no-js section-{{ section }} {% block bodyClasses %}{% endblock %}">
+    <body class="no-js section-{{ section_id }} {% block bodyClasses %}{% endblock %}">
       {% block body %}
       
       {% block accessibilityMenu %}

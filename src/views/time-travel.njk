@@ -1,0 +1,27 @@
+{% extends "layouts/wrapper.njk" %}
+
+{% block beforeContent %}
+{% if updated %}
+<div class="prose prose--flow callout" role="alert" aria-labelledby="updated-banner-title">
+  <h2 id="updated-banner-title" class="h3">Success</h2>
+  <p class="space--margin-top-xs">Your style choice was saved.</p> 
+</div>
+{% endif %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<form class="form space--margin-top-m" action="/time-travel" method="post">
+  <fieldset class="form-group">
+      <legend class="form-legend">Choose a version of this site</legend>
+      {% for style in styles %}
+      <div class="form-radio">
+        <input class="form-radio-input" id="{{ style.id }}" name="style" type="radio" value="{{ style.slug }}" aria-describedby="{{ style.id }}-hint" {% if userStyle == style.slug %}checked{% endif %}>
+        <label class="form-radio-label" for="{{ style.id }}">{{ style.title }}</label>
+        <div class="form-hint form-radio-hint" id="{{ style.id }}-hint">{{ style.description }}</div>
+      </div>
+      {% endfor %}
+  </fieldset>
+  <button class="form-button">Save style choice</button>
+</form>
+{% endblock %}

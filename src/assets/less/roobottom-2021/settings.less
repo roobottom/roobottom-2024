@@ -5,7 +5,7 @@
 @font-alt: 'DM Mono', monospace;
 
 .make-colours(@basecolour, @variablestub, @alpha) when (@alpha > 0) {
-  @{variablestub}-@{alpha}: fade(@basecolour, unit(@alpha, %));
+  @{variablestub}-@{alpha}: fade(@basecolour, unit(@alpha, '%'));
   .make-colours(@basecolour, @variablestub, @alpha - 10);
 }
 
@@ -60,6 +60,12 @@
   --c-table-border: #e0e0e0;
   --c-table-background: #f5f5f5;
   --table-padding: var(--space-s);
+
+  --c-form-button: var(--c-orange-90);
+  --c-form-shadow: var(--c-orange);
+  --c-form-button-text: white;
+  --c-form-button-hover: var(--c-orange);
+  --c-form-button-hover-text: white;
 
   //component settings ---
   // --------------------

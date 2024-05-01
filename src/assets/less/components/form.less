@@ -1,3 +1,6 @@
+@radio-size: 44px;
+@checkbox-size: 44px;
+
 .error-summary {
   background-color: var(--c-error);
   background: linear-gradient(-120deg,var(--c-error),var(--c-error-dark));
@@ -6,6 +9,7 @@
 }
 
 .form {
+  #container.prose-flow;
   &-group {
     margin-bottom: var(--space-m);
     &--error {
@@ -35,6 +39,17 @@
     font-size: var(--step-0);
     color: var(--c-error);
   }
+
+  &-legend {
+    font-size: var(--step-2);
+    #type.family.headline;
+    margin-bottom: var(--space-s);
+    font-weight: bold;
+  }
+
+  //--- textboxes
+  // -----------------
+
   &-input {
     #type.family.default;
     font-size: var(--step-0);
@@ -57,6 +72,9 @@
     }
   }
 
+  //--- checkboxes
+  // -----------------
+
   &-checkbox {
     display: block;
     position: relative;
@@ -67,16 +85,16 @@
       z-index: 1;
       top: -2px;
       left: -2px;
-      width: 44px;
-      height: 44px;
+      width: @checkbox-size;
+      height: @checkbox-size;
       margin: 0;
       opacity: 0;
       cursor: pointer;
     }
 
     &-label {
-      line-height: 40px;
-      padding-left: 52px;
+      line-height: (@checkbox-size - 4);
+      padding-left: (@checkbox-size + 10);
       cursor: pointer;
 
       &:before,
@@ -88,12 +106,12 @@
       
       //checkbox outline
       &:before {
-        background: #0000;
+        background: white;
         top: 0;
         left: 0;
-        width: 40px;
-        height: 40px;
-        border: 2px solid;
+        width: (@checkbox-size - 4);
+        height: (@checkbox-size - 4); //size - (2x border)
+        border: 2px solid var(--c-text);
       }
 
       //tick
@@ -105,7 +123,7 @@
         transform: rotate(-45deg);
         border: solid;
         border-width: 0 0 5px 5px;
-        border-top-color: #0000;
+        border-top-color: var(--c-text);
         opacity: 0;
       }
 
@@ -123,53 +141,97 @@
 
   }
 
+  //--- radios
+  // -----------------
+  &-radio {
+    margin-bottom: var(--space-s);
+    display: flex;
+    flex-wrap: wrap;
+
+    &-input {
+      z-index: 1;
+      width: @radio-size;
+      height: @radio-size;
+      margin: 0;
+      cursor: pointer;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &-label {
+      cursor: pointer;
+      touch-action: manipulation;
+      display: flex;
+      position: relative;
+      align-items: center;
+
+      &:before {
+        content: "";
+        box-sizing: border-box;
+        width: (@radio-size - 4); 
+        height: (@radio-size - 4); //size - (2x border)
+        border: 2px solid var(--c-text);
+        border-radius: 50%;
+        display: block;
+        margin-right: var(--space-xs);
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: (@radio-size / 2);
+        height: (@radio-size / 2);
+        background-color: var(--c-text);
+        border-radius: 50%;
+        left: ((@radio-size / 2) - 13); //no idea why this works. Ugh.
+        opacity: 0;
+      }
+
+    }
+
+    &-input:checked+&-label:after {
+      opacity: 1;
+    }
+
+    &-input:focus+&-label:before {
+      box-shadow: 0 0 0 2px white, 0 0 0 6px var(--c-link), inset 0 0 0 5px white;
+    }
+
+    &-hint {
+      flex-basis: 100%;
+      padding-left: ~'calc(@{radio-size} + var(--space-xs))';
+    }
+
+  }
+
+
+
+  //buttons
+  // -----------------
+
   &-button {
     #type.family.default;
     line-height: 1;
     font-size: var(--step-0);
-    background-color: var(--c-link);
+    background-color: var(--c-form-button);
     color: white;
     padding: var(--space-xs) var(--space-s);
     border: none;
     cursor: pointer;
-    box-shadow: 0 3px 0 var(--c-link-dark);
+    color: var(--c-form-button-text);
+    box-shadow: 0 3px 0 var(--c-form-shadow);
 
     &:hover {
-      background-color: var(--c-link-dark);
+      background-color: var(--c-form-button-hover);
+      color: var(--c-form-button-hover-text);
     }
 
     &:focus,
     &:active {
-      box-shadow: 0 0 0 3px var(--c-link), inset 0 0 0 3px white;
+      box-shadow: 0 0 0 3px var(--c-form-button), inset 0 0 0 3px white;
     }
 
-  }
-
-
-  //reverse styles
-  //labels inherit from prose--reverse
-  &--reverse &-input {
-    border-color: white;
-
-    &:focus,
-    &:active {
-      box-shadow: 0 0 0 3px black, inset 0 0 0 3px white;
-    }
-  }
-
-  &--reverse &-button {
-    background-color: white;
-    color: black;
-    box-shadow: 0 3px 0 var(--c-purple-dark);
-
-    &:hover {
-      background-color: lighten(black,95%);
-    }
-
-    &:focus,
-    &:active {
-      box-shadow: 0 0 0 3px black;
-    }
   }
 
 
