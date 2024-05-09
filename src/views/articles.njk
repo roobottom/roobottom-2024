@@ -1,35 +1,12 @@
 {% extends 'layouts/wrapper.njk' %}
 {% from 'components/articleCard.njk' import articleCard as articleCard %}
 
-{% macro callCard(article, featured) %}
-  {% if article.featured == featured %}
+{% block content %}
+<ul class="list list--grid">
+  {% for article in collections.articles %}
     <li class="list-item">
       {{ articleCard(article) }}
     </li>
-  {% endif %}
-{% endmacro %}
-
-{% block content %}
-<div class="prose prose--flow space--margin-bottom-l">
-  <h2>My favorites</h2>
-  <p>The things I like the most or think others will find interesting.</p>
-</div>
-
-<ul class="list list--grid">
-  {% for article in collections.articles %}
-    {{ callCard(article, true) }}
   {% endfor %}
 </ul>
-
-<div class="prose prose--flow space--margin-bottom-xl">
-  <h2>Everything else</h2>
-  <p>All of my other long-form content.</p>
-</div>
-
-<ul class="list list--grid">
-  {% for article in collections.articles %}
-    {{ callCard(article, undefined) }}
-  {% endfor %}
-</ul>
-
 {% endblock %}
