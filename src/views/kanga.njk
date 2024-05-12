@@ -34,7 +34,7 @@
     }) if title }}
     {% if isShortcode %}
     <div class="callout prose space--margin-bottom-m">
-      <p>{{ title }} is an <a href="https://www.11ty.dev/docs/shortcodes/">Eleventy shortcode</a>. It does not require a Nunjucks <code>import</code> statement.</p>
+      <p>{{ title }} is an <a href="{{ env.GITHUB_REPO }}/tree/master/lib/shortcodes">Shortcode</a>. It does not require a Nunjucks <code>import</code> statement.</p>
     </div>
     {% endif %}
     <div class="prose prose--flow">

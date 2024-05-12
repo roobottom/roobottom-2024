@@ -1,3 +1,2 @@
 # Shortcodes on this website
-
-:: To-do
+Shortcodes uses [markdown-it-shortcode-tag](https://github.com/ccprog/markdown-it-shortcode-tag) by [Claus Colloseus](https://browser-unplugged.net/autor.en.html). I use them as an alternative to Nunjucks Macros when I need to include common components in Markdown files.
