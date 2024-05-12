@@ -6,6 +6,7 @@ const styleMiddleware = require('./lib/middleware/style');
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
 const { markdownToHtml } = require('./lib/utils/markdown');
+const makeFeed = require('./lib/utils/feed')
 const notFoundRoute = require('./lib/routes/404');
 const cookieParser = require('cookie-parser');
 const renderMarkdownPageFromRoute = require('./lib/routes/page')
@@ -38,6 +39,13 @@ app.use(styleMiddleware);
 
 //handle image requests
 app.use('/images', imagesMiddleware);
+
+//feed
+app.get('/feed.xml', (req, res) => {
+  const xml = makeFeed();
+  res.type('application/xml');
+  res.send(xml);
+});
 
 //load collections
 app.use((req, res, next) => {
