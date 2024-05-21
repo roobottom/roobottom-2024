@@ -542,20 +542,22 @@ table tr:last-child td {
   color: var(--c-link-focus);
 }
 .prose blockquote:not(.quote) {
-  border-left: 6px solid var(--c-grey-light);
   font-family: 'Tiempos Fine', serif;
+  font-style: italic;
+  font-weight: bold;
   font-size: var(--step-1);
-  line-height: var(--line-height--tight);
-}
-.prose blockquote:not(.quote) > p {
-  text-indent: -0.5em;
-  padding-left: 1em;
 }
 @supports (hanging-punctuation: first) {
   .prose blockquote:not(.quote) > p {
     hanging-punctuation: first;
     text-indent: 0;
   }
+}
+.prose blockquote:not(.quote) > p:first-child:before {
+  content: "“";
+}
+.prose blockquote:not(.quote) > p:last-child:after {
+  content: "”";
 }
 .prose > pre {
   margin-left: calc(-1 * var(--space-s));

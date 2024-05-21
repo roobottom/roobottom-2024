@@ -39,9 +39,37 @@ async function ensureDirectoryExists(dirPath) {
     }
 }
 
+function findSimilarPosts(post, allPosts, limit = 5) {
+    if (!post.tags || !Array.isArray(post.tags)) return [];
+
+    const postTags = new Set(post.tags.map(tag => tag.toLowerCase()));
+    const similarPosts = allPosts
+        .filter(p => p.slug !== post.slug && p.tags && Array.isArray(p.tags))
+        .map(p => {
+            const pTags = new Set(p.tags.map(tag => tag.toLowerCase()));
+            const commonTags = new Set([...postTags].filter(tag => pTags.has(tag)));
+            return { post: p, commonTags: commonTags.size };
+        })
+        .filter(p => p.commonTags > 0)
+        .sort((a, b) => b.commonTags - a.commonTags)
+        .slice(0, limit)
+        .map(p => ({
+            slug: p.post.slug,
+            title: p.post.title,
+            date: p.post.date,
+            tags: p.post.tags,
+            summary: p.post.summary,
+            cover: p.post.cover || undefined,
+            coverAlt: p.post.coverAlt || undefined
+        }));
+
+    return similarPosts;
+}
+
 async function createCollections(collections) {
 
     let tagsMap = new Map();
+    let allPosts = [];
 
     for(let collectionObj of collections) {
         const outputFilePath = path.join(__dirname, collectionObj.output);
@@ -66,6 +94,7 @@ async function createCollections(collections) {
             }
     
             collection.push(postData);
+            allPosts.push(postData); // Add post to allPosts array
     
             if (parsed.data.tags && Array.isArray(parsed.data.tags)) {
                 parsed.data.tags.forEach(tag => {
@@ -77,12 +106,27 @@ async function createCollections(collections) {
                 });
             }
         }
-    
-        collection.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Store the collection data without sorting
         await writeFile(outputFilePath, JSON.stringify(collection, null, 2));
     }
 
-    //write tags file
+    // After all posts from all collections are processed, find similar posts
+    for (let collectionObj of collections) {
+        const outputFilePath = path.join(__dirname, collectionObj.output);
+        let collection = JSON.parse(await readFile(outputFilePath, 'utf8'));
+
+        const updatedCollection = collection.map(post => ({
+            ...post,
+            similarPosts: findSimilarPosts(post, allPosts)
+        }));
+
+        // Sort the collection by date before saving
+        updatedCollection.sort((a, b) => new Date(b.date) - new Date(a.date));
+        await writeFile(outputFilePath, JSON.stringify(updatedCollection, null, 2));
+    }
+
+    // Write tags file
     const tagsData = Array.from(tagsMap, ([title, posts]) => ({
         title,
         count: posts.length,
@@ -91,6 +135,7 @@ async function createCollections(collections) {
     }));
     await writeFile(path.join(__dirname, 'collections/tags.json'), JSON.stringify(tagsData, null, 2));
 }
+
 
 async function createKanga() {
 

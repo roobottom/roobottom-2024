@@ -94,7 +94,11 @@ app.get('/articles/:slug', (req,res) => {
 
   res.render('views/article', {
     section_id: 'articles',
-    ...article
+    ...article,
+    breadcrumbs: [{
+      title: 'Articles',
+      url: '/articles'
+    }]
   });
 });
 
@@ -165,13 +169,17 @@ app.get('/subjects/:slug', (req,res) => {
   const entry = res.locals.collections.tags.find(item => item.slug === slug)
 
   if (!entry) {
-    
+    return notFoundRoute(res,req);
   }
 
   res.render('views/tag', {
     title: entry.title,
     section_id: 'subjects',
-    posts: entry.posts
+    posts: entry.posts,
+    breadcrumbs: [{
+      title: 'Subjects',
+      url: '/subjects'
+    }]
   });
 });
 

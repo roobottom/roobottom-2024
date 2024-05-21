@@ -259,18 +259,18 @@ table {
     }
 
     blockquote:not(.quote) {
-        border-left: 6px solid var(--c-grey-light);
         #type.family.headline;
+        font-style: italic;
+        font-weight: bold;
         font-size: var(--step-1);
-        line-height: var(--line-height--tight);
         >p {
-            text-indent: -.5em;
-            padding-left: 1em;
             @supports (hanging-punctuation: first) {
                 hanging-punctuation: first;
                 text-indent: 0;
             } 
         }
+        >p:first-child:before { content: "“";}
+        >p:last-child:after { content: "”";}
     }
 
     //shift pre back inline with body text, but only as a direct child of .prose 

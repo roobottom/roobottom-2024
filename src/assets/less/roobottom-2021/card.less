@@ -1,4 +1,5 @@
 .card {
+
   @media @bp[max] {
     display: grid;
     grid-template-columns: minmax(7rem, 10rem) 1fr;
@@ -13,6 +14,7 @@
     }
     &-summary {
       grid-area: summary;
+      max-width: var(--line-length);
     }
     &-date {
       grid-area: date;
@@ -66,5 +68,14 @@
 
   &-link {
     #type.style.link;
+    // &:before {
+    //   content: "";
+    //   display: block;
+    //   top: 0;
+    //   left: 0;
+    //   bottom: 0;
+    //   right: 0;
+    //   position: absolute;
+    // }
   }
 }

@@ -2,7 +2,6 @@
 <div class="breadcrumbs {{ params.classes }}">
   <ol>
   {% for item in params.items %}
-    {% if item.title %}
     <li>
     {% if item.url -%}
       <a href="{{ item.url }}">{{ item.title }}</a>
@@ -10,7 +9,6 @@
       {{ item.title }}
     {%- endif %}
     </li>
-    {% endif %}
   {% endfor %}
   </ol>
 </div>

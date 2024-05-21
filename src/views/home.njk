@@ -1,6 +1,17 @@
 {% extends "layouts/wrapper.njk" %}
+{% from 'components/articleCard.njk' import articleCard as articleCard %}
+
 {% block content %}
 <div class="prose space--margin-top-m space--margin-bottom-l">
   {{ content | safe }}
 </div>
+<ul class="list list--grid">
+  {% for article in collections.articles %}
+  {% if article.featured %}
+    <li class="list-item"> 
+      {{ articleCard(article) }}
+    </li>
+    {% endif %}
+  {% endfor %}
+</ul>
 {% endblock %}

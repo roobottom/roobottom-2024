@@ -1,7 +1,5 @@
 .list {
   list-style: none;
-  gap: var(--space-m);
-  #container.prose-flow;
 
   li:after {
     content: "";
@@ -13,18 +11,15 @@
     &:not(:only-child) {
       margin-bottom: var(--space-m);
       padding-bottom: var(--space-m);
+      border-bottom: 2px dashed var(--c-blue);
     }
-    &:not(:last-child) {
-      border-bottom: 1px solid var(--c-border);
+    &:last-child {
+      border-bottom: none;
     }
-  }
-}
 
+    &:nth-child(2n-1) {
+      border-color: var(--c-yellow);
+    }
 
-@media @bp[max] {
-  .grid {
-    display: grid;
-    grid-template-columns: 17rem var(--line-length);
-    gap: var(--space-xl);
   }
 }

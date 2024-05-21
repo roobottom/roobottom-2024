@@ -50,7 +50,6 @@
 </div>
 
 {# similar posts #}
-{# {%- set similarPosts = collections.articles | similarPosts(page.inputPath, tags) -%}
 {% if similarPosts | length > 0 %}
 <nav class="article-related" aria-labelledby="similar-posts">
   <h2 id="similar-posts" class="space--margin-bottom-s">You might also like</h2>
@@ -62,7 +61,7 @@
   {% endfor %}
   </ul>
 </nav>
-{% endif %}#}
+{% endif %}
 </footer>
 </main>
 {% endblock %} 

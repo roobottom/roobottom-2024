@@ -59,15 +59,9 @@ body:not(.section-kanga) {
   }
 }
 
-
-.section-home {
-  box-sizing: border-box;
-  min-height: 100vh;
+.site-header {
   background-image: linear-gradient(135deg, var(--c-blue-20) 0%, var(--c-yellow-20) 100%);
-}
-
-body:not(.section-home) .site-header {
-  background-image: linear-gradient(135deg, var(--c-blue-20) 0%, var(--c-yellow-20) 100%);
+  border-bottom: 1px solid var(--c-yellow);
 }
 
 .stripes(@height: 1rem; @stripe-width: 25%) {

@@ -3,7 +3,7 @@
 
 {% block content %}
 <ul class="list list--grid">
-  {% for post in posts -%}
+  {% for post in posts | reverse -%}
   <li class="list-item">
     {{ articleCard(post) }}
   </li>
