@@ -370,6 +370,9 @@ h1,
   font-size: calc(2.203125rem + (90.3 - 35.25) * var(--fluid-bp));
   overflow-wrap: break-word;
 }
+.homepage-title {
+  font-size: calc(2.203125rem + (156.03 - 35.25) * var(--fluid-bp));
+}
 h2,
 .h2 {
   font-size: var(--step-3);

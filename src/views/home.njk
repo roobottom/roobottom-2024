@@ -1,8 +1,15 @@
 {% extends "layouts/wrapper.njk" %}
 {% from 'components/articleCard.njk' import articleCard as articleCard %}
 
+{% block beforeContent %}
+{{ pagetitle({
+  classes: 'homepage-title',
+  text: title
+}) }}
+{% endblock %}
+
 {% block content %}
-<div class="prose space--margin-top-m space--margin-bottom-l">
+<div class="prose space--margin-bottom-l">
   {{ content | safe }}
 </div>
 <ul class="list list--grid">
