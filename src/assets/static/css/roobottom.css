@@ -1684,6 +1684,12 @@ figcaption {
   display: flex;
   flex-wrap: wrap;
 }
+.form-radio--icon {
+  background-image: var(--icon);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .form-radio-input {
   z-index: 1;
   width: 44px;

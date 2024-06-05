@@ -183,17 +183,6 @@ app.get('/subjects/:slug', (req,res) => {
   });
 });
 
-
-app.get('/time-travel', (req,res) => {
-  const updated = req.query.updated;
-  res.render('views/time-travel', {
-    title: 'Time travel',
-    introduction: 'Step back through time and experience this site as it was in ages past. More themes are coming soon.',
-    section_id: 'time-travel',
-    updated: updated === 'true'
-  });
-});
-
 app.post('/time-travel', (req,res) => {
   const { style } = req.body;
   res.cookie('userStyle', style, { maxAge: 2592000000, httpOnly: true });

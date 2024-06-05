@@ -18,4 +18,4 @@ Articles grow and change over time. To track their state, I use the following st
 <statusNames>
 
 ## Colophon
-Various [versions of this website](/time-travel) were designed in Sketch. The backend is build in Express.js.
+Various [versions of this website](/time-travel) were designed in Sketch. The backend is built in Express.js.

@@ -15,7 +15,7 @@
   <fieldset class="form-group">
       <legend class="form-legend">Choose a version of this site</legend>
       {% for style in styles %}
-      <div class="form-radio">
+      <div class="form-radio form-radio--icon" style="--icon: url({{ style.icon }})">
         <input class="form-radio-input" id="{{ style.id }}" name="style" type="radio" value="{{ style.slug }}" aria-describedby="{{ style.id }}-hint" {% if userStyle == style.slug %}checked{% endif %}>
         <label class="form-radio-label" for="{{ style.id }}">{{ style.title }}</label>
         <div class="form-hint form-radio-hint" id="{{ style.id }}-hint">{{ style.description }}</div>
