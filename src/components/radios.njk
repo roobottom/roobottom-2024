@@ -1,0 +1,33 @@
+{% macro radios(params) %}
+<fieldset class="form-group">
+  <legend class="form-legend">{{ params.title }}</legend>
+  {% if params.styleAsCards %}
+    <ul class="list list--grid">
+      {% for item in params.items %}
+        <li class="form-card form-card--radios">
+          {% if item.header %}
+          <header class="form-card-header">
+            {{ item.header | safe }}
+          </header>
+          {% endif %}
+          <div class="form-card-content">
+            {{ radio(item, params.id) }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {% for item in params.items %}
+      {{ radio(item, params.id) }}
+    {% endfor %}
+  {% endif %}
+</fieldset>
+{% endmacro %}
+
+{% macro radio(item, id) %}
+<div class="form-radio">
+  <input class="form-radio-input" id="radio-{{ id }}-{{ item.id }}" name="{{ id }}" type="radio" value="{{ item.id }}" {% if item.hint %}aria-describedby="radio-{{ id }}-{{ item.id }}-hint"{% endif %} {% if item.checked == true %}checked{% endif %}>
+  <label class="form-radio-label" for="radio-{{ id }}-{{ item.id }}">{{ item.title }}</label>
+  {% if item.hint %}<div class="form-hint form-radio-hint" id="radio-{{ id }}-{{ item.id }}-hint">{{ item.hint }}</div>{% endif %} 
+</div>
+{% endmacro %}

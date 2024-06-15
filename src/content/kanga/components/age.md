@@ -1,7 +1,7 @@
 ---
 title: Kid’s Age
 ---
-In my diary, I show how old my kids were at the time of each post. 
+In my diary, I show how old my kids were at the time of each post.
 
 By passing a date of birth, post date, kid's name and an emoji, this component will display:
 

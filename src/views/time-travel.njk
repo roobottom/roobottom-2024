@@ -1,4 +1,5 @@
 {% extends "layouts/wrapper.njk" %}
+{% from 'components/radios.njk' import radios as radios %}
 
 {% block beforeContent %}
 {% if updated %}
@@ -12,16 +13,26 @@
 
 {% block content %}
 <form class="form space--margin-top-m" action="/time-travel" method="post">
-  <fieldset class="form-group">
-      <legend class="form-legend">Choose a version of this site</legend>
-      {% for style in styles %}
-      <div class="form-radio form-radio--icon" style="--icon: url({{ style.icon }})">
-        <input class="form-radio-input" id="{{ style.id }}" name="style" type="radio" value="{{ style.slug }}" aria-describedby="{{ style.id }}-hint" {% if userStyle == style.slug %}checked{% endif %}>
-        <label class="form-radio-label" for="{{ style.id }}">{{ style.title }}</label>
-        <div class="form-hint form-radio-hint" id="{{ style.id }}-hint">{{ style.description }}</div>
-      </div>
-      {% endfor %}
-  </fieldset>
+
+  {% set items = [] %}
+  {% for style in styles %}
+    {% set thisStyle = {
+      id: style.slug,
+      title: style.title,
+      hint: style.description,
+      header: '<img src="' + style.icon + '" alt="" role="presentation">',
+      checked: true if userStyle == style.slug
+    } %}
+    {% set items = items.concat(thisStyle) %}
+  {% endfor %}
+
+  {{ radios({
+    title: "Choose a version of this site",
+    id: "style",
+    styleAsCards: true,
+    items: items
+  }) }}
+
   <button class="form-button">Save style choice</button>
 </form>
 {% endblock %}
