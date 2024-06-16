@@ -154,12 +154,13 @@
     }
 
     &-content {
-      padding: var(--space-xs);
+      padding: var(--space-s);
     }
 
     &:hover {
-      box-shadow: 0 0 0 .5rem var(--c-form-focus);
+      box-shadow: 0 0 20px fade(black,10%);
     }
+
   }
 
   //--- radios
@@ -190,6 +191,7 @@
       justify-self: left;
       background-color: var(--c-background);
       box-shadow: inset 0 0 0 0.25rem var(--c-text);
+      transition: box-shadow 0.3s ease-out;
     }
 
     &-label:after {
@@ -252,16 +254,13 @@
     border: none;
     cursor: pointer;
     color: var(--c-form-button-text);
-    box-shadow: 0 3px 0 var(--c-form-shadow);
-
-    &:hover {
-      background-color: var(--c-form-button-hover);
-      color: var(--c-form-button-hover-text);
-    }
+    transition: box-shadow 0.3s ease-out;
+    border-radius: .25rem;
 
     &:focus,
-    &:active {
-      box-shadow: 0 0 0 3px var(--c-form-button), inset 0 0 0 3px white;
+    &:active,
+    &:hover {
+      box-shadow: 0 0 0 0.5rem var(--c-form-focus);
     }
 
   }

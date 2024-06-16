@@ -6,12 +6,12 @@ Apply the class `link` to add the default link styling to any link element, for 
 
 
 ``` {.language-html}
-{% raw %}<a href="#" class="link">Example link</a>{% endraw %}
+<a href="#" class="link">Example link</a>
 ```
 
 
 ## Less mixin
-If you need more finegrain control over links, you can use the Less mixin.
+For more finegrain control over links, use the Less mixin.
 
 ``` {.language-less}
 #type.style.link(@color, @focus, @hover, @underline)

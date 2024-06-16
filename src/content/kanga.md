@@ -10,4 +10,4 @@ section_id: 'kanga'
 
 This documentation is primarily here for me to use as a memory aid when developing new features. Of course, you are free to browse around, too.
 
-Roobottom.com uses [Nunjucks](https://mozilla.github.io/nunjucks/) and [Less](https://lesscss.org/), so the code examples are mostly written for those technologies.
+My website uses [Nunjucks](https://mozilla.github.io/nunjucks/) and [Less](https://lesscss.org/), so the code examples are written for those technologies.

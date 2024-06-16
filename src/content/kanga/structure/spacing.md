@@ -17,20 +17,20 @@ Spacing is calculated from minimum, `17`, and maximum, `21`, font sizes times a 
 
 Spacing classes are available for all sizes and directions for padding and margin, in the following pattern:
 
-```
-.space--[type]-[direction]-[size]
+``` {.language-html}
+<element class="space--[type]-[direction]-[size]">
 ```
 
 For example, if you wanted to add `m` margin-top to an element, use the class:
 
-```
-.space--margin-top-m
+``` {.language-html}
+<element class="space--margin-top-m">
 ```
 
 There's also a special `all` direction, which adds margin or padding to the whole element. For example,
 
-```
-.space--padding-all-s
+``` {.language-html}
+<element class="space--padding-all-s">
 ```
 
 The following example gives a visual representation of the scale, using padding. 

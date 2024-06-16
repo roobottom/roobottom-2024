@@ -7,4 +7,4 @@ All pages _should_ have at least an `h1`, the use heading-levels from the stack 
 
 Headings use sizes from the [type scale](/kanga/typography-type-scale/).
 
-{% example '/kanga/example/typography/headings', '300' %}
+<example url='/kanga/example/typography/headings' height='300'>

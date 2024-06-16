@@ -1,0 +1,21 @@
+---
+title: Radios
+---
+{% from 'components/radios.njk' import radios as radios %}
+
+{{ radios({
+    title: "Are you a fan of this website?",
+    id: "are-you-a-fan-of-this-website",
+    items: [
+        {
+            id: "yes",
+            title: "Yes",
+            hint: "Chose this option to vote in the affirmative"
+        },
+        {
+            id: "no",
+            title: "No",
+            hint: "Chose this option to vote in the negative"
+        }
+    ]
+}) }}

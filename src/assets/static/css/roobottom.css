@@ -1429,6 +1429,7 @@ figcaption {
   display: flex;
   flex-direction: column;
   max-width: 30rem;
+  border-radius: 0.25rem;
 }
 .card-cover {
   width: calc(100% + (2 * var(--step-0)));
@@ -1691,10 +1692,10 @@ figcaption {
   padding: var(--space-xs);
 }
 .form-card-content {
-  padding: var(--space-xs);
+  padding: var(--space-s);
 }
 .form-card:hover {
-  box-shadow: 0 0 0 0.5rem var(--c-form-focus);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .form-radio {
   position: relative;
@@ -1718,6 +1719,7 @@ figcaption {
   justify-self: left;
   background-color: var(--c-background);
   box-shadow: inset 0 0 0 0.25rem var(--c-text);
+  transition: box-shadow 0.3s ease-out;
 }
 .form-radio-label:after {
   content: "";
@@ -1760,15 +1762,13 @@ figcaption {
   border: none;
   cursor: pointer;
   color: var(--c-form-button-text);
-  box-shadow: 0 3px 0 var(--c-form-shadow);
-}
-.form-button:hover {
-  background-color: var(--c-form-button-hover);
-  color: var(--c-form-button-hover-text);
+  transition: box-shadow 0.3s ease-out;
+  border-radius: 0.25rem;
 }
 .form-button:focus,
-.form-button:active {
-  box-shadow: 0 0 0 3px var(--c-form-button), inset 0 0 0 3px white;
+.form-button:active,
+.form-button:hover {
+  box-shadow: 0 0 0 0.5rem var(--c-form-focus);
 }
 .breadcrumbs {
   font-size: var(--step--1);
