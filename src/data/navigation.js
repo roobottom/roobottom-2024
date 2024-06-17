@@ -5,10 +5,6 @@ module.exports = {
       title: 'Articles',
       id: 'articles'
     }, {
-      url: '/time-travel/',
-      title: 'Time travel',
-      id: 'time-travel'
-    }, {
       url: '/subjects/',
       title: 'Subjects',
       id: 'subjects'
@@ -32,9 +28,9 @@ module.exports = {
       title: 'Subjects',
       id: 'subjects'
     }, {
-      url: 'https://github.com/roobottom/roobottom-com/issues',
-      title: 'To-do list',
-      id: 'todo'
+      url: '/time-travel/',
+      title: 'Choose a style',
+      id: 'time-travel'
     }
   ],
   elsewhere: [

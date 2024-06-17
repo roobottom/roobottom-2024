@@ -12,15 +12,9 @@
 }
 
 #container {
-  // Mixin with guard condition for centering
-  .prose-flow() when (@centered = true) {
-    max-width: var(--line-length);
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   // Mixin without centering
-  .prose-flow() when not (@centered = true) {
+  .prose-flow() {
     max-width: var(--line-length);
   }
 }

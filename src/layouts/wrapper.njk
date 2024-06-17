@@ -29,7 +29,7 @@
       {% block stylesheets %}
       <link rel="stylesheet" href="/css/{{ userStyle }}.css">
       {% for style in styles %}
-      <link rel="alternate stylesheet" href="/css/{{ style.slug }}.css" title="{{ style.description }}">
+      <link rel="alternate stylesheet" href="/css/{{ style.slug }}.css" title="{{ style.title }}: {{ style.description }}">
       {% endfor %}
       {% endblock %}
       

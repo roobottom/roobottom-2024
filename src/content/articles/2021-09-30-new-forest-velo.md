@@ -2,16 +2,14 @@
 title: New Forest velo 2021
 date: 2021-09-30
 tags:
-  - the new forest
   - cycling
-  - friends
-  - bikepacking
+  - the new forest
 cover: /images/articles/new-forest-velo-2021/bike-on-a-sign.jpeg
 coverAlt: My bike leaning against a sign which reads “The New Forest”
 summary: My pal Paul and I spent three days cycling in the beautiful New Forest
 status: 3
 ---
-## Day 1: Onward, to the sea! 
+## Day 1: Onward, to the sea!
 
 The train unloaded us in Brockenhurst around lunchtime. After a stressful change at Southampton, it was a welcome relief to head out into the Forest. We cycled south, stopping briefly to admire the church of Saint Nicholas just outside of town. 
 
