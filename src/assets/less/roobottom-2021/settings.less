@@ -1,12 +1,10 @@
-@centered: true;
-
 @font-default: 'debut', sans-serif;
 @font-heading: 'bely', serif;
 @font-alt: 'DM Mono', monospace;
 
 .make-colours(@basecolour, @variablestub, @alpha) when (@alpha > 0) {
   @{variablestub}-@{alpha}: fade(@basecolour, unit(@alpha, '%'));
-  .make-colours(@basecolour, @variablestub, @alpha - 10);
+  .make-colours(@basecolour, @variablestub, @alpha - 5);
 }
 
 :root {
@@ -24,14 +22,6 @@
   --c-pink: #F00699;
   .make-colours(#F00699, --c-pink, 100);
 
-  //site header
-  --c-site-header-background: linear-gradient(135deg, var(--c-blue-20) 0%, var(--c-yellow-20) 100%);
-  --c-site-header-border-bottom: 1px solid var(--c-blue);
-
-  //site footer
-  --c-site-footer-background: linear-gradient(135deg, var(--c-pink-20) 0%, var(--c-blue-40) 100%);
-  --c-site-footer-border-top: 1px solid var(--c-blue);
-
   //core colours
   --c-text: #333333;
   --c-text-light: #666666;
@@ -41,46 +31,51 @@
   --c-link-hover: var(--c-pink);
   --c-link-focus: var(--c-pink);
 
-  //component common colours
-  --c-component-background: white;
-  --c-component-background-tint: #F1F1F1;
-
   --box-shadow: 0 0 10px fade(black, 20%);
-  --border-radius: 5px;
+  --border-radius: .5rem;
+  --bullet: ~"url(@{path-images}bullet.svg)";
 
-  //specific component settings
+  //component settings
+  // -----------------
 
-  //typography colours ---
-  // --------------------
+  //site header
+  --c-site-header-background: linear-gradient(135deg, var(--c-blue-20) 0%, var(--c-yellow-20) 100%);
+  --c-site-header-border-bottom: 1px solid var(--c-blue);
+
+  //site footer
+  --c-site-footer-background: linear-gradient(135deg, var(--c-pink-20) 0%, var(--c-blue-40) 100%);
+  --c-site-footer-border-top: 1px solid var(--c-blue);
 
   //callouts
   --c-callout-background: var(--c-yellow-10);
   --c-callout-border: var(--c-yellow);
 
   //code
-  --c-code-background: #f5f5f5;
-  --c-code-border: #e0e0e0;
+  --c-code-background: var(--c-blue-5);
+  --c-code-border: 1px solid var(--c-blue);
  
   //hr
   --c-hr: var(--c-pink);
 
   //tables
-  --c-table-border: #e0e0e0;
-  --c-table-background: #f5f5f5;
-  --table-padding: var(--space-s);
+  --table-border: 1px solid var(--c-blue);
+  --c-table-background: transparent;
+  --table-td-border: 1px solid var(--c-blue-20);
+  --table-padding: var(--space-xs);
+  --table-shadow: var(--box-shadow);
 
-  --c-form-button: var(--c-orange-90);
-  --c-form-shadow: var(--c-orange);
-  --c-form-button-text: white;
-  --c-form-button-hover: var(--c-orange);
-  --c-form-button-hover-text: white;
+  //form
+  --c-form-tint: darken(#30BCED, 20%);
+  --c-form-focus: fade(black, 20%);
 
-  //component settings ---
-  // --------------------
-  --breadcrumbs-link: var(--c-link);
-  --breadscrumbs-link-hover: var(--c-link-hover);
-  --breadcrumbs-link-focus: var(--c-link-focus);
-  --breadcrumbs-link-underline: underline;
+  //card
+  --card-background: #FFF;
+
+  // breadcrumbs
   --c-breadscrumbs-arrow: var(--c-pink);
 
+  //subnav
+  --subnav-border: 1px solid var(--c-border);
+  --subnav-background: #FFF;
+  --subnav-tint: var(--c-blue-10);
 }

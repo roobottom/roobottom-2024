@@ -12,6 +12,10 @@
 {% endblock %}
 
 {% block content %}
+<article class="prose prose--flow">
+{{ content | safe }}
+</article>
+
 <form class="form space--margin-top-m" action="/time-travel" method="post">
 
   {% set items = [] %}
@@ -27,7 +31,7 @@
   {% endfor %}
 
   {{ radios({
-    title: "Choose a version of this site",
+    title: "Which version of this site do you want?",
     id: "style",
     styleAsCards: true,
     items: items

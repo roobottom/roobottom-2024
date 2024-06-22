@@ -11,7 +11,7 @@ Images with captions should be called with the Figure component. This component 
 Call the shortcode like so:
 
 ```
-<figure url="path/to/img.jpg" caption="The image caption" classes="classname classname" link="https://roobottom.com" transform="wide" isLocal="false">
+<figure url="path/to/img.jpg" caption="The image caption" classes="classname classname" link="https://roobottom.com" transform="wide">
 ```
 
 | Argument | Type | Description |
@@ -20,5 +20,4 @@ Call the shortcode like so:
 | `caption` | string | Required. The caption for the image. |
 | `classes` | string | Classes to apply to the figure container. |
 | `link` | string | A link for the image, if required.  |
-| `transform` | string | A transform name from the set of available [image transformations](/kanga/components/img/#transformations) |
-| `isLocal` | bool | Set to `true` to disable remote image fetching via ImageKit. Defaults to `false`. |
+| `transform` | string | A transform name from the set of available [image transformations](/kanga/img/#transformations). Don't supply any transforms to render the original image. |

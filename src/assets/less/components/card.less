@@ -3,14 +3,14 @@
   transition-property: margin, padding;
   transition-duration: 0.5s;
   position: relative; 
-  background-color: white;
+  background-color: var(--card-background);
   color: var(--c-text);
   box-shadow: 0 0 20px fade(black,10%);
   height: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 30rem;
-  border-radius: .25rem;
+  max-width: 410px;
+  border-radius: var(--border-radius);
 
   &-cover {
     width: calc(100% + (2 * var(--step-0)));
@@ -21,9 +21,10 @@
     background-image: var(--cover);
     min-height: 240px;
     height: 30vh;
-    background-color: black;
+    background-color: var(--card-background);
     display: flex;
     align-items: flex-end;
+    background-blend-mode: var(--card-cover-blend);
   }
 
   &--large &-cover {
@@ -49,6 +50,7 @@
       bottom: 0;
       right: 0;
       position: absolute;
+      border-radius: var(--border-radius);
     }
   }
 
@@ -118,7 +120,7 @@
 
   &-date,
   &-meta {
-    color: var(--c-grey-dark);
+    color: var(--c-text-light);
     font-size: var(--step--2);
     #type.family.alt;
   }

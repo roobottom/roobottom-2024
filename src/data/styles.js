@@ -9,6 +9,11 @@ module.exports = [
         slug: 'roobottom-2021',
         description: 'When this site was going through its pastel phase.',
         icon: '/theme-icons/theme-icon-2021.png'
-    }
+    }, {
+      title: 'Circa 2018',
+      slug: 'roobottom-2018',
+      description: 'This site’s dark and broody phase.',
+      icon: '/theme-icons/theme-icon-2018.png'
+  }
 
 ]

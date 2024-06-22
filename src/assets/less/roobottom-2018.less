@@ -1,0 +1,38 @@
+//theme styles
+@import url(roobottom-2018/settings);
+@import url(roobottom-2018/fonts);
+
+//global styles
+@import url(imports);
+
+//custom styles
+body {
+  background-color: var(--c-background);
+}
+
+body.section-home {
+  background-image: ~"url(@{path-images}fairground.svg)";
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.list>li:nth-child(4n-3) .card {
+  &, .card-cover {
+    background-color: var(--c-purple);
+  }
+}
+.list>li:nth-child(4n-2) .card {
+  &, .card-cover {
+    background-color: var(--c-pink);
+  }
+}
+.list>li:nth-child(4n-1) .card {
+  &, .card-cover {
+    background-color: var(--c-red);
+  }
+}
+.list>li:nth-child(4n) .card {
+  &, .card-cover {
+    background-color: var(--c-blue);
+  }
+}
