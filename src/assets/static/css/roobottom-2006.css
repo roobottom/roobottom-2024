@@ -27,7 +27,7 @@
   --c-link: var(--c-red);
   --c-link-hover: var(--c-red);
   --c-link-focus: var(--c-red);
-  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  --box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
   --border-radius: 0;
   --bullet: url(/sprites/bullet.svg);
   --c-site-header-background: transparent;
@@ -44,8 +44,8 @@
   --table-td-border: 1px solid var(--c-border);
   --table-padding: var(--space-xs);
   --table-shadow: none;
-  --card-background: white;
-  --card-cover-blend: normal;
+  --card-background: var(--c-tint);
+  --card-cover-blend: luminosity;
   --c-form-tint: var(--c-red);
   --c-form-focus: var(--c-red-40);
   --c-breadscrumbs-arrow: var(--c-red);
@@ -1386,7 +1386,7 @@ figcaption {
   position: relative;
   background-color: var(--card-background);
   color: var(--c-text);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -2174,4 +2174,7 @@ h6 {
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 26px;
+}
+.card-cover .card-link {
+  text-shadow: 1px 1px 0 black;
 }

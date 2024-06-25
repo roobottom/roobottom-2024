@@ -1485,7 +1485,7 @@ figcaption {
   position: relative;
   background-color: var(--card-background);
   color: var(--c-text);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   height: 100%;
   display: flex;
   flex-direction: column;
