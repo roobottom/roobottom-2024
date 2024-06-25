@@ -1,0 +1,30 @@
+//theme styles
+@import url(roobottom-2006/settings);
+
+//global styles
+@import url(imports);
+
+//custom styles
+
+//multipack logo
+body:not(.section-kanga-example) {
+  @media @bp[max] {
+    background-image: ~"url(@{path-images}multipack-icon.png)";
+    background-position: top right;
+    background-repeat: no-repeat;
+    padding: 0 25px; //move the whole site in a bit to miss the logo
+  }
+}
+
+//joy! The headings are red
+h1, h2, h3, h4, h5, h6 {
+  color: var(--c-red);
+}
+
+.navigation__sitename {
+  padding-top: 32px;
+  background-image: ~"url(@{path-images}rdc-star.svg)";
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 26px;
+}

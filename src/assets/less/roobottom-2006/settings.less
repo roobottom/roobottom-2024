@@ -1,0 +1,73 @@
+@font-default: Arial, Helvetica, sans-serif;
+@font-heading: Garamond, Georgia, Arial, serif;
+@font-alt: monospace;
+
+.make-colours(@basecolour, @variablestub, @alpha) when (@alpha > 0) {
+  @{variablestub}-@{alpha}: fade(@basecolour, unit(@alpha, '%'));
+  .make-colours(@basecolour, @variablestub, @alpha - 5);
+}
+
+:root {
+
+  --c-red: #E41426;
+  .make-colours(#E41426, --c-red, 100);
+  --c-tint: #F1F1F1;
+
+  //core colours
+  --c-text: #333;
+  --c-text-light: #666666;
+  --c-border: #cccccc;
+
+  --c-link: var(--c-red);
+  --c-link-hover: var(--c-red);
+  --c-link-focus: var(--c-red);
+
+  --box-shadow: 0 0 10px fade(black, 10%);
+  --border-radius: 0;
+  --bullet: ~"url(@{path-images}bullet.svg)";
+
+  //component settings
+  // -----------------
+
+  //site header
+  --c-site-header-background: transparent;
+  --c-site-header-border-bottom: none;
+
+  //site footer
+  --c-site-footer-background: transparent;
+  --c-site-footer-border-top: none;
+
+  //callouts
+  --c-callout-background: var(--c-tint);
+  --c-callout-border: var(--c-border);
+
+  //code
+  --c-code-background: var(--c-tint);
+  --c-code-border: 1px solid var(--c-border);
+ 
+  //hr
+  --c-hr: var(--c-border);
+
+  //tables
+  --table-border: none;
+  --c-table-background: none;
+  --table-td-border: 1px solid var(--c-border);
+  --table-padding: var(--space-xs);
+  --table-shadow: none;
+
+  //cards
+  --card-background: white;
+  --card-cover-blend: normal;
+
+  //form
+  --c-form-tint: var(--c-red);
+  --c-form-focus: var(--c-red-40);
+
+  // breadcrumbs
+  --c-breadscrumbs-arrow: var(--c-red);
+
+  //subnav
+  --subnav-border: 1px solid var(--c-border);
+  --subnav-background: white;
+  --subnav-tint: var(--c-tint);
+}
