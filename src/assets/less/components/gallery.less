@@ -23,6 +23,15 @@
     >figure:nth-child(3n-1):last-child {
       grid-column: span 2;
     }
+    &.overlap >figure+figure {
+      margin-left: calc(-1 * var(--space-l));
+      figcaption {
+        margin-left: var(--space-xs);
+      }
+    }
+    &.overlap figure:first-child figcaption {
+      width: calc(100% - var(--space-l));
+    }
   }
 }
 

@@ -233,6 +233,11 @@ li {
   --line-height--loose: 1.75;
   --line-height--tight: 1.1;
   --line-height--supertight: 0.9;
+  --figure-browser-border: 1px solid #CCC;
+  --figure-browser-radius: 8px;
+  --figure-browser-frame-colour: #D9D9D9;
+  --figure-browser-shadow: inset 0 1px 0 white, 
+    var(--box-shadow);
 }
 @media screen and (min-width: 1100px) {
   :root {
@@ -1339,6 +1344,13 @@ figure a {
 figure.shadow > img {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+figure.browser > img {
+  border: var(--figure-browser-border);
+  padding-top: 26px;
+  border-radius: var(--figure-browser-radius);
+  box-shadow: var(--figure-browser-shadow);
+  background: var(--figure-browser-frame-colour);
+}
 figure.right {
   float: right;
   margin-left: var(--space-s);
@@ -1372,6 +1384,15 @@ figcaption {
   }
   .gallery > figure:nth-child(3n-1):last-child {
     grid-column: span 2;
+  }
+  .gallery.overlap > figure + figure {
+    margin-left: calc(-1 * var(--space-l));
+  }
+  .gallery.overlap > figure + figure figcaption {
+    margin-left: var(--space-xs);
+  }
+  .gallery.overlap figure:first-child figcaption {
+    width: calc(100% - var(--space-l));
   }
 }
 .mini-gallery {

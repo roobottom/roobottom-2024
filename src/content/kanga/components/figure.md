@@ -20,4 +20,31 @@ Call the shortcode like so:
 | `caption` | string | Required. The caption for the image. |
 | `classes` | string | Classes to apply to the figure container. |
 | `link` | string | A link for the image, if required.  |
-| `transform` | string | A transform name from the set of available [image transformations](/kanga/img/#transformations). Don't supply any transforms to render the original image. |
+| `transform` | string | A transform name from the set of available [image transformations](#image-transformations). Don't supply any transforms to render the original image.
+
+## Special figure classes
+
+There are special classes available for the figure component.
+
+| Class name | Description | 
+| :- | :- |
+| `wide` | Images appear wider within a `prose` container. |
+| `right` | Floats the image right. Applies a max-width of 50%. |
+| `shadow` | A drop shadow is applied to the image. |
+| `browser` | A browser frame is applied to the image. |
+
+## Image transformations
+
+This site uses a [middleware that utilises Sharp](https://github.com/roobottom/roobottom-2024/blob/master/lib/middleware/images.js) to resize images. You can pass the following keys into the `transform` option to call images with the associated arguments:
+
+| Key | Argument | Notes |
+| :- | :- | :- |
+| `default` | resize=780, quality=90 | Passed as default to all images. Quality is only used for `jpg` or `webp`.  |
+| `none` | | No adjustments are made. |
+| `wide` | resize=1200, quality=90 | |
+| `card` | resize=410,275 | For card components. |
+| `og` | resize=1280,680 | For Open Graph images. |
+| `square_large` | resize=600,600 | |
+| `square_small` | resize=420,420 | |
+| `square_tiny` | resize=220,220 | |
+| `rss` | resize=500 | For RSS images. |

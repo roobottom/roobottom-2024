@@ -23,6 +23,14 @@ figure {
     box-shadow: 0 0 20px fade(black, 10%);
   }
 
+  &.browser>img {
+    border: var(--figure-browser-border);
+    padding-top: 26px;
+    border-radius: var(--figure-browser-radius);
+    box-shadow: var(--figure-browser-shadow);
+    background: var(--figure-browser-frame-colour);
+  }
+
   &.right {
     float: right;
     margin-left: var(--space-s);
