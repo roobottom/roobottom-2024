@@ -1,5 +1,5 @@
 /node_modules
 .DS_Store
 /collections
-/src/assets/css
+/src/assets/static/css
 .env

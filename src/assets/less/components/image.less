@@ -7,9 +7,16 @@ figure {
   >img {
     width: calc(100% + 2 * var(--space-m));
     margin-left: calc(-1 * var(--space-m));
-    max-width: none;
+    max-width: none; 
+  }
 
-    @media @bp[mid] {
+  &.browser > img {
+    width: calc(100% + 2 * var(--space-s));
+    margin-left: calc(-1 * var(--space-s));
+  }
+
+  @media @bp[mid] {
+    >img, &.browser > img  {
       width: 100%;
       margin-left: 0;
     }
