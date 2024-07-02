@@ -1,0 +1,11 @@
+---
+title: Radios
+---
+{% from 'components/textInput.njk' import textInput as textInput %}
+
+{{ textInput({
+  title: "What is your name?",
+  id: "name",
+  hint: "What people usually call you in everyday conversation",
+  error: "You must tell me your name"
+}) }}

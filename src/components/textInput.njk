@@ -1,0 +1,8 @@
+{% macro textInput(params) %}
+<div class="form-group {% if params.error %}form-group--error{% endif %}">
+  <label class="form-label" for="{{ params.id }}">{{ params.title }}</label>
+  {% if params.hint %}<div id="{{ params.id }}-hint" class="form-hint">{{ params.hint }}</div>{% endif %}
+  {% if params.error %}<div class="form-error-message">{{ params.error }}</div>{% endif %}
+  <input class="form-input" id="{{ params.id}}" name="{{ params.id}}" type="{{ params.type or 'text'}}" value="{{ params.value or ''}}">
+</div>
+{% endmacro %}
