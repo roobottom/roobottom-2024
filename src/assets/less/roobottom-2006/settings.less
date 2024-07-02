@@ -11,16 +11,23 @@
 
   --c-red: #E41426;
   .make-colours(#E41426, --c-red, 100);
+
+  --c-grey: #1a1a1a;
+  .make-colours(#1a1a1a, --c-grey, 100);
+
   --c-tint: #F1F1F1;
 
   //core colours
-  --c-text: #333;
-  --c-text-light: #666666;
-  --c-border: #cccccc;
+  --c-text: var(--c-grey);
+  --c-text-light: var(--c-grey-70);
+  --c-border: var(--c-grey-40);
 
   --c-link: var(--c-red);
   --c-link-hover: var(--c-red);
   --c-link-focus: var(--c-red);
+
+  --c-error: var(--c-red);
+  --c-error-focus: var(--c-red-50);
 
   --box-shadow: 8px 8px 0 fade(black, 20%);
   --border-radius: 0;
@@ -60,8 +67,8 @@
   --card-cover-blend: luminosity;
 
   //form
-  --c-form-tint: var(--c-red);
-  --c-form-focus: var(--c-red-40);
+  --c-form-tint: var(--c-grey-90);
+  --c-form-focus: var(--c-grey-20);
 
   // breadcrumbs
   --c-breadscrumbs-arrow: var(--c-red);

@@ -1,0 +1,11 @@
+---
+title: Text input textarea
+---
+{% from 'components/textInput.njk' import textInput as textInput %}
+
+{{ textInput({
+  title: "What would you like to say?",
+  id: "message",
+  hint: "Send me a short message",
+  isTextarea: true
+}) }}

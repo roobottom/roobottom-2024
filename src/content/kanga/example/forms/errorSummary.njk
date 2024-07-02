@@ -1,0 +1,16 @@
+---
+title: Error summary
+---
+{% from 'components/errorSummary.njk' import errorSummary as errorSummary %}
+
+{{ errorSummary({
+  items: [
+    {
+      id: 'example-input-one',
+      title: 'You must tell me your name'
+    }, {
+      id: 'example-input-two',
+      title: 'You must write a message'
+    }
+  ]
+}) }}

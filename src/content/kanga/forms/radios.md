@@ -1,8 +1,6 @@
 ---
 title: Radios
 ---
-## Standard radios
-
 <example url='/kanga/example/forms/radios' height='300'>
 
 ## Radios in a card

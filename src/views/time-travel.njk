@@ -1,5 +1,6 @@
 {% extends "layouts/wrapper.njk" %}
 {% from 'components/radios.njk' import radios as radios %}
+{% from 'components/button.njk' import button as button %}
 
 {% block beforeContent %}
 {% if updated %}
@@ -37,6 +38,8 @@
     items: items
   }) }}
 
-  <button class="form-button">Save style choice</button>
+  {{ button({
+    label: 'Save style choice'
+  }) }}
 </form>
 {% endblock %}

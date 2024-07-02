@@ -1,8 +1,16 @@
+{% macro input(params) %}
+  <{{ params.type or 'input'}} class="form-input {% if params.error %}form-input--error{% endif %}" id="{{ params.id}}" name="{{ params.id}}" type="{{ params.type or 'text'}}" value="{{ params.value or ''}}">{% if params.type == 'textarea' %}</textarea>{% endif %}
+{% endmacro %}
+
 {% macro textInput(params) %}
-<div class="form-group {% if params.error %}form-group--error{% endif %}">
-  <label class="form-label" for="{{ params.id }}">{{ params.title }}</label>
-  {% if params.hint %}<div id="{{ params.id }}-hint" class="form-hint">{{ params.hint }}</div>{% endif %}
-  {% if params.error %}<div class="form-error-message">{{ params.error }}</div>{% endif %}
-  <input class="form-input" id="{{ params.id}}" name="{{ params.id}}" type="{{ params.type or 'text'}}" value="{{ params.value or ''}}">
-</div>
+  <div class="form-group {% if params.error %}form-group--error{% endif %}">
+    <label class="form-label" for="{{ params.id }}">{{ params.title }}</label>
+    {% if params.hint %}<div id="{{ params.id }}-hint" class="form-hint">{{ params.hint }}</div>{% endif %}
+    {% if params.error %}<div class="form-error-message">{{ params.error }}</div>{% endif %}
+    {% if params.isTextarea %}
+    <textarea class="form-input {% if params.error %}form-input--error{% endif %}" id="{{ params.id}}" name="{{ params.id}}" {% if params.hint %}aria-describedby="{{ params.id }}-hint"{% endif %} rows="5">{{ params.value }}</textarea>
+    {% else %}
+    <input class="form-input {% if params.error %}form-input--error{% endif %}" id="{{ params.id}}" name="{{ params.id}}" type="{{ params.type or 'text'}}" value="{{ params.value or ''}}"{% if params.hint %} aria-describedby="{{ params.id }}-hint"{% endif %} inputmode="{{ params.inputmode or 'text'}}"> 
+    {% endif %}
+  </div>
 {% endmacro %}

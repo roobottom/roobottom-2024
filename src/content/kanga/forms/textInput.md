@@ -6,6 +6,9 @@ title: Text input
 ## A text input with an error
 <example url="/kanga/example/forms/textInput-error" height='200'>
 
+## Text area
+<example url="/kanga/example/forms/textInput-textarea" height='300'>
+
 ## Nunjucks Macro parameters
 
 | Name | Type | Description |
@@ -15,3 +18,5 @@ title: Text input
 | `hint` | string | A helpful hint to help the user answer the question. |
 | `value` | string | A predefined value. |
 | `error` | string | An error message. |
+| `isTextarea` | bool | Render a textarea? |
+| `inputmode` | string | Pass an [inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). |

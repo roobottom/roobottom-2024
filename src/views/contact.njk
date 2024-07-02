@@ -1,0 +1,36 @@
+{% extends "layouts/wrapper.njk" %}
+{% from 'components/textInput.njk' import textInput as textInput %}
+{% from 'components/button.njk' import button as button %}
+
+{% block content %}
+<article class="prose prose--flow">
+  {{ content | safe }}
+</article>
+
+<form action="/contact" method="post">
+  {{ textInput({
+    title: "Your name",
+    id: 'name',
+    value: name if name
+  }) }}
+
+  {{ textInput({
+    title: "Your email address",
+    id: 'email',
+    value: email if email,
+    inputmode: 'email'
+  }) }}
+
+  {{ textInput({
+    title: "Your message",
+    id: 'message',
+    value: message if message,
+    isTextarea: true
+  }) }}
+
+  {{ button({
+    label: 'Send message'
+  }) }}
+
+</form>
+{% endblock %}
