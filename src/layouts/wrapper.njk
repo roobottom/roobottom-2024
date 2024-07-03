@@ -18,7 +18,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>{{ title }} -  Jon’s website</title>
+      <title>{% block pageTitle %}{{ title }} -  Jon’s website{% endblock %}</title>
       
       <link rel="token_endpoint" href="https://indiekit.roobottom.com/auth/token">
       <link rel="me" href="https://github.com/roobottom">

@@ -10,6 +10,7 @@ const makeFeed = require('./lib/utils/feed')
 const notFoundRoute = require('./lib/routes/404');
 const cookieParser = require('cookie-parser');
 const renderMarkdownPageFromRoute = require('./lib/routes/page')
+const contactRoute = require('./lib/routes/contact');
 
 //load cookie parser
 app.use(cookieParser());
@@ -182,11 +183,18 @@ app.get('/subjects/:slug', (req,res) => {
   });
 });
 
+
+// handle forms
+//--------------
 app.post('/time-travel', (req,res) => {
   const { style } = req.body;
   res.cookie('userStyle', style, { maxAge: 2592000000, httpOnly: true });
   res.redirect('/time-travel?updated=true');
 });
+
+app.post('/contact',(res, req) => {
+  contactRoute(res, req);
+})
 
 //serve top level pages
 app.get('/:page', (req, res) => {

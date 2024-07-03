@@ -1,31 +1,56 @@
 {% extends "layouts/wrapper.njk" %}
 {% from 'components/textInput.njk' import textInput as textInput %}
 {% from 'components/button.njk' import button as button %}
+{% from 'components/errorSummary.njk' import errorSummary as errorSummary %}
+
+{%- block pageTitle -%}
+{% if errors %}Error: {% endif %}
+{% if success %}Success: {% endif %}{{ super() }}
+{%- endblock -%}
+
+{% block beforeContent %}
+{% if errors %}
+  {{ errorSummary({
+    items: errors
+  }) }}
+{% endif %}
+{% if success %}
+<div class="prose prose--flow callout space--margin-bottom-m" role="alert" aria-labelledby="updated-banner-title">
+  <h2 id="updated-banner-title">Success</h2>
+  <p class="space--margin-top-xs">I have received your message. If you provided your email address, I’ll get back to you soon.</p> 
+</div>
+{% endif %}
+{{ super() }}
+{% endblock %}
 
 {% block content %}
 <article class="prose prose--flow">
   {{ content | safe }}
 </article>
 
-<form action="/contact" method="post">
+<form action="/contact" method="post" class="space--margin-top-l">
   {{ textInput({
-    title: "Your name",
+    title: "Your name (required)",
     id: 'name',
-    value: name if name
+    value: name if name,
+    error: errors.name
   }) }}
 
   {{ textInput({
-    title: "Your email address",
+    title: "Your email address (optional)",
+    hint: "Tell me your email address if you’d like a reply",
     id: 'email',
     value: email if email,
-    inputmode: 'email'
+    inputmode: 'email',
+    error: errors.email
   }) }}
 
   {{ textInput({
-    title: "Your message",
+    title: "Your message (required)",
     id: 'message',
     value: message if message,
-    isTextarea: true
+    isTextarea: true,
+    error: errors.message
   }) }}
 
   {{ button({
