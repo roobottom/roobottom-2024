@@ -53,6 +53,12 @@
     error: errors.message
   }) }}
 
+  {{ textInput({
+    title: "Your telephone number",
+    id: 'tel',
+    isHoneypot: true
+  }) }}
+
   {{ button({
     label: 'Send message'
   }) }}

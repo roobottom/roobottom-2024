@@ -18,5 +18,6 @@ title: Text input
 | `hint` | string | A helpful hint to help the user answer the question. |
 | `value` | string | A predefined value. |
 | `error` | string | An error message. |
-| `isTextarea` | bool | Render a textarea? |
+| `isTextarea` | bool | Render a textarea, rather than an input. |
 | `inputmode` | string | Pass an [inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Doesn’t apply to a textarea. |
+| `isHoneypot` | bool | Make this field a [honeypot](https://en.wikipedia.org/wiki/Honeypot_(computing)). |
