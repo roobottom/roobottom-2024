@@ -10,7 +10,7 @@
     {% if params.isTextarea %}
     <textarea class="form-input {% if params.error %}form-input--error{% endif %}" id="{{ params.id}}" name="{{ params.id}}" {% if params.hint %}aria-describedby="{{ params.id }}-hint"{% endif %} rows="5">{{ params.value }}</textarea>
     {% else %}
-    <input class="form-input {% if params.error %}form-input--error{% endif %}" id="{{ params.id}}" name="{{ params.id}}" type="{{ params.type or 'text'}}" value="{{ params.value or ''}}"{% if params.hint %} aria-describedby="{{ params.id }}-hint"{% endif %} inputmode="{{ params.inputmode or 'text'}}"> 
+    <input class="form-input {% if params.error %}form-input--error{% endif %}" id="{{ params.id}}" name="{{ params.id}}" value="{{ params.value or ''}}"{% if params.hint %} aria-describedby="{{ params.id }}-hint"{% endif %} inputmode="{{ params.inputmode or 'text'}}"> 
     {% endif %}
   </div>
 {% endmacro %}

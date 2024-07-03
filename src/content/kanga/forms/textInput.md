@@ -19,4 +19,4 @@ title: Text input
 | `value` | string | A predefined value. |
 | `error` | string | An error message. |
 | `isTextarea` | bool | Render a textarea? |
-| `inputmode` | string | Pass an [inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). |
+| `inputmode` | string | Pass an [inputmode attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). Doesn’t apply to a textarea. |
