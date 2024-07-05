@@ -4,6 +4,7 @@
 {% from 'components/title.njk' import title as pagetitle %}
 {% from 'components/breadcrumbs.njk' import breadcrumbs as breadcrumbsList %}
 {% from 'components/articleCard.njk' import articleCard as articleCard %}
+{% from 'components/card.njk' import card as card %}
 
 {% block main %}
 <main class="container article" id="main">
@@ -45,9 +46,23 @@
   ]
 }) }}
 </footer>
+
 <div class="article-content prose prose--flow">
   {{ content | safe }}
 </div>
+
+{# contact invite #}
+{% if showContactInvite %}
+  <div class="invite article-invite">
+    <header class="invite-header">
+      <h2>What did you think?</h2>
+    </header>
+    <div class="invite-body prose">
+      <p>I’d love to hear what your thoughts about this article.</p>
+    </div>
+    <a href="/contact?article={{ slug }}" class="invite-link">Send me a message and let me know.</a>
+  </div>
+  {% endif %}
 
 {# similar posts #}
 {% if similarPosts | length > 0 %}

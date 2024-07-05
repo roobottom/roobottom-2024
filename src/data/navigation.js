@@ -20,6 +20,10 @@ module.exports = {
       title: 'About',
       id: 'about'
     }, {
+      url: '/contact/',
+      title: 'Contact me',
+      id: 'contact'
+    }, {
       url: '/kanga/',
       title: 'Design system',
       id: 'kanga'

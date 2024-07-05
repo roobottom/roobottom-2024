@@ -63,5 +63,9 @@
     label: 'Send message'
   }) }}
 
+  {% if article %}
+  <input type="hidden" name="article" value="{{ article }}">
+  {% endif %}
+
 </form>
 {% endblock %}

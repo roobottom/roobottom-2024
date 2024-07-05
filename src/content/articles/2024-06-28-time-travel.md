@@ -106,7 +106,4 @@ I've rearchitected the back-end several times during this period, but the basic 
 
 That is, until today. I've just launched a feature that allows you to choose a style inspired by a classic design. Give it a go; I'd love to hear which one you like best.
 
-::: .callout
 [Choose a style in the time machine](/time-travel).
-:::
-

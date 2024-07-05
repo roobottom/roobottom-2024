@@ -99,7 +99,8 @@ app.get('/articles/:slug', (req,res) => {
     breadcrumbs: [{
       title: 'Articles',
       url: '/articles'
-    }]
+    }],
+    showContactInvite: true
   });
 });
 
