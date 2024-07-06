@@ -11,6 +11,26 @@ const notFoundRoute = require('./lib/routes/404');
 const cookieParser = require('cookie-parser');
 const renderMarkdownPageFromRoute = require('./lib/routes/page')
 const contactRoute = require('./lib/routes/contact');
+const fs = require('fs');
+const path = require('path');
+
+//network monitoring & rate limiting
+const morgan = require('morgan');
+const compression = require('compression');
+const rateLimit = require('express-rate-limit');
+
+// Enable request logging
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
+app.use(morgan('combined', { stream: accessLogStream }));
+
+// Enable Gzip compression
+app.use(compression());
+
+// Apply rate limiting
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+}));
 
 //load cookie parser
 app.use(cookieParser());
