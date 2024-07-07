@@ -34,6 +34,11 @@ app.use(rateLimit({
   max: 1000 // limit each IP to 1000 requests per windowMs
 }));
 
+//temporarily disable the feed
+app.get('/feed.xml', (req, res) => {
+  res.status(503).send('The feed is temporarily disabled for maintenance.');
+})
+
 //load cookie parser
 app.use(cookieParser());
 
