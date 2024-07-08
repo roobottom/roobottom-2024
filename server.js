@@ -6,7 +6,6 @@ const styleMiddleware = require('./lib/middleware/style');
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
 const { markdownToHtml } = require('./lib/utils/markdown');
-const makeFeed = require('./lib/utils/feed')
 const notFoundRoute = require('./lib/routes/404');
 const cookieParser = require('cookie-parser');
 const renderMarkdownPageFromRoute = require('./lib/routes/page')
@@ -34,11 +33,6 @@ app.use(rateLimit({
   max: 1000 // limit each IP to 1000 requests per windowMs
 }));
 
-//temporarily disable the feed
-app.get('/feed.xml', (req, res) => {
-  res.status(503).send('The feed is temporarily disabled for maintenance.');
-})
-
 //load cookie parser
 app.use(cookieParser());
 
@@ -57,7 +51,13 @@ Object.keys(filters).forEach(filterName => {
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files
-app.use(express.static('./src/assets/static'));
+const staticDirectories = [
+  path.join('./src/assets/static'),
+  path.join('./collections')
+];
+staticDirectories.forEach(staticDir => {
+  app.use(express.static(staticDir));
+});
 
 //load global data
 app.use(dataMiddleware);
@@ -67,13 +67,6 @@ app.use(styleMiddleware);
 
 //handle image requests
 app.use('/images', imagesMiddleware);
-
-//feed
-app.get('/feed.xml', (req, res) => {
-  const xml = makeFeed();
-  res.type('application/xml');
-  res.send(xml);
-});
 
 //load collections
 app.use((req, res, next) => {

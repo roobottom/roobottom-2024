@@ -1,7 +1,12 @@
 /*
 Build Roobottom.com
 
-Builds all collections, tags and Kanga (Design system) collection data
+Builds: 
+
+- all collections
+- tags
+- feeds
+- Kanga collection data
 */
 
 const fs = require('fs');
@@ -10,8 +15,8 @@ const util = require('util');
 const { extractFrontmatter, markdownToHtml } = require('./lib/utils/markdown');
 const slugify = require('slugify');
 const fg = require('fast-glob');  // Include fast-glob
+const generateFeed = require('./lib/utils/feed');
 
-const readdir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 const mkdir = util.promisify(fs.mkdir);
@@ -211,11 +216,16 @@ async function createKangaExamples() {
 }
 
 
-createCollections([
-    {
-        input: 'src/content/articles/*.md', 
-        output: 'collections/articles.json'
-    }
-]);
-createKanga();
-createKangaExamples();
+async function build() {
+  await createCollections([
+      {
+          input: 'src/content/articles/*.md', 
+          output: 'collections/articles.json'
+      }
+  ]);
+  await createKanga();
+  await createKangaExamples();
+  await generateFeed();  // Call the feed generation function
+}
+
+build();
