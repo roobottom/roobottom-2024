@@ -139,6 +139,8 @@ async function createCollections(collections) {
         posts
     }));
     await writeFile(path.join(__dirname, 'collections/tags.json'), JSON.stringify(tagsData, null, 2));
+    
+    return allPosts;
 }
 
 
@@ -217,7 +219,7 @@ async function createKangaExamples() {
 
 
 async function build() {
-  await createCollections([
+  const allPosts = await createCollections([
       {
           input: 'src/content/articles/*.md', 
           output: 'collections/articles.json'
@@ -225,7 +227,7 @@ async function build() {
   ]);
   await createKanga();
   await createKangaExamples();
-  await generateFeed();  // Call the feed generation function
+  await generateFeed(allPosts);  // Call the feed generation function
 }
 
 build();
