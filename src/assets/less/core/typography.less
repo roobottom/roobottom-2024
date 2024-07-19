@@ -137,6 +137,16 @@ code {
     #type.family.alt;
 }
 
+sup {
+  vertical-align: super;
+  font-size: var(--step--1);
+}
+
+.footnote-ref {
+  font-variant: tabular-nums;
+  margin-left: .15em;
+}
+
 li code,
 p code,
 table code {
@@ -283,6 +293,10 @@ table {
         >p:last-child:after { content: "”";}
     }
 
+    .footnotes {
+      font-size: var(--step--1);
+    }
+
     //shift pre back inline with body text, but only as a direct child of .prose 
     // > pre {
     //   margin-left: calc(-1 * var(--space-s));
@@ -302,7 +316,8 @@ table {
       >h5,
       >h6,
       blockquote:not(.quote),
-      >figure:not(.full):not(.wide):not(.right) {
+      >figure:not(.full):not(.wide):not(.right),
+      .footnotes {
         #container.prose-flow;
       }
     }
