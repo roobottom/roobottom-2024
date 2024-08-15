@@ -125,7 +125,7 @@ app.get('/articles/:slug', (req,res) => {
 });
 
 
-//serach through multi nested objects, like kanga.json
+//search through multi nested objects, like kanga.json
 function findEntryBySlug(slug, data) {
   for (const section of data) {
       const foundItem = section.items.find(item => item.slug === slug);
