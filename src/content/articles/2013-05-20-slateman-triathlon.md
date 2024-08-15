@@ -6,7 +6,6 @@ tags:
   - swimming
   - cycling
   - running
-  - triathlon
 cover: /images/articles/slateman/slateman_2.jpg
 summary: Swimming in a freezing lake and running up the side of a mountain
 status: 3

@@ -3,8 +3,7 @@ date: 2013-09-15
 title: European Adventure Week Two
 tags:
 - campervanning
-- travel
-- italy
+- trips
 cover: /images/articles/european-adventure-week-two/torbole.jpg
 summary: Our journey continued this week as we ventured across the Alps into Italy.
 status: 3

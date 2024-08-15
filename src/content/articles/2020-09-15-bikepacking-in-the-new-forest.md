@@ -3,7 +3,7 @@ title: Bikepacking in the New Forest
 date: 2020-09-15
 tags:
   - cycling
-  - the new forest
+  - trips
 cover: /images/articles/bikepacking-in-the-new-forest/cover.jpeg
 coverAlt: A bike leaning against a sign for Pondhead Campsite in the New Forest, England.
 featured: true

@@ -2,10 +2,7 @@
 title: A love letter to a tiny island
 date: 2018-01-10
 tags:
-  - travel
-  - isles of scilly
-  - cornwall
-  - england
+  - trips
 cover: /images/articles/ios-love-letter/sea-king.jpg
 coverAlt: One of the ferries that carries passengers from island to island. This one is called “Sea King”.
 featured: true
@@ -96,7 +93,7 @@ Below the water barrier, I’m in another world entirely. From the beach, I must
 Further out the water was clear all the way to the bottom some five meters below, where Kelp forests sheltered shoals of fish. A sudden shot of panic as my lizard brain picked up movement in my peripheral vision: A large striped fish darted out of the Kelp. I followed at a distance. He came to rest in a clearing, and I was able to float above him and just watch for what seemed like an eternity.
 
 ::: .gallery
-<figure url="/images/articles/ios-love-letter/fish.jpg" caption="A "massive" fish">
+<figure url="/images/articles/ios-love-letter/fish.jpg" caption="A “massive” fish">
 
 <figure url="/images/articles/ios-love-letter/jelly.jpg" caption="A jelly fish">
 :::

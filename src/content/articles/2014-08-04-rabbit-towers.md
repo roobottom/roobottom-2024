@@ -27,8 +27,6 @@ Today, they've upscaled to a bunny des-rez in the shed.  These are large hutches
 ::: .gallery
 <figure url="/images/articles/rabbit-towers/building_the_runs_1.jpg" caption="The ground marked out ready to lay the foundation for the run">
 
-<figure url="/images/articles/rabbit-towers/building_the_runs_4.jpg" caption="A half-built wooden box with two ramps inside.">
-
 <figure url="/images/articles/rabbit-towers/building_the_runs_6.jpg" caption="The finished run">
 :::
 

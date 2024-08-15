@@ -11,25 +11,28 @@
   }
 
   @media screen and (min-width: @gallery-break) {
-    >figure+figure {
-      margin-top: 0;
-    }
     display: grid;
     grid-template-columns: var(--line-length) 1fr 1fr;
     row-gap: var(--space-m);
     width: 100%;
     column-gap: var(--space-xs);
     align-items: baseline;
+
     >figure:nth-child(3n-1):last-child {
       grid-column: span 2;
+      transform: translateY(var(--step-1));
     }
-    &.overlap >figure+figure {
+
+    >figure+figure {
+      margin-top: 0;
       margin-left: calc(-1 * var(--space-l));
+      &:not(.browser) { outline: 6px solid var(--c-background); }
       figcaption {
         margin-left: var(--space-xs);
       }
     }
-    &.overlap figure:first-child figcaption {
+
+    figure:first-child figcaption {
       width: calc(100% - var(--space-l));
     }
   }

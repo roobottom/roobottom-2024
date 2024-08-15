@@ -24,8 +24,6 @@ With funding from the Lottery Heritage Fund, Hampshire County Council has done a
 <figure url="/images/articles/stauntons-folly/grand-terrace.jpeg" caption="The view from the Grand Terrace towards the ornamental lake.">
 
 <figure url="/images/articles/stauntons-folly/house-outline.jpeg" caption="The latticework of stones which show where the many rooms of the mansion once stood.">
-
-<figure url="/images/articles/stauntons-folly/vaults.jpeg" caption="Rootwo under the vaulted walkway that runs under the Grand Terrace. On the floor, you can see the gorgeous inlaid tiles; a reminder of a once great house.">
 :::
 
 ## Follies galore

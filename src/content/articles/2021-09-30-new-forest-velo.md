@@ -3,7 +3,7 @@ title: New Forest velo 2021
 date: 2021-09-30
 tags:
   - cycling
-  - the new forest
+  - trips
 cover: /images/articles/new-forest-velo-2021/bike-on-a-sign.jpeg
 coverAlt: My bike leaning against a sign which reads “The New Forest”
 summary: My pal Paul and I spent three days cycling in the beautiful New Forest
@@ -39,8 +39,6 @@ And it didn't disappoint; loads of fun on gravel paths and forest trails. I'd ev
 <figure url="/images/articles/new-forest-velo-2021/pony.jpeg" caption="A New Forest pony eating the New Forest grass.">
 
 <figure url="/images/articles/new-forest-velo-2021/paul-at-lunch.jpeg" caption="Paul posing at lunch. I said “Make it look like you’re having a good time.”">
-
-<figure url="/images/articles/new-forest-velo-2021/me-on-a-bridge.jpeg" caption="Me looking moody on a bridge over a small stream.">
 :::
 
 I love the New Forest. There are ponies around every corner, beautiful views galore and lovely riding. I'm also very grateful we got to do this trip in such glorious weather;  it felt like we'd cheated somehow and got away in the one week of glorious weather between the rain.
