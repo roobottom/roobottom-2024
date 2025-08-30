@@ -174,7 +174,7 @@ app.get('/kanga/example/:section/:slug', (req,res) => {
     ...entry,
     title: `${entry.title} - Example `,
     content: renderedContent,
-    locals: res.locals
+    ...res.locals
   })
 })
 
@@ -202,6 +202,39 @@ app.get('/subjects/:slug', (req,res) => {
       url: '/subjects'
     }]
   });
+});
+
+// --- static stories ---
+app.get('/stories/:slug', (req, res) => {
+  const slug = String(req.params.slug || '').toLocaleLowerCase();
+
+  //allow only a-z, 0-9 and dashes in the slug for security
+  if (!/^[a-z0-9-]+$/.test(slug)) return notFoundRoute(res, req);
+
+  //check if the template exists
+  const template = `stories/${slug}.njk`;
+  if (!fs.existsSync(path.join(__dirname, 'src/content', template))) {
+    console.log('Template not found:', template);
+    return notFoundRoute(res, req);
+  }
+
+  const defaultStyle = require('./src/data/styles')[0].slug;
+
+  //render the template
+  const renderedContent = env.render(`content/stories/${slug}.njk`, { 
+    section_id: 'stories', 
+    title: slug,
+    ...res.locals,
+    userStyle: defaultStyle
+  });
+
+  //if no content, 404
+  if (!renderedContent) {
+    return notFoundRoute(res, req);
+  }
+
+  //send the content
+  res.send(renderedContent);
 });
 
 
