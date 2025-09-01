@@ -255,7 +255,7 @@ app.get('/:page', (req, res) => {
   renderMarkdownPageFromRoute(req, res);
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Roobottom-com is running at: http://localhost:${PORT}`);
+//serve the app
+const server = app.listen(process.env.PORT || 0, () => {
+  console.log(`Roobottom-com is running at: http://localhost:${server.address().port}`);
 });
