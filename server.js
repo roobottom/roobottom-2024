@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const dataMiddleware = require('./lib/middleware/data');
 const imagesMiddleware = require('./lib/middleware/images');
+const imageMetadataMiddleware = require('./lib/middleware/image-metadata');
 const styleMiddleware = require('./lib/middleware/style');
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
@@ -67,6 +68,7 @@ app.use(styleMiddleware);
 
 //handle image requests
 app.use('/images', imagesMiddleware);
+app.use('/metadata', imageMetadataMiddleware); 
 
 //load collections
 app.use((req, res, next) => {
