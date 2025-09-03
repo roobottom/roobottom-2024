@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const dataMiddleware = require('./lib/middleware/data');
 const imagesMiddleware = require('./lib/middleware/images');
-const imageMetadataMiddleware = require('./lib/middleware/image-metadata');
 const styleMiddleware = require('./lib/middleware/style');
 const nunjucks = require('nunjucks');
 const filters = require('./lib/filters');
@@ -68,16 +67,17 @@ app.use(styleMiddleware);
 
 //handle image requests
 app.use('/images', imagesMiddleware);
-app.use('/metadata', imageMetadataMiddleware); 
 
 //load collections
 app.use((req, res, next) => {
   try {
       res.locals.collections = {
           articles: require('./collections/articles.json'),
+          stories: require('./collections/stories.json'),
           tags: require('./collections/tags.json'),
           kanga: require('./collections/kanga.json'),
-          kangaExamples: require('./collections/kanga-examples.json')
+          kangaExamples: require('./collections/kanga-examples.json'),
+          metadata: require('./collections/metadata.json') // Load image metadata
       };
   } catch (error) {
       console.error("Failed to load collections:", error);
@@ -86,7 +86,8 @@ app.use((req, res, next) => {
           articles: [],
           tags: [],
           kanga: [],
-          kangaExamples: {}
+          kangaExamples: {},
+          metadata: {} 
       };
   }
   next();
@@ -206,37 +207,31 @@ app.get('/subjects/:slug', (req,res) => {
   });
 });
 
-// --- static stories ---
+// --- stories ---
 app.get('/stories/:slug', (req, res) => {
   const slug = String(req.params.slug || '').toLocaleLowerCase();
+  const story = res.locals.collections.stories.find(item => item.slug === slug);
+
+  console.log('Requested story:', story, 'with slug:', slug);
 
   //allow only a-z, 0-9 and dashes in the slug for security
   if (!/^[a-z0-9-]+$/.test(slug)) return notFoundRoute(res, req);
 
-  //check if the template exists
-  const template = `stories/${slug}.njk`;
-  if (!fs.existsSync(path.join(__dirname, 'src/content', template))) {
-    console.log('Template not found:', template);
-    return notFoundRoute(res, req);
+  
+  if (!story) {
+    return notFoundRoute(res,req);
   }
 
-  const defaultStyle = require('./src/data/styles')[0].slug;
-
-  //render the template
-  const renderedContent = env.render(`content/stories/${slug}.njk`, { 
-    section_id: 'stories', 
-    title: slug,
-    ...res.locals,
-    userStyle: defaultStyle
+  res.render('views/story', {
+    section_id: 'stories',
+    ...story,
+    breadcrumbs: [{
+      title: 'Stories',
+      url: '/stories'
+    }]
   });
 
-  //if no content, 404
-  if (!renderedContent) {
-    return notFoundRoute(res, req);
-  }
-
-  //send the content
-  res.send(renderedContent);
+ 
 });
 
 

@@ -1,0 +1,25 @@
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 100px;
+  grid-auto-flow: dense;
+  gap: var(--space-xxs);
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    outline: 10px solid var(--color-bg);
+
+    &.wide { grid-column: span 2; grid-row: span 2; }
+    &.tall { grid-row: span 2; }
+    &.big  { grid-column: span 4; grid-row: span 4; }
+
+    &:nth-child(5n)   { transform: scale(1.05) rotate(-1deg); }
+    &:nth-child(5n+1) { transform: scale(1.02) rotate(1deg); }
+    &:nth-child(5n+2) { transform: scale(0.98) rotate(0.5deg); }
+    &:nth-child(5n+3) { transform: scale(1.04) rotate(-0.5deg); }
+    &:nth-child(5n+4) { transform: scale(1.01) rotate(1deg); }
+  }
+
+}

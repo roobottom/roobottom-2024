@@ -16,10 +16,14 @@ const { extractFrontmatter, markdownToHtml } = require('./lib/utils/markdown');
 const slugify = require('slugify');
 const fg = require('fast-glob');  // Include fast-glob
 const generateFeed = require('./lib/utils/feed');
+const sharp = require('sharp');  // For image processing
+
+// Promisify fs functions for easier async/await usage
 
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 const mkdir = util.promisify(fs.mkdir);
+
 
 // Converts a string to title case
 function toTitleCase(str) {
@@ -214,7 +218,33 @@ async function createKangaExamples() {
 
     }
     await writeFile('collections/kanga-examples.json', JSON.stringify(structuredData, null, 2));
+}
 
+async function generateImageMetadata() {
+    console.log('Generating image metadata...');
+    const files = await fg('src/assets/images/**/*.{jpg,jpeg,png,webp}', { dot: false });
+    const metaMap = {};
+
+    for (const file of files) {
+      const rel = "/" + path.relative('src/assets', file).replace(/\\/g, '/');
+      try {
+        const meta = await sharp(file).rotate().metadata();
+        metaMap[rel] = { 
+          file: rel,
+          width: meta.width, 
+          height: meta.height,
+          orientation:
+            meta.width * 1.2 > meta.height ? 'wide' :
+            meta.height * 1.2 > meta.width ? 'tall' : 
+            'square'
+        };
+      }
+      catch(err) {
+        console.error('Error processing image for metadata:', file, err);
+      }
+    }
+
+    await writeFile('collections/metadata.json', JSON.stringify(metaMap, null, 2));
 }
 
 
@@ -223,11 +253,15 @@ async function build() {
       {
           input: 'src/content/articles/*.md', 
           output: 'collections/articles.json'
+      }, {
+          input: 'src/content/stories/*.md', 
+          output: 'collections/stories.json'
       }
   ]);
   await createKanga();
   await createKangaExamples();
   await generateFeed(allPosts);  // Call the feed generation function
+  await generateImageMetadata(); // Generate image metadata
 }
 
 build();

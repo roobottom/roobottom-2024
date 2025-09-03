@@ -18,7 +18,8 @@
     "watch:server": "nodemon server",
     "build-css": "node compile-less.js",
     "watch-css": "node compile-less.js --watch",
-    "dev": "concurrently \"npm run watch-css\" \"npm run watch:build\" \"npm run watch:server\""
+    "dev": "concurrently \"npm run watch-css\" \"npm run watch:build\" \"npm run watch:server\"",
+    "sync": "node sync-images.js"
   },
   "author": "Jon Roobottom",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "express-validator": "^7.1.0",
     "fast-glob": "^3.3.2",
     "feed": "^4.2.2",
+    "fetch": "^1.1.0",
     "gray-matter": "^4.0.3",
     "he": "^1.2.0",
     "markdown-it": "^14.1.0",

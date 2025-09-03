@@ -1,0 +1,23 @@
+{% extends 'layouts/wrapper.njk' %}
+
+{% block main %}
+  <section class="container space--margin-bottom-l prose">
+    <h1>{{ title }}</h1>
+    <p class="type-scale-1">{{ introduction }}</p>
+  </section>
+  {% for page in pages %}
+    <section class="container space--margin-bottom-l prose page">
+      <div class="page-content">
+        <h2>{{ page.title }}</h2>
+        {{ page.content | markdown | safe }}
+      </div>
+      {% if page.gallery %}
+        <div class="masonry">
+          {% for image in page.gallery %}
+            <img src="{{ image.src }}" alt="{{ image.alt }}" class="{{ collections.metadata[image.src].orientation }} {{ 'big' if image.featured }}" />
+          {% endfor %}
+        </div>
+      {% endif %}
+    </section>
+  {% endfor %}
+{% endblock %}
